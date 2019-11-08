@@ -45,6 +45,6 @@ export default function App() {
       </Switch>
       {/* <Footer /> */}
       <GlobalStyle />
-    </AppWrapper>
+    </AppWrapper> 
   );
 }
