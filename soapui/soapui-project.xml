@@ -1,0 +1,2685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="76c32537-2514-4941-bafe-de2778d48d34" activeEnvironment="Default" name="REST Project 1" resourceRoot="" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:restMockService id="a7ff4875-1a6e-4e58-a0f6-aba482ce22dd" port="8080" path="/" host="Konireddy-Lap" name="rbs"><con:settings/><con:properties/><con:restMockAction name="cities" method="GET" resourcePath="/fromSearch" id="ba6b2543-1f64-48ce-b4bf-89725db9b53c"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="Response 1" id="8ad44fe3-98dd-4ed9-ba29-f240edef8c1e" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{
+        "success": true,
+        "data": [
+            {
+                "_id": "5103724902613507164",
+                "name": "Indianapolis International Airport",
+                "type": "airport",
+                "desc": "Indianapolis International Airport ### Indianapolis Intl ### Indianapolis",
+                "countrycode": "US",
+                "cnt_name": "United States",
+                "code": "IND"
+            },{
+                "_id": "5103724902613507164",
+                "name": "Indianapolis International Airport",
+                "type": "airport",
+                "desc": "Indianapolis International Airport ### Indianapolis Intl ### Indianapolis",
+                "countrycode": "US",
+                "cnt_name": "United States",
+                "code": "IND"
+            }
+        ]
+    }</con:responseContent></con:response></con:restMockAction><con:restMockAction name="fareCall" method="GET" resourcePath="/fareCall" id="7c076078-3374-447a-aed2-24dbf5deaf25"><con:settings/><con:defaultResponse xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="Response 1" id="da69fc40-b374-442f-95ea-51aebb37330e" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>[
+        {
+            "date": "2019-11-7",
+            "fare": "Indianapolis International Airport"
+        },
+        {
+            "date": "2019-11-8",
+            "fare": "Indianapolis International Airport"
+        },
+        {
+            "date": "2019-11-9",
+            "fare": "Indianapolis International Airport"
+        },
+        {
+            "date": "2019-11-10",
+            "fare": "Indianapolis International Airport"
+        },
+        {
+            "date": "2019-11-11",
+            "fare": "Indianapolis International Airport"
+        },
+        {
+            "date": "2019-11-12",
+            "fare": "Indianapolis International Airport"
+        },
+        {
+            "date": "2019-11-13",
+            "fare": "Indianapolis International Airport"
+        },
+        {
+            "date": "2019-11-14",
+            "fare": "Indianapolis International Airport"
+        }
+    ]</con:responseContent></con:response></con:restMockAction><con:restMockAction name="search" method="POST" resourcePath="/search" id="3b3293a3-9809-42d3-9d58-9dc4d1ef357c"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="Response 1" id="e00ed7cb-d273-4e14-a9d3-529ca7341829" httpResponseStatus="200"><con:settings/><con:responseContent>{
+        "crId": "",
+        "journeyMap": [
+            {
+                "depTime": "08:10",
+                "depCity": "Kuwait",
+                "arrTime": "19:50",
+                "arrCity": "Hyderabad",
+                "depTimeStamp": 1573719000000,
+                "arrTimeStamp": 1573761000000,
+                "duration": {
+                    "h": "09",
+                    "m": "10"
+                },
+                "flightDuration": "\u003cstrong\u003e09\u003c/strong\u003e hrs \u003cstrong\u003e10\u003c/strong\u003e mins ",
+                "stops": 1,
+                "nextDay": {
+                    "count": 0,
+                    "hoverInfo": {
+                        "arrivalCityText": "Arrival : Hyderabad",
+                        "arrivalTime": "14 Nov 2019"
+                    }
+                },
+                "layover": {
+                    "text": "",
+                    "hoverInfo": {
+                        "text": "\u003cp\u003ePlane change\u003cbr\u003eMumbai (BOM)  | 4hr Layover\u003c/p\u003e",
+                        "trackingInfo": {}
+                    },
+                    "stopInfo": "1 stop via Mumbai",
+                    "layoverCityList": [
+                        {
+                            "name": "Mumbai",
+                            "cd": "BOM"
+                        }
+                    ]
+                },
+                "journeyHeader": "IndiGo",
+                "airlineCodes": [
+                    "6E"
+                ],
+                "flightDetail": {
+                    "title": {},
+                    "subTitle": {
+                        "text": "Kuwait to Hyderabad , 14 Nov",
+                        "subText": "\u003cstrong\u003e09\u003c/strong\u003e hrs \u003cstrong\u003e10\u003c/strong\u003e mins "
+                    },
+                    "legList": [
+                        {
+                            "legID": "6E-1767",
+                            "airlinename": "",
+                            "airlinenumber": "",
+                            "airlineimageurl": "",
+                            "airlineimageurlD": "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=4",
+                            "airlineHeading": "",
+                            "airlineHeadingD": "IndiGo 6E 1767 | Airbus A320 ",
+                            "duration": "\u003cstrong\u003e03\u003c/strong\u003e hrs \u003cstrong\u003e40\u003c/strong\u003e mins ",
+                            "depart": {
+                                "time": "08:10",
+                                "date": "Thu, 14 Nov 19 ",
+                                "city": "Kuwait",
+                                "airportInfo": "\u003cfont color='#4a4a4a'\u003e2\u003c/font\u003e\u003cbr\u003e\u003cfont color='#9b9b9b'\u003eTerminal 2\u003c/font\u003e",
+                                "country": "Kuwait"
+                            },
+                            "arrival": {
+                                "time": "14:20",
+                                "date": "Thu, 14 Nov 19 ",
+                                "city": "Mumbai",
+                                "airportInfo": "\u003cfont color='#4a4a4a'\u003e2\u003c/font\u003e\u003cbr\u003e\u003cfont color='#9b9b9b'\u003eTerminal 2\u003c/font\u003e",
+                                "country": "India"
+                            },
+                            "layoverText": ""
+                        },
+                        {
+                            "legID": "6E-5342",
+                            "airlinename": "",
+                            "airlinenumber": "",
+                            "airlineimageurl": "",
+                            "airlineimageurlD": "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=4",
+                            "airlineHeading": "",
+                            "airlineHeadingD": "IndiGo 6E 5342 | Airbus A320 ",
+                            "duration": "\u003cstrong\u003e01\u003c/strong\u003e hr \u003cstrong\u003e30\u003c/strong\u003e mins ",
+                            "depart": {
+                                "time": "18:20",
+                                "date": "Thu, 14 Nov 19 ",
+                                "city": "Mumbai",
+                                "airportInfo": "\u003cfont color='#4a4a4a'\u003e\u003c/font\u003e\u003cbr\u003e\u003cfont color='#9b9b9b'\u003eTerminal 2\u003c/font\u003e",
+                                "country": "India"
+                            },
+                            "arrival": {
+                                "time": "19:50",
+                                "date": "Thu, 14 Nov 19 ",
+                                "city": "Hyderabad",
+                                "airportInfo": "\u003cfont color='#4a4a4a'\u003e\u003c/font\u003e\u003cbr\u003e\u003cfont color='#9b9b9b'\u003eTerminal 2\u003c/font\u003e",
+                                "country": "India"
+                            },
+                            "layoverText": "\u003cp\u003e\u003cb\u003eChange of Planes\u003c/b\u003e | \u003cb\u003e 4\u003cfont color='#757575'\u003e hrs \u003c/font\u003e \u003c/b\u003e layover in  \u003cb\u003eMumbai\u003c/b\u003e \u003cb\u003e(BOM)\u003c/b\u003e\u003c/p\u003e"
+                        }
+                    ]
+                },
+                "fareBreakup": {
+                    "title": "Fare breakup",
+                    "fareBreakUpItems": [
+                        {
+                            "text": "\u003cfont style='font-size:14px; color:#000'\u003eTOTAL\u003c/font\u003e",
+                            "textD": "",
+                            "amount": "\u003cfont style='font-size:14px; color:#000'\u003e₹ 7,764\u003c/font\u003e"
+                        },
+                        {
+                            "text": "\u003cfont style='color:#878787'\u003eBase Fare\u003c/font\u003e",
+                            "textD": "",
+                            "amount": "\u003cfont style='color:#878787'\u003e₹ 6,915\u003c/font\u003e"
+                        },
+                        {
+                            "text": "\u003cfont style='color:#878787'\u003eSurcharges\u003c/font\u003e",
+                            "textD": "",
+                            "amount": "\u003cfont style='color:#878787'\u003e₹ 1,257\u003c/font\u003e"
+                        },
+                        {
+                            "text": "\u003cfont style='color:#249995'\u003eInstant discount applied\u003c/font\u003e",
+                            "textD": "",
+                            "amount": "\u003cfont style='color:#249995'\u003e-₹ 408\u003c/font\u003e"
+                        }
+                    ]
+                }
+            } 
+        ],
+        "deals": {
+            "baseAirlineUrl": "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/{airline}.png?v=4",
+            "durationBaseHtml": "\u003cfont color='#000000'\u003e{{hour}}\u003c/font\u003e\u003cfont color='#757575'\u003e\u003c/font\u003eh \u003cfont color='#000000'\u003e{{min}}\u003c/font\u003e\u003cfont color='#757575'\u003e m\u003c/font\u003e",
+            "requestId": "8a182fc1-0189-4728-8872-1e13621e08b0",
+            "viewType": "SIMPLE",
+            "showCal": true,
+            "apiCallTimestamp": "1573128957058",
+            "locale": {
+                "currSymbol": "₹"
+            },
+            "isZCAvailable": false,
+            "cardType": "SIMPLEOW",
+            "brdCstCpns": {
+                "CRACKERDEAL": {
+                    "cpnCode": "CRACKERDEAL",
+                    "discTyp": "INSTANT",
+                    "usrMsg": "Get an instant discount of up to Rs. 10000 on your booking. Also get exclusive Upto 35% Off if you book a hotel with Makemytrip",
+                    "recmMsg": "Use this code to get 1051 instant discount on your booking. Also get exclusive Upto 35% Off if you book a hotel with Makemytrip",
+                    "msg1": "",
+                    "msg2": "",
+                    "discIcon": "https://imgak.mmtcdn.com/flights/assets/media/dt/listing/coupon-icons/INSTANT.png?v=1"
+                },
+                "HDFCINT": {
+                    "cpnCode": "HDFCINT",
+                    "discTyp": "IC",
+                    "usrMsg": "Use this code to get upto 10000 instant discount on HDFC Bank Credit cards.",
+                    "recmMsg": "Use HDFCINT to get INR 5000 Instant Cashback Valid on HDFC Bank Credit Cards. Hurry offer valid for today.",
+                    "msg1": "",
+                    "msg2": "",
+                    "discIcon": "https://imgak.mmtcdn.com/flights/assets/media/dt/listing/coupon-icons/IC.png?v=1"
+                },
+                "MMTICICI": {
+                    "cpnCode": "MMTICICI",
+                    "discTyp": "IC",
+                    "usrMsg": "Use this code to get FLAT 8% Instant Off on ICICI Credit cards. Limited Period Offer!",
+                    "recmMsg": "Use this coupon to get additional INR 9762 instant discount on ICICI Credit cards. Limited period Offer.",
+                    "msg1": "",
+                    "msg2": "",
+                    "discIcon": "https://imgak.mmtcdn.com/flights/assets/media/dt/listing/coupon-icons/IC.png?v=1"
+                }
+            },
+            "expandedFilterPanelHeader": "Filter Kuwait - Hyderabad Flights",
+            "pafsHtml": null
+        }
+    }</con:responseContent></con:response></con:restMockAction><con:restMockAction name="fareCalender" method="POST" resourcePath="/fareCalender" id="32c34aaa-460f-490d-a44b-f9566a189afb"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="Response 1" id="11038a2d-f219-46e2-b573-fa5cdc4764d0" httpResponseStatus="200"><con:settings/><con:responseContent>{
+        "crId": "",
+        "fares":  [
+            {
+                "date": "2019-11-7",
+                "fare": "53910"
+            },
+            {
+                "date": "2019-11-8",
+                "fare": "51176"
+            },
+            {
+                "date": "2019-11-9",
+                "fare": "49662"
+            },
+            {
+                "date": "2019-11-10",
+                "fare": "45786"
+            },
+            {
+                "date": "2019-11-11",
+                "fare": "44656"
+            },
+            {
+                "date": "2019-11-12",
+                "fare": "50049"
+            },
+            {
+                "date": "2019-11-13",
+                "fare": "58860"
+            },
+            {
+                "date": "2019-11-14",
+                "fare": "51162"
+            }
+        ]
+    }</con:responseContent></con:response></con:restMockAction><con:restMockAction name="review" method="POST" resourcePath="/review" id="6c210565-6fc8-4365-b4c0-b63e78945fe7"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="Response 1" id="8ad0f51e-0ce0-4bb4-9357-01186c903d82" httpResponseStatus="200"><con:settings/><con:responseContent>{
+        "header": {
+            "title": "Newark - Hyderabad",
+            "subTitle": "\u003cfont color='#4a4a4a'\u003eDepart 09 Nov| 2 Traveller | Economy\u003c/font\u003e"
+        },
+        "journeyList": [
+            {
+                "journeyId": "NYCHYD2019-11-09",
+                "journeytitle": "DEPART \u003cb\u003eEWR-HYD\u003c/b\u003e",
+                "journeysubtitle": "\u003cb\u003e09 Nov | 1 stop | 18 hrs 10 mins  | Economy\u003c/b\u003e",
+                "journeytitleD": "\u003cp style='color: #4a4a4a;font-size:18px;margin-bottom: 2px;'\u003e\u003cspan style='margin-right: 5px;font-family: Lato-Light, Arial, Helvetica, sans-serif;'\u003eDEPART \u003c/span\u003e\u003cspan style='font-family: Lato-Bold, Arial, Helvetica, sans-serif;'\u003eEWR-HYD\u003c/span\u003e\u003c/p\u003e",
+                "journeysubtitleD": "\u003cp style='font-family: Lato-Bold, Arial, Helvetica, sans-serif;font-size:14px'\u003e09 Nov | 1 stop | 18 hrs 10 mins  | Economy\u003c/p\u003e",
+                "legList": [
+                    {
+                        "legID": "EWRBOM",
+                        "airlinename": "Air India",
+                        "airlinenumber": "AI-144",
+                        "airlineimageurl": "https://imgak.mmtcdn.com/flights/assets/media/mobile/common/{density}/AI.png?v=4",
+                        "airlineimageurlD": "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/AI.png?v=4",
+                        "airlineHeading": "\u003cb\u003eAir India | \u003csmall\u003eAI 144\u003c/small\u003e\u003c/b\u003e",
+                        "airlineHeadingD": "Air India",
+                        "duration": "14 hrs 45 mins ",
+                        "depart": {
+                            "time": "11:45",
+                            "date": "Sat, 09 Nov 19 ",
+                            "city": "Newark"
+                        },
+                        "arrival": {
+                            "time": "13:00",
+                            "date": "Sun, 10 Nov 19 ",
+                            "city": "Mumbai"
+                        },
+                        "layoverText": ""
+                    },
+                    {
+                        "legID": "BOMHYD",
+                        "airlinename": "Air India",
+                        "airlinenumber": "AI-965",
+                        "airlineimageurl": "https://imgak.mmtcdn.com/flights/assets/media/mobile/common/{density}/AI.png?v=4",
+                        "airlineimageurlD": "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/AI.png?v=4",
+                        "airlineHeading": "\u003cb\u003eAir India | \u003csmall\u003eAI 965\u003c/small\u003e\u003c/b\u003e",
+                        "airlineHeadingD": "Air India",
+                        "duration": "1 hr 25 mins ",
+                        "depart": {
+                            "time": "15:00",
+                            "date": "Sun, 10 Nov 19 ",
+                            "city": "Mumbai"
+                        },
+                        "arrival": {
+                            "time": "16:25",
+                            "date": "Sun, 10 Nov 19 ",
+                            "city": "Hyderabad"
+                        },
+                        "layoverText": ""
+                    }
+                ],
+                "isCollapsible": true,
+                "isPreExpanded": true,
+                "journeyHeader": {
+                    "title": "\u003cp style='color: #4a4a4a;font-size:18px;margin-bottom: 2px;'\u003e\u003cspan style='font-family: Lato-Bold, Arial, Helvetica, sans-serif;'\u003eEWR-HYD\u003c/span\u003e\u003c/p\u003e",
+                    "subtitle": "\u003cp style='font-family: Lato-Bold, Arial, Helvetica, sans-serif;font-size:14px'\u003e1 stop | 18 hrs 10 mins  | Economy\u003c/p\u003e",
+                    "labelView": {
+                        "title": "\u003cp style='font-size:18px;margin-bottom: 2px;font-family: Lato-Light, Arial, Helvetica, sans-serif;'\u003eDEPART\u003c/p\u003e",
+                        "subtitle": "\u003cp style='font-family: Lato-Bold, Arial, Helvetica, sans-serif;font-size:14px'\u003eSat 09 Nov\u003c/p\u003e",
+                        "bgColor": [
+                            "#525252",
+                            "#171717"
+                        ]
+                    }
+                }
+            }
+        ],
+        "discountOfferDetail": {
+            "title": "HOT DEALS",
+            "titleD": "\u003cspan class='LatoBold'\u003eHOT \u003c/span\u003e\u003cspan class='LatoLight'\u003eDEALS\u003c/span\u003e",
+            "subtitle": "Some of the best deals applicable",
+            "bgColor": [
+                "#232412"
+            ],
+            "coupons": {
+                "couponList": [
+                    {
+                        "couponCode": "HDFCINT",
+                        "icon": "https://imgak.mmtcdn.com/flights/assets/media/mobile/review/{density}/IC.png?v=1",
+                        "iconD": "https://imgak.mmtcdn.com/flights/assets/media/dt/review/IC.png?v=1",
+                        "shortText": "",
+                        "longText": "\u003cfont color='#249995'\u003eCongratulations! INR 5000 instant discount applied. Please complete your booking using HDFC Credit card to avail the discount.\u003c/font\u003e\u003cbr\u003e\u003ca href='https://www.makemytrip.com/promos/if-hdfcint-01102019.html' target='_blank'\u003eTerms and Conditions\u003c/a\u003e",
+                        "tncUrl": "https://www.makemytrip.com/promos/if-hdfcint-01102019.html",
+                        "collapsedState": false,
+                        "preSelected": true,
+                        "isEnabled": true,
+                        "itemCode": "HDFCINT",
+                        "toast": null,
+                        "cta": {},
+                        "message": ""
+                    },
+                    {
+                        "couponCode": "CRACKERDEAL",
+                        "icon": "https://imgak.mmtcdn.com/flights/assets/media/mobile/review/{density}/INSTANT.png?v=1",
+                        "iconD": "https://imgak.mmtcdn.com/flights/assets/media/dt/review/INSTANT.png?v=1",
+                        "shortText": "Use and save ₹ 2,840",
+                        "longText": "Use this code to get 2840 instant discount on your booking. Also get exclusive Upto 35% Off if you book a hotel with Makemytrip\u003cbr\u003e\u003ca href='https://www.makemytrip.com/promos/crackerdeal-14102019.html' target='_blank'\u003eTerms and Conditions\u003c/a\u003e",
+                        "tncUrl": "https://www.makemytrip.com/promos/crackerdeal-14102019.html",
+                        "collapsedState": true,
+                        "preSelected": false,
+                        "isEnabled": true,
+                        "itemCode": "CRACKERDEAL",
+                        "toast": null,
+                        "cta": {},
+                        "message": ""
+                    },
+                    {
+                        "couponCode": "EMISALE",
+                        "icon": "https://imgak.mmtcdn.com/flights/assets/media/mobile/review/{density}/INSTANT.png?v=1",
+                        "iconD": "https://imgak.mmtcdn.com/flights/assets/media/dt/review/INSTANT.png?v=1",
+                        "shortText": "Use and save ₹ 1,169",
+                        "longText": "Use this code to get 1169 instant discount on your booking. Hurry! Limited period offer.\u003cbr\u003e\u003ca href='https://promos.makemytrip.com/if-upi-04102019.html' target='_blank'\u003eTerms and Conditions\u003c/a\u003e",
+                        "tncUrl": "https://promos.makemytrip.com/if-upi-04102019.html",
+                        "collapsedState": true,
+                        "preSelected": false,
+                        "isEnabled": true,
+                        "itemCode": "EMISALE",
+                        "toast": null,
+                        "cta": {},
+                        "message": ""
+                    }
+                ],
+                "couponDisplayLimit": 4,
+                "couponError": ""
+            }
+        },
+        "fareBreakup": {
+            "discountText": "",
+            "discountTextColor": "",
+            "fareBreakUpItems": [
+                {
+                    "title": "Base Fare",
+                    "total": "₹ 35,935",
+                    "fareEntities": [
+                        {
+                            "text": "\u003cspan\u003eAdult(s) (1 X ₹ 30,355)\u003c/span\u003e",
+                            "textD": "\u003cspan\u003eAdult(s) (1 X ₹ 30,355)\u003c/span\u003e",
+                            "amount": "\u003cspan\u003e₹ 30,355\u003c/span\u003e"
+                        },
+                        {
+                            "text": "\u003cspan\u003eInfant (1 X ₹ 5,580)\u003c/span\u003e",
+                            "textD": "\u003cspan\u003eInfant (1 X ₹ 5,580)\u003c/span\u003e",
+                            "amount": "\u003cspan\u003e₹ 5,580\u003c/span\u003e"
+                        }
+                    ],
+                    "tracking": {
+                        "omnitureID": "base_fare"
+                    }
+                },
+                {
+                    "title": "Fee \u0026 Surcharges",
+                    "total": "₹ 30,897",
+                    "fareEntities": [
+                        {
+                            "text": "Regional Connectivity Fund",
+                            "textD": "\u003cspan\u003eRegional Connectivity Fund\u003c/span\u003e",
+                            "amount": "\u003cspan\u003e₹ 540\u003c/span\u003e"
+                        },
+                        {
+                            "text": "Airline Fuel Charge",
+                            "textD": "\u003cspan\u003eAirline Fuel Charge\u003c/span\u003e",
+                            "amount": "\u003cspan\u003e₹ 28,442\u003c/span\u003e"
+                        },
+                        {
+                            "text": "\u003cb\u003eTotal fee \u0026 surcharges:\u003c/b\u003e",
+                            "textD": "\u003cspan style='font-family:Lato-Bold'\u003eTotal fee \u0026 surcharges:\u003c/span\u003e",
+                            "amount": "₹ 28,982"
+                        },
+                        {
+                            "text": "Service Fee",
+                            "textD": "Service Fee",
+                            "amount": "₹ 1,915"
+                        }
+                    ],
+                    "tracking": {
+                        "omnitureID": "fuel_surcharge"
+                    }
+                },
+                {
+                    "title": "Other Services",
+                    "total": "₹ 10",
+                    "fareEntities": [
+                        {
+                            "text": "Charity",
+                            "textD": "\u003cspan\u003eCharity\u003c/span\u003e",
+                            "amount": "\u003cspan\u003e₹ 10\u003c/span\u003e"
+                        }
+                    ],
+                    "tracking": {
+                        "omnitureID": "other_services"
+                    }
+                },
+                {
+                    "title": "Discounts",
+                    "total": "\u003cfont color='#249995'\u003e- ₹ 5,000\u003c/font\u003e",
+                    "fareEntities": [
+                        {
+                            "text": "HDFCINT",
+                            "textD": "HDFCINT",
+                            "amount": "\u003cfont color='#249995'\u003e- ₹ 5,000\u003c/font\u003e"
+                        }
+                    ],
+                    "tracking": {
+                        "omnitureID": "discount"
+                    }
+                }
+            ],
+            "totFare": "\u003cspan style='font-size:20px;text-align: right;line-height: normal;''\u003e\u003cspan\u003e₹ 61,842\u003c/span\u003e\u003c/span\u003e"
+        },
+        "paymentOptionsDetail": {
+            "title": "Payment Options",
+            "subtitle": "Choose from flexible payment options",
+            "paymentOptions": [
+                {
+                    "displayPrice": "₹ 61,842",
+                    "title": "Pay Full amount now",
+                    "subtitle": "",
+                    "type": "FA",
+                    "itemCode": "FA",
+                    "isEnabled": true,
+                    "preSelected": true
+                },
+                {
+                    "displayPrice": "₹ 22,281",
+                    "title": "No Cost EMI (3 months tenure)",
+                    "subtitle": "\u003cfont color='##006400'\u003eOnly select offers and coupons are applicable with No Cost EMI option.\u003c/font\u003e",
+                    "type": "NCE",
+                    "itemCode": "NCE",
+                    "isEnabled": true,
+                    "preSelected": false
+                }
+            ]
+        },
+        "fareTotal": "\u003cspan style='font-size:20px;text-align: right;line-height: normal;''\u003e\u003cspan\u003e₹ 61,842\u003c/span\u003e\u003c/span\u003e",
+        "fareAdditionalText": "FOR 2 TRAVELLERS",
+        "farePersuasion": null,
+        "meta": {
+            "needHelp": {
+                "title": "Need Help?",
+                "data": {
+                    "call": {
+                        "image": "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/needHelp-call.png?v=1",
+                        "title": "For booking help",
+                        "subtitle": "01244628747 \u003cbr/\u003e 01245045105"
+                    },
+                    "chat": {
+                        "image": "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/needHelp-chat.png?v=1",
+                        "ctaDetail": {
+                            "text": "Live Chat",
+                            "ctaDetail": null,
+                            "url": "https://myra.makemytrip.com/chat?userType=CUSTOMER\u0026pageIdentifier=IF_REVIEW\u0026pst={pst}\u0026channel=DESKTOP\u0026entityType=PreSales_IF"
+                        }
+                    }
+                }
+            }
+        }
+    }</con:responseContent></con:response></con:restMockAction><con:restMockAction name="fareRules" method="POST" resourcePath="/fareRules" id="d84172a1-9e89-445e-89ae-a89941d53924"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="Response 1" id="f113c2df-bf00-40fd-a9f3-7a05a2cd762f" httpResponseStatus="200"><con:settings/><con:responseContent>{
+        "error": null,
+        "fareRulesAdditionalLegData": {
+            "BOMHYD": {
+                "checkinText": "23 kgs (1 x 23 kgs each)",
+                "cabinText": "7 Kgs"
+            },
+            "EWRBOM": {
+                "checkinText": "23 kgs (1 x 23 kgs each)",
+                "cabinText": "7 Kgs"
+            }
+        },
+        "baggageData": [
+            {
+                "leg": "EWR-BOM",
+                "legId": "EWRBOM",
+                "limitList": [
+                    {
+                        "paxType": "Adult",
+                        "cabin": "7 Kgs",
+                        "checkin": "23 kgs (1 x 23 kgs each)"
+                    },
+                    {
+                        "paxType": "Infant",
+                        "cabin": "\u003cfont color='#e53442'\u003e Information not available \u003c/font\u003e",
+                        "checkin": "23 kgs (1 x 23 kgs each)"
+                    }
+                ]
+            },
+            {
+                "leg": "BOM-HYD",
+                "legId": "BOMHYD",
+                "limitList": [
+                    {
+                        "paxType": "Adult",
+                        "cabin": "7 Kgs",
+                        "checkin": "23 kgs (1 x 23 kgs each)"
+                    },
+                    {
+                        "paxType": "Infant",
+                        "cabin": "\u003cfont color='#e53442'\u003e Information not available \u003c/font\u003e",
+                        "checkin": "23 kgs (1 x 23 kgs each)"
+                    }
+                ]
+            }
+        ],
+        "baggageImpInfo": "\u003cb\u003eImportant:\u003c/b\u003e The Baggage info is indicative, MakeMyTrip does not guarantee the the accuracy of the information. Kindly check with airline website for accurate cancellation information. The baggage allowance may vary according to stop-overs, connecting flights and changes in airline rules.",
+        "dateChangeImpInfo": "\u003cb\u003e*Important:\u003c/b\u003e The airline fee is indicative. MakeMyTrip does not guarantee the accuracy of this information. All fees mentioned are per passenger. Date change charges are applicable only on selecting the same airline on a new date. The difference in fares between the old and the new booking will also be payable by the user.",
+        "cancellationImpInfo": "\u003cb\u003e*Important:\u003c/b\u003e The airline fee is indicative. MakeMyTrip does not guarantee the accuracy of this information. All fees mentioned are per passenger. ",
+        "penaltyList": [
+            {
+                "tableHeader": [
+                    "TIME",
+                    "CANCELLATION FEE \u003cbr/\u003e(Airline Fee + MMT Fee)",
+                    "DATE CHANGE FEES \u003cbr/\u003e(Airline Fee + MMT Fee + Fare Difference )"
+                ],
+                "type": "SECTOR-WISE",
+                "data": {
+                    "leg": "EWR - HYD",
+                    "icon": "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/AI.png?v=4",
+                    "penalties": [
+                        {
+                            "timeRange": "24 hours to 365 days*",
+                            "dateChangeData": {
+                                "charges": "\u003cp\u003eADULT : ₹ 17,650 + ₹ 500 + Fare difference\u003cbr\u003e\u003c/p\u003e + ₹ 500 + Fare difference\u003cbr\u003e\u003c/p\u003e\u003cp\u003eINFANT : ₹ 17,650 + ₹ 500 + Fare difference\u003cbr\u003e\u003c/p\u003e + ₹ 500 + Fare difference\u003cbr\u003e\u003c/p\u003e"
+                            },
+                            "cancellationData": {
+                                "charges": "\u003cp\u003eADULT : ₹ 24,710 + ₹ 649\u003cbr\u003e\u003c/p\u003e\u003cp\u003eINFANT : ₹ 24,710 + ₹ 649\u003cbr\u003e\u003c/p\u003e"
+                            }
+                        }
+                    ],
+                    "penaltyInfo": "\u003cb\u003e*\u003c/b\u003e From the Date of Departure"
+                }
+            }
+        ] 
+    }</con:responseContent></con:response></con:restMockAction><con:restMockAction name="seat" method="POST" resourcePath="/seat" id="ae894af2-97de-4e3b-b331-7d6d8a8bd7c3"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="Response 1" id="a72200e8-3b01-476a-a3ec-4d23e27c2b7a" httpResponseStatus="200"><con:settings/><con:responseContent>{
+  "status": "Success",
+  "meta": {
+    "selectionIcon": "",
+    "defaultTab": "SEATS",
+    "defaultSector": "BOM-HYD",
+    "priority": [ "SEATS", "BAGGAGE" ],
+    "locale": { "currSymbol": "₹" }
+  },
+  "anclryResponse": {
+    "BAGGAGE": {
+      "type": "BAGGAGE",
+      "errormessage": "",
+      "icon": "https://imgak.mmtcdn.com/flights/assets/media/dt/ancillaries/baggage_tab_selected_state_icon.png?v=1",
+      "anclryInfo": [
+        {
+          "sectorTitle": "BOM-HYD",
+          "sectorId": "BOM-HYD",
+          "flightLookupId": "6E-6E-5375-BOM-HYD-2019-11-16 15:55-2019-11-16 17:20",
+          "selectionText": "",
+          "isSelected": false,
+          "title": "Select your extra baggage",
+          "subTitle": "You can choose upto one",
+          "persuasionText": "Pre-booked Baggage is 20% cheaper than on-board price",
+          "persuasionIcon": "https://imgak.mmtcdn.com/flights/assets/media/dt/ancillaries/baggage_green_strip_icon.png?v=1",
+          "errormessage": "",
+          "data": [
+            {
+              "iconUrl": "https://imgak.mmtcdn.com/flights/assets/media/dt/ancillaries/baggage_5kg_10kg_icon.png?v=1",
+              "title": "Additional 3 KG",
+              "initialAmount": "",
+              "finalAmount": "₹ 1,140",
+              "code": "XBPE",
+              "preSelectedCount": 0,
+              "selected": false,
+              "rtitle": "Pre-purchased Baggage",
+              "showSlasherFare": false
+            },
+            {
+              "iconUrl": "https://imgak.mmtcdn.com/flights/assets/media/dt/ancillaries/baggage_5kg_10kg_icon.png?v=1",
+              "title": "Additional 5 KG",
+              "initialAmount": "",
+              "finalAmount": "₹ 1,875",
+              "code": "XBPA",
+              "preSelectedCount": 0,
+              "selected": false,
+              "rtitle": "Pre-purchased Baggage",
+              "showSlasherFare": false
+            },
+            {
+              "iconUrl": "https://imgak.mmtcdn.com/flights/assets/media/dt/ancillaries/baggage_15kg_andabove_icon.png?v=1",
+              "title": "Additional 10 KG",
+              "initialAmount": "",
+              "finalAmount": "₹ 3,600",
+              "code": "XBPB",
+              "preSelectedCount": 0,
+              "selected": false,
+              "rtitle": "Pre-purchased Baggage",
+              "showSlasherFare": false
+            },
+            {
+              "iconUrl": "https://imgak.mmtcdn.com/flights/assets/media/dt/ancillaries/baggage_15kg_andabove_icon.png?v=1",
+              "title": "Additional 15 KG",
+              "initialAmount": "",
+              "finalAmount": "₹ 5,250",
+              "code": "XBPC",
+              "preSelectedCount": 0,
+              "selected": false,
+              "rtitle": "Pre-purchased Baggage",
+              "showSlasherFare": false
+            },
+            {
+              "iconUrl": "https://imgak.mmtcdn.com/flights/assets/media/dt/ancillaries/baggage_15kg_andabove_icon.png?v=1",
+              "title": "Additional 30 KG",
+              "initialAmount": "",
+              "finalAmount": "₹ 9,900",
+              "code": "XBPD",
+              "preSelectedCount": 0,
+              "selected": false,
+              "rtitle": "Pre-purchased Baggage",
+              "showSlasherFare": false
+            }
+          ],
+          "airlineCode": "6E",
+          "flightNo": "5375",
+          "footer": {
+            "text": "Select Baggage(s)",
+            "subtext": "0 of 1 Baggage(s) Selected",
+            "fare": "₹ 0",
+            "toolTipMessage": {
+              "title": "",
+              "text": ""
+            }
+          }
+        }
+      ]
+    },
+    "seat": {
+      "anclryInfo": [
+        {
+          "sectorTitle": "BOM-HYD",
+          "sectorId": "BOM-HYD",
+          "flightLookupId": "6E-6E-5375-BOM-HYD-2019-11-16 15:55-2019-11-16 17:20",
+          "selectionText": "",
+          "isSelected": false,
+          "title": "",
+          "subTitle": "",
+          "persuasionText": "Enjoy a comfortable flight with your favourite seat",
+          "persuasionIcon": "https://imgak.mmtcdn.com/flights/assets/media/dt/ancillaries/seats_green_strip_icon.png?v=1",
+          "errormessage": "",
+          "fDtl": {
+            "seatCnt": 0,
+            "availCnt": 160,
+            "fn": "5375",
+            "fr": "BOM",
+            "to": "HYD",
+            "cc": "6E",
+            "opAr": "6E",
+            "maAr": "6E",
+            "eqNm": "320-200",
+            "eqCt": "JetAircraft",
+            "cDes": ""
+          },
+          "cLyt": {
+            "deckMap": {
+              "MAIN": {
+                "osMIdx": 15,
+                "oeMIdx": 19,
+                "dt": "MAIN",
+                "rowCt": 35,
+                "colCt": 9,
+                "psIdx": 1,
+                "peIdx": 30,
+                "sm": [
+                  [
+                    {
+                      "ct": "LABEL",
+                      "lbl": "",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "ICON",
+                      "it": "LA",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "ICON",
+                      "it": "GA",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "isSelected": false
+                    }
+                  ],
+                  [
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "ICON",
+                      "it": "EL",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "ICON",
+                      "it": "ER",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "isSelected": false
+                    }
+                  ],
+                  [
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "A",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "B",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "C",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "D",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "E",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "F",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "isSelected": false
+                    }
+                  ],
+                  [
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "1",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": true,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "1A",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "1A",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 2,
+                      "plIdx": 4,
+                      "sn": "1B",
+                      "ct": "SEAT",
+                      "att": [ "NV_WORA" ],
+                      "seatCode": "1B",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": true,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "1C",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "1C",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 2,
+                      "plIdx": 5,
+                      "sn": "1D",
+                      "ct": "SEAT",
+                      "seatCode": "1D",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 2,
+                      "plIdx": 4,
+                      "sn": "1E",
+                      "ct": "SEAT",
+                      "att": [ "NV_WORA" ],
+                      "seatCode": "1E",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": true,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "1F",
+                      "ct": "SEAT",
+                      "att": [ "NV_EP", "RSRVD" ],
+                      "seatCode": "1F",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "1",
+                      "isSelected": false
+                    }
+                  ],
+                  [
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "25",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "25A",
+                      "ct": "SEAT",
+                      "seatCode": "25A",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 3,
+                      "sn": "25B",
+                      "ct": "SEAT",
+                      "seatCode": "25B",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "25C",
+                      "ct": "SEAT",
+                      "seatCode": "25C",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "25D",
+                      "ct": "SEAT",
+                      "seatCode": "25D",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 3,
+                      "sn": "25E",
+                      "ct": "SEAT",
+                      "seatCode": "25E",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "25F",
+                      "ct": "SEAT",
+                      "seatCode": "25F",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "25",
+                      "isSelected": false
+                    }
+                  ],
+                  [
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "26",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "26A",
+                      "ct": "SEAT",
+                      "seatCode": "26A",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 3,
+                      "sn": "26B",
+                      "ct": "SEAT",
+                      "seatCode": "26B",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "26C",
+                      "ct": "SEAT",
+                      "seatCode": "26C",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "26D",
+                      "ct": "SEAT",
+                      "seatCode": "26D",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 3,
+                      "sn": "26E",
+                      "ct": "SEAT",
+                      "seatCode": "26E",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "26F",
+                      "ct": "SEAT",
+                      "seatCode": "26F",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "26",
+                      "isSelected": false
+                    }
+                  ],
+                  [
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "27",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "27A",
+                      "ct": "SEAT",
+                      "seatCode": "27A",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 3,
+                      "sn": "27B",
+                      "ct": "SEAT",
+                      "seatCode": "27B",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "27C",
+                      "ct": "SEAT",
+                      "seatCode": "27C",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "27D",
+                      "ct": "SEAT",
+                      "seatCode": "27D",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 3,
+                      "sn": "27E",
+                      "ct": "SEAT",
+                      "seatCode": "27E",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "27F",
+                      "ct": "SEAT",
+                      "seatCode": "27F",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "27",
+                      "isSelected": false
+                    }
+                  ],
+                  [
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "28",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": true,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "28A",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "28A",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "28B",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "28B",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "28C",
+                      "ct": "SEAT",
+                      "seatCode": "28C",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "28D",
+                      "ct": "SEAT",
+                      "seatCode": "28D",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "28E",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "28E",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": true,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "28F",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "28F",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "28",
+                      "isSelected": false
+                    }
+                  ],
+                  [
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "29",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": true,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "29A",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "29A",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "29B",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "29B",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "29C",
+                      "ct": "SEAT",
+                      "seatCode": "29C",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isAv": true,
+                      "isCh": true,
+                      "pbIdx": 1,
+                      "plIdx": 3,
+                      "sn": "29D",
+                      "ct": "SEAT",
+                      "seatCode": "29D",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "29E",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "29E",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": true,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "29F",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "29F",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "29",
+                      "isSelected": false
+                    }
+                  ],
+                  [
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "30",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": true,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "30A",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "30A",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "30B",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "30B",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": true,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "30C",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "30C",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": true,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "30D",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "30D",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "30E",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "30E",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": true,
+                      "pbIdx": 3,
+                      "plIdx": 0,
+                      "sn": "30F",
+                      "ct": "SEAT",
+                      "att": [ "RSRVD" ],
+                      "seatCode": "30F",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "lbl": "30",
+                      "isSelected": false
+                    }
+                  ],
+                  [
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "ICON",
+                      "it": "GA",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "ICON",
+                      "it": "LA",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "ICON",
+                      "it": "LA",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "ICON",
+                      "it": "GA",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "isSelected": false
+                    }
+                  ],
+                  [
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "ICON",
+                      "it": "EL",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "EMPTY",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "ICON",
+                      "it": "ER",
+                      "isSelected": false
+                    },
+                    {
+                      "rs": 1,
+                      "cs": 1,
+                      "isCh": false,
+                      "pbIdx": 0,
+                      "plIdx": 0,
+                      "ct": "LABEL",
+                      "isSelected": false
+                    }
+                  ]
+                ]
+              }
+            }
+          },
+          "pbl": [
+            {
+              "minAmt": 0,
+              "maxAmt": 0,
+              "cc": "#50e3c2",
+              "bn": "Free",
+              "pl": [
+                {
+                  "cu": "",
+                  "tot": 0,
+                  "totD": "₹ 0",
+                  "dis": 0,
+                  "sca": 0,
+                  "lbl": "Group#14_*",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 0,
+                  "totD": "₹ 0",
+                  "dis": 0,
+                  "sca": 0,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 0,
+                  "totD": "₹ 0",
+                  "dis": 0,
+                  "sca": 0,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 0,
+                  "totD": "₹ 0",
+                  "dis": 0,
+                  "sca": 0,
+                  "lbl": "NA",
+                  "diTxt": ""
+                }
+              ],
+              "additionalInfo": "",
+              "info": null,
+              "hide": false
+            },
+            {
+              "minAmt": 150,
+              "maxAmt": 400,
+              "cc": "#badaff",
+              "bn": "\u0026#x20B9; 150 - 400",
+              "pl": [
+                {
+                  "cu": "",
+                  "tot": 150,
+                  "totD": "₹ 150",
+                  "dis": 0,
+                  "sca": 150,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 150,
+                  "totD": "₹ 150",
+                  "dis": 0,
+                  "sca": 150,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 150,
+                  "totD": "₹ 150",
+                  "dis": 0,
+                  "sca": 150,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 150,
+                  "totD": "₹ 150",
+                  "dis": 0,
+                  "sca": 150,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 250,
+                  "totD": "₹ 250",
+                  "dis": 0,
+                  "sca": 250,
+                  "lbl": "Group#11_*",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 250,
+                  "totD": "₹ 250",
+                  "dis": 0,
+                  "sca": 250,
+                  "lbl": "Group#13_*",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 250,
+                  "totD": "₹ 250",
+                  "dis": 0,
+                  "sca": 250,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 250,
+                  "totD": "₹ 250",
+                  "dis": 0,
+                  "sca": 250,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 250,
+                  "totD": "₹ 250",
+                  "dis": 0,
+                  "sca": 250,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 250,
+                  "totD": "₹ 250",
+                  "dis": 0,
+                  "sca": 250,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 350,
+                  "totD": "₹ 350",
+                  "dis": 0,
+                  "sca": 350,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 350,
+                  "totD": "₹ 350",
+                  "dis": 0,
+                  "sca": 350,
+                  "lbl": "Group#12_*",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 350,
+                  "totD": "₹ 350",
+                  "dis": 0,
+                  "sca": 350,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 350,
+                  "totD": "₹ 350",
+                  "dis": 0,
+                  "sca": 350,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 400,
+                  "totD": "₹ 400",
+                  "dis": 0,
+                  "sca": 400,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 400,
+                  "totD": "₹ 400",
+                  "dis": 0,
+                  "sca": 400,
+                  "lbl": "NA",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 400,
+                  "totD": "₹ 400",
+                  "dis": 0,
+                  "sca": 400,
+                  "lbl": "NA",
+                  "diTxt": ""
+                }
+              ],
+              "additionalInfo": "",
+              "info": null,
+              "hide": false
+            },
+            {
+              "minAmt": 700,
+              "maxAmt": 800,
+              "cc": "#7bb8ff",
+              "bn": "\u0026#x20B9; 700 - 800",
+              "pl": [
+                {
+                  "cu": "",
+                  "tot": 700,
+                  "totD": "₹ 700",
+                  "dis": 0,
+                  "sca": 700,
+                  "lbl": "Group#4_6E",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 700,
+                  "totD": "₹ 700",
+                  "dis": 0,
+                  "sca": 700,
+                  "lbl": "Group#5_*",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 700,
+                  "totD": "₹ 700",
+                  "dis": 0,
+                  "sca": 700,
+                  "lbl": "Group#6_*",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 800,
+                  "totD": "₹ 800",
+                  "dis": 0,
+                  "sca": 800,
+                  "lbl": "Group#1_6E",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 800,
+                  "totD": "₹ 800",
+                  "dis": 0,
+                  "sca": 800,
+                  "lbl": "Group#2_*",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 800,
+                  "totD": "₹ 800",
+                  "dis": 0,
+                  "sca": 800,
+                  "lbl": "Group#3_6E",
+                  "diTxt": ""
+                },
+                {
+                  "cu": "",
+                  "tot": 800,
+                  "totD": "₹ 800",
+                  "dis": 0,
+                  "sca": 800,
+                  "lbl": "NA",
+                  "diTxt": ""
+                }
+              ],
+              "additionalInfo": "",
+              "info": null,
+              "hide": false
+            },
+            {
+              "minAmt": 0,
+              "maxAmt": 0,
+              "cc": "#b6b6b6",
+              "bn": "Reserved",
+              "pl": [
+                {
+                  "cu": "",
+                  "tot": 0,
+                  "totD": "₹ 0",
+                  "dis": 0,
+                  "sca": 0,
+                  "lbl": "Reserved",
+                  "diTxt": ""
+                }
+              ],
+              "additionalInfo": "",
+              "info": null,
+              "hide": true
+            }
+          ],
+          "airlineCode": "6E",
+          "flightNo": "5375",
+          "footer": {
+            "text": "Select Seat(s)",
+            "subtext": "0 of 1 Seat(s) Selected",
+            "fare": "₹ 0",
+            "toolTipMessage": {
+              "title": "",
+              "text": ""
+            }
+          }
+
+        }
+      ],
+      "attMap": {
+        "NV_DNR": {
+          "lbl": "Do not recline",
+          "diTxt": "",
+          "img": ""
+        },
+        "NV_EE": {
+          "lbl": "Emergency Exit Seats",
+          "diTxt": "",
+          "img": ""
+        },
+        "NV_ELS": {
+          "lbl": "Extra leg-room seats.",
+          "diTxt": "",
+          "img": ""
+        },
+        "NV_EP": {
+          "lbl": "Extra space premium seat",
+          "diTxt": "",
+          "img": ""
+        },
+        "NV_WORA": {
+          "lbl": "Window or Aisle seat",
+          "diTxt": "",
+          "img": ""
+        },
+        "RSRVD": {
+          "lbl": "Reserved",
+          "diTxt": "Sorry! This seat is taken",
+          "img": ""
+        }
+      },
+      "imgMap": { "RSRVD": "" }
+    }
+  },
+  "fareBreakup": {
+    "discountText": "",
+    "discountTextColor": "",
+    "fareBreakUpItems": [
+      {
+        "title": "Base Fare",
+        "total": "₹ 1,015",
+        "fareEntities": [
+          {
+            "text": "\u003cspan\u003eAdult(s) (1 X ₹ 1,015)\u003c/span\u003e",
+            "textD": "\u003cspan\u003eAdult(s) (1 X ₹ 1,015)\u003c/span\u003e",
+            "amount": "\u003cspan\u003e₹ 1,015\u003c/span\u003e"
+          }
+        ],
+        "tracking": { "omnitureID": "base_fare" }
+      },
+      {
+        "title": "Fee \u0026 Surcharges",
+        "total": "₹ 685",
+        "fareEntities": [
+          {
+            "text": "CUTE Fee",
+            "textD": "\u003cspan\u003eCUTE Fee\u003c/span\u003e",
+            "amount": "\u003cspan\u003e₹ 50\u003c/span\u003e"
+          },
+          {
+            "text": "Airline Fuel Charge",
+            "textD": "\u003cspan\u003eAirline Fuel Charge\u003c/span\u003e",
+            "amount": "\u003cspan\u003e₹ 569\u003c/span\u003e"
+          },
+          {
+            "text": "Goods and Services Tax",
+            "textD": "\u003cspan\u003eGoods and Services Tax\u003c/span\u003e",
+            "amount": "\u003cspan\u003e₹ 66\u003c/span\u003e"
+          },
+          {
+            "text": "\u003cb\u003eTotal fee \u0026 surcharges:\u003c/b\u003e",
+            "textD": "\u003cspan style='font-family:Lato-Bold'\u003eTotal fee \u0026 surcharges:\u003c/span\u003e",
+            "amount": "₹ 685"
+          }
+        ],
+        "tracking": { "omnitureID": "fuel_surcharge" }
+      },
+      {
+        "title": "Other Services",
+        "total": "₹ 5",
+        "fareEntities": [
+          {
+            "text": "Charity",
+            "textD": "\u003cspan\u003eCharity\u003c/span\u003e",
+            "amount": "\u003cspan\u003e₹ 5\u003c/span\u003e"
+          }
+        ],
+        "tracking": { "omnitureID": "other_services" }
+      }
+    ],
+    "totFare": "\u003cspan style='font-size:20px;text-align: right;line-height: normal;''\u003e\u003cspan\u003e₹ 1,705\u003c/span\u003e\u003c/span\u003e"
+  },
+  "totalFare": "\u003cspan style='font-size:20px;text-align: right;line-height: normal;''\u003e\u003cspan\u003e₹ 1,705\u003c/span\u003e\u003c/span\u003e",
+  "fltSummary": [
+    {
+      "airlinelogo": "https://imgak.mmtcdn.com/flights/assets/media/mobile/common/{density}/{airline}.png?v=4",
+      "airlineName": "IndiGo",
+      "airlineCode": "6E",
+      "fr": {
+        "city": "Mumbai",
+        "displayText": "15:55, 16 November, 2019"
+      },
+      "to": {
+        "city": "Hyderabad",
+        "displayText": "17:20, 16 November, 2019"
+      },
+      "stop": {
+        "text": "Non stop",
+        "duration": "1 hr 25 mins "
+      }
+    }
+  ]
+}</con:responseContent></con:response></con:restMockAction></con:restMockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
