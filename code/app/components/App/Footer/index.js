@@ -1,8 +1,9 @@
 import React from 'react';
 
 function Footer() {
+    var id = 0;
   return (
-    <footer class="appendTop30">
+    <footer class="appendTop30" >
             <div class="landingContainer">
                 <div class="makeFlex appendBottom40 footerLinks">
                     <ul class="makeFlex column font12">
