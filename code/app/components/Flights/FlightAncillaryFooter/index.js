@@ -1,6 +1,5 @@
 import React from 'react';
-import homeStyles from '../../../../css/home.css';
-import commonStyles from '../../../../css/common.css';
+
 
 function FlightAncillaryFooter() {
     return (
@@ -35,7 +34,7 @@ function FlightAncillaryFooter() {
                     </div>
                 </div><a href="javascript:void(0);" id="ancillary-continue"
                     class="pull-left continue-ancillary-cta btn fli_primary_btn make_relative">Continue</a><span>
-                    <a id="ancillary-secondary" href="javascript:void(0);" class="pull-left skip-add-ons">
+                    <a id="ancillary-secondary" href="/confirm" class="pull-left skip-add-ons">
                         Skip
                         add-ons
                                 </a>

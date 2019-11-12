@@ -1,6 +1,5 @@
 import React from 'react';
-import homeStyles from '../../../../css/home.css';
-import commonStyles from '../../../../css/common.css';
+import FlightAddOns from '../FlightAddOns';
 
 function FlightTravellerDetails() {
     return (
@@ -204,6 +203,7 @@ function FlightTravellerDetails() {
                     </p>
                 </div>
             </div>
+            <FlightAddOns></FlightAddOns>
             <div>
                 <p class="rvw-heading LatoBold">Acknowledgement</p>
                 <div class="rvw-sctn append_bottom15 ack-section">
@@ -230,9 +230,8 @@ function FlightTravellerDetails() {
                     </p>
                     <div class="make_relative blocked_traveller_booking">
                         <button class="ack-cta btn fli_primary_btn text-uppercase"
-                            type="button">
-                            Continue
-                                    </button>
+                            type="button"><a href="/ancillary">Continue</a>                           
+                        </button>
                     </div>
                 </div>
             </div>

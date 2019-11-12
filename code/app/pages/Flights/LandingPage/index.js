@@ -24,8 +24,7 @@ export default function FlightLandingPage() {
             <div></div> 
             <div data-cy="landingContainer" className="landingContainer ">
             <Account></Account>
-            <Header></Header>
-            
+            <Header></Header>       
           </div>
           <div className="widgetLoader"></div>
         </div>
