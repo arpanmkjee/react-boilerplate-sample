@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Footer() {
-    var id = 0;
   return (
     <footer class="appendTop30" >
             <div class="landingContainer">
