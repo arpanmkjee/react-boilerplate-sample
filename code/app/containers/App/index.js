@@ -10,7 +10,12 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
-import Home from '../../pages/Home/LandingPage'
+import Home from '../../pages/Home/LandingPage';
+import SearchPage from '../../pages/Flights/SearchPage';
+import ReviewPage from '../../pages/Flights/ReviewPage';
+import TravellerPage from '../../pages/Flights/TravellerPage';
+import AncillaryPage from '../../pages/Flights/AncillaryPage';
+import ConfirmationPage from '../../pages/Flights/ConfirmationPage';
 
 // import HomePage from 'containers/HomePage/Loadable';
 // import FeaturePage from 'containers/FeaturePage/Loadable';
@@ -41,6 +46,11 @@ export default function App() {
       {/* <Header /> */}
       <Switch> 
         <Route exact path="/" component={Home} /> 
+        <Route exact path="/result" component={SearchPage} /> 
+        <Route exact path="/review" component={ReviewPage} /> 
+        <Route exact path="/traveller" component={TravellerPage} /> 
+        <Route exact path="/ancillary" component={AncillaryPage} /> 
+        <Route exact path="/confirm" component={ConfirmationPage} /> 
         <Route path="/features" component={NotFoundPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
