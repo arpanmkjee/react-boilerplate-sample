@@ -1,4 +1,18 @@
-﻿.DayPicker {
+﻿.FpTkd {
+    max-width: none !important;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 100%;
+    padding: 0 0px !important;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.DayPicker {
     display: inline-block;
     font-size: 1rem
 }
