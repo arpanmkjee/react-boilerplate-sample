@@ -16,7 +16,7 @@ function FlightAncillarySummary() {
             </p>
           </div><a href="javascript:void(0);" class="tvlrCollapseble LatoMedium">
             Flight
-                                    details<span class="blue-arrow-icon marL10"></span>
+           details<span class="blue-arrow-icon marL10"></span>
           </a>
         </div>
         <div class="collapse" style={{ height: "0px" }}>

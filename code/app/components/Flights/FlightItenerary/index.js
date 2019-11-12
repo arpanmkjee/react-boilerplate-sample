@@ -156,11 +156,12 @@ function FlightItenerary() {
                 </div>
             </div>
             <div class="append_bottom15 make_relative blocked_traveller_booking">
+            <a href="/traveller">
                 <button id="review-continue"
                     class="fli_primary_btn btn text-uppercase continue_cta ">
-                        <a href="/traveller">Continue</a>
-                    
-        </button>
+                        Continue                   
+                </button>
+            </a>
             </div>
             <div class="fare-families-overlay make_relative slideDown" style={{ zIndex: "100" }}>
                 <span class="zc-close"></span>
