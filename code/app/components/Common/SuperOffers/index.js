@@ -4,7 +4,7 @@ import commonStyles from '../../../../css/common.css';
 
 function SuperOffers() {
      return (
-          <main class="landingContainer">
+          <div>
                <div class="landingCard appendBottom40 superOfferSection page-section sticky-scroll"
                     id="Offers_Listing">
                     <div class="makeFlex blackText latoBold">
@@ -377,7 +377,7 @@ function SuperOffers() {
                          </div>
                     </div>
                </div>
-          </main>
+          </div>
      );
 }
 
