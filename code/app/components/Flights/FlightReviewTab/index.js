@@ -438,7 +438,7 @@ function FlightReviewTab() {
                                     </div>
                                     <div class="prepend_left25 pull-left make_relative">
                                         <button class="btn fli_primary_btn text-uppercase ">
-                                            Continue
+                                            <a href="/traveller">Continue</a>                                            
                                         </button>
                                     </div>
                                 </div>

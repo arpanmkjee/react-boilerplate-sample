@@ -1,11 +1,7 @@
 import * as React from 'react';
 import SuperOffers from '../../Common/SuperOffers';
 
-export default class MinContainer extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
+function MinContainer(){
         return (
             <div class="minContainer">
                 <div>
@@ -144,7 +140,7 @@ export default class MinContainer extends React.Component {
                                 </div>
                             </div>
                             <p data-cy="submit" class="makeFlex vrtlCenter ">
-                                <a class="primaryBtn font24 latoBlack widgetSearchBtn" href="../Search/search">Search</a>
+                                <a class="primaryBtn font24 latoBlack widgetSearchBtn" href="/result">Search</a>
                             </p>
                         </div>
                     </div>
@@ -562,4 +558,5 @@ export default class MinContainer extends React.Component {
             </div>
         )
     }
-}
+
+    export default MinContainer;
