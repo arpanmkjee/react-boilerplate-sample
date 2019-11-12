@@ -1,4 +1,5 @@
 import * as React from 'react';
+import SuperOffers from '../../Common/SuperOffers';
 
 export default class MinContainer extends React.Component {
     constructor(props) {
@@ -94,7 +95,7 @@ export default class MinContainer extends React.Component {
                                     </label>
                                 </div>
                             </div>
-                            <div class="makeFlex hrtlCenter">
+                            <div class="makeFlex hrtlCenter appendBottom20">
                                 <ul class="specialFare">
                                     <li class="font12 blackText latoBold activeItem ">Regular Fare</li>
                                     <li class="font12 blackText latoBold  ">
@@ -148,7 +149,7 @@ export default class MinContainer extends React.Component {
                         </div>
                     </div>
                     <main class="landingContainer">
-                        <MinContainer></MinContainer>
+                        <SuperOffers></SuperOffers>
                         <div class="sticky-scroll" id="PROMOTIONS">
                             <div data-cy="dealCarousel"
                                 class="_dealCarousel appendBottom20 page-section _primeTimeCarousel">
@@ -212,109 +213,177 @@ export default class MinContainer extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div class="landingCard appendBottom40 sticky-scroll" id="Recommended_Flights">
-                            <div class="makeFlex column blackText latoBold appendBottom10">
-                                <h2>
-                                    <font color="#393939">Flights For You</font>
-                                </h2>
-                                <p class="font22 makeFlex hrtlCenter latoRegular appendTop5">
-                                    <span class="makeFlex hrtlcenter">
-                                        <span class="appendRight10 darkGreyText">16-Nov-2019</span><span class="latoBold">Mumbai</span><span class="landingSprite oneWayIcon appendRight10 appendLeft10"></span><span class="latoBold">Hyderabad</span>
-                                    </span>
-                                    <p></p><a data-cy="rcmdFlightViewAll"
-                                        href="//www.makemytrip.com/flight/search?itinerary=BOM-HYD-16/11/2019&amp;tripType=O&amp;paxType=A-1_C-0_I-0&amp;intl=false&amp;cabinClass=E"
-                                        class="pushRight makeFlex hrtlCenter font16 blueText latoBlack">
-                                        VIEW ALL<span class="blueArrowIcon landingSprite appendLeft10"></span>
-                                    </a>
-                                </p>
-                            </div>
-                            <div class="makeFlex continueBooking" data-cy="rcmdFlightCard">
-                                <div class="continueBookingCard makeFlex column spaceBetween appendTop20 paddingLR20 pointer">
-                                    <div class="makeFlex appendTop15">
-                                        <img data-cy="rcmdFlightsCarrierCode0" class="appendRight10"
-                                            src="https://flights.makemytrip.com/makemytrip/images/drawable-mdpi/6E.png"
-                                            alt="" />
-                                        <div class="flexOne">
-                                            <p data-cy="rcmdFlightsFlightName0" class="appendBottom2">IndiGo</p>
-                                            <p data-cy="rcmdFlightsFlightCode0" class="font10 greyText"> 6E5384</p>
-                                        </div>
-                                    </div>
-                                    <div class="makeFlex end appendBottom15">
-                                        <div class="flexOne font18">
-                                            <span data-cy="rcmdFlightsDepartureTime0">
-                                                12:50
-                                                AM
-                                        </span><span class="paddingLR10 greyText"> -- </span><span data-cy="rcmdFlightsArrivalTime0">02:25 AM</span>
-                                        </div>
-                                        <div class="pushRight textRight">
-                                            <p class="latoBold blackText font20" data-cy="rcmdFlightsFare0">₹ 1700</p>
-                                        </div>
+                        <div class="landingCard makeFlex appendBottom50">
+                            <div data-cy="newsLetter" class="makeFlex placeInfo">
+                                <div class="makeFlex infoTile appendBottom10 appendTop10"><img class="appendRight10"
+                                    src="http://promos.makemytrip.com/images/50x50-Other-23052019.png" alt="" data-cy="newsLetterIcon0" />
+                                    <div class="flexOne">
+                                        <p data-cy="newsLetterTitle0">
+                                            <p class="font18 latoBold blackText appendBottom5">Chennai Flights</p>
+                                        </p>
+                                        <p data-cy="newsLetterText0">
+                                            <p class="font12 lineHeight16"><span class="latoBold blackText"></span> Via -<a class="blackText"
+                                                href="https://www.makemytrip.com/flights/new_delhi-chennai-cheap-airtickets.html"><span
+                                                    class="latoBold blackText"> Delhi</span>, </a> <a class="blackText"
+                                                        href="https://www.makemytrip.com/flights/mumbai-chennai-cheap-airtickets.html"><span
+                                                            class="latoBold blackText">Mumbai</span>, </a> <a class="blackText"
+                                                                href="https://www.makemytrip.com/flights/coimbatore-chennai-cheap-airtickets.html"><span
+                                                                    class="latoBold blackText">Coimbatore</span>, </a> <a class="blackText"
+                                                                        href="https://www.makemytrip.com/flights/madurai-chennai-cheap-airtickets.html"><span
+                                                                            class="latoBold blackText">Madurai</span></a></p>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="continueBookingCard makeFlex column spaceBetween appendTop20 paddingLR20 pointer">
-                                    <div class="makeFlex appendTop15">
-                                        <img data-cy="rcmdFlightsCarrierCode1" class="appendRight10"
-                                            src="https://flights.makemytrip.com/makemytrip/images/drawable-mdpi/6E.png"
-                                            alt="" />
-                                        <div class="flexOne">
-                                            <p data-cy="rcmdFlightsFlightName1" class="appendBottom2">IndiGo</p>
-                                            <p data-cy="rcmdFlightsFlightCode1" class="font10 greyText"> 6E834</p>
-                                        </div>
-                                    </div>
-                                    <div class="makeFlex end appendBottom15">
-                                        <div class="flexOne font18">
-                                            <span data-cy="rcmdFlightsDepartureTime1">
-                                                04:55
-                                                PM
-                                        </span><span class="paddingLR10 greyText"> -- </span><span data-cy="rcmdFlightsArrivalTime1">06:25 PM</span>
-                                        </div>
-                                        <div class="pushRight textRight">
-                                            <p class="latoBold blackText font20" data-cy="rcmdFlightsFare1">₹ 1700</p>
-                                        </div>
+                                <div class="makeFlex infoTile appendBottom10 appendTop10"><img class="appendRight10"
+                                    src="https://promos.makemytrip.com/store/GoaDT.JPG" alt="" data-cy="newsLetterIcon1" />
+                                    <div class="flexOne">
+                                        <p data-cy="newsLetterTitle1">
+                                            <p class="font18 latoBold blackText appendBottom5">Goa Flights</p>
+                                        </p>
+                                        <p data-cy="newsLetterText1">
+                                            <p class="font12 lineHeight16"><span class="latoBold blackText"></span> Via -<a class="blackText"
+                                                href="https://www.makemytrip.com/flights/new_delhi-goa-cheap-airtickets.html"> <span
+                                                    class="latoBold blackText"> Delhi</span> </a>, <a class="blackText"
+                                                        href="https://www.makemytrip.com/flights/mumbai-goa-cheap-airtickets.html"><span
+                                                            class="latoBold blackText">Mumbai</span>, </a> <a class="blackText"
+                                                                href="https://www.makemytrip.com/flights/bangalore-goa-cheap-airtickets.html"><span
+                                                                    class="latoBold blackText">Bangalore</span>, </a> <a class="blackText"
+                                                                        href="https://www.makemytrip.com/flights/ahmedabad-goa-cheap-airtickets.html"><span
+                                                                            class="latoBold blackText">Ahmedabad</span></a> </p>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="continueBookingCard makeFlex column spaceBetween appendTop20 paddingLR20 pointer">
-                                    <div class="makeFlex appendTop15">
-                                        <img data-cy="rcmdFlightsCarrierCode2" class="appendRight10"
-                                            src="https://flights.makemytrip.com/makemytrip/images/drawable-mdpi/6E.png"
-                                            alt="" />
-                                        <div class="flexOne">
-                                            <p data-cy="rcmdFlightsFlightName2" class="appendBottom2">IndiGo</p>
-                                            <p data-cy="rcmdFlightsFlightCode2" class="font10 greyText"> 6E5342</p>
-                                        </div>
-                                    </div>
-                                    <div class="makeFlex end appendBottom15">
-                                        <div class="flexOne font18">
-                                            <span data-cy="rcmdFlightsDepartureTime2">
-                                                06:20
-                                                PM
-                                        </span><span class="paddingLR10 greyText"> -- </span><span data-cy="rcmdFlightsArrivalTime2">07:50 PM</span>
-                                        </div>
-                                        <div class="pushRight textRight">
-                                            <p class="latoBold blackText font20" data-cy="rcmdFlightsFare2">₹ 1700</p>
-                                        </div>
+                                <div class="makeFlex infoTile appendBottom10 appendTop10"><img class="appendRight10"
+                                    src="https://promos.makemytrip.com/store/MumbaiDT.JPG" alt="" data-cy="newsLetterIcon2" />
+                                    <div class="flexOne">
+                                        <p data-cy="newsLetterTitle2">
+                                            <p class="font18 latoBold blackText appendBottom5">Mumbai Flights</p>
+                                        </p>
+                                        <p data-cy="newsLetterText2">
+                                            <p class="font12 lineHeight16"><span class="latoBold blackText"></span> Via -<a class="blackText"
+                                                href="https://www.makemytrip.com/flights/new_delhi-mumbai-cheap-airtickets.html"> <span
+                                                    class="latoBold blackText"> Delhi</span></a>, <a class="blackText"
+                                                        href="https://www.makemytrip.com/flights/bangalore-mumbai-cheap-airtickets.html"><span
+                                                            class="latoBold blackText">Bangalore</span>, </a> <a class="blackText"
+                                                                href="https://www.makemytrip.com/flights/chennai-mumbai-cheap-airtickets.html"><span
+                                                                    class="latoBold blackText">Chennai</span>, </a> <a class="blackText"
+                                                                        href="https://www.makemytrip.com/flights/ahmedabad-mumbai-cheap-airtickets.html"><span
+                                                                            class="latoBold blackText">Ahmedabad</span></a> </p>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="continueBookingCard makeFlex column spaceBetween appendTop20 paddingLR20 pointer">
-                                    <div class="makeFlex appendTop15">
-                                        <img data-cy="rcmdFlightsCarrierCode3" class="appendRight10"
-                                            src="https://flights.makemytrip.com/makemytrip/images/drawable-mdpi/6E.png"
-                                            alt="" />
-                                        <div class="flexOne">
-                                            <p data-cy="rcmdFlightsFlightName3" class="appendBottom2">IndiGo</p>
-                                            <p data-cy="rcmdFlightsFlightCode3" class="font10 greyText"> 6E628</p>
-                                        </div>
+                                <div class="makeFlex infoTile appendBottom10 appendTop10"><img class="appendRight10"
+                                    src="http://promos.makemytrip.com/images/50x50-Ooty-23052019.png" alt="" data-cy="newsLetterIcon3" />
+                                    <div class="flexOne">
+                                        <p data-cy="newsLetterTitle3">
+                                            <p class="font18 latoBold blackText appendBottom5">Hyderabad Flights</p>
+                                        </p>
+                                        <p data-cy="newsLetterText3">
+                                            <p class="font12 lineHeight16"><span class="latoBold blackText"></span> Via -<a class="blackText"
+                                                href="https://www.makemytrip.com/flights/chennai-hyderabad-cheap-airtickets.html"> <span
+                                                    class="latoBold blackText"> Chennai</span></a>, <a class="blackText"
+                                                        href="https://www.makemytrip.com/flights/mumbai-hyderabad-cheap-airtickets.html"><span
+                                                            class="latoBold blackText">Mumbai</span></a>, <a class="blackText"
+                                                                href="https://www.makemytrip.com/flights/bangalore-hyderabad-cheap-airtickets.html"><span
+                                                                    class="latoBold blackText">Bangalore</span></a>, <a class="blackText"
+                                                                        href="https://www.makemytrip.com/flights/new_delhi-hyderabad-cheap-airtickets.html"><span
+                                                                            class="latoBold blackText">Delhi</span></a> </p>
+                                        </p>
                                     </div>
-                                    <div class="makeFlex end appendBottom15">
-                                        <div class="flexOne font18">
-                                            <span data-cy="rcmdFlightsDepartureTime3">
-                                                07:05
-                                                PM
-                                        </span><span class="paddingLR10 greyText"> -- </span><span data-cy="rcmdFlightsArrivalTime3">08:40 PM</span>
-                                        </div>
-                                        <div class="pushRight textRight">
-                                            <p class="latoBold blackText font20" data-cy="rcmdFlightsFare3">₹ 1700</p>
-                                        </div>
+                                </div>
+                                <div class="makeFlex infoTile appendBottom10 appendTop10"><img class="appendRight10"
+                                    src="https://promos.makemytrip.com/store/DelhiDT.JPG" alt="" data-cy="newsLetterIcon4" />
+                                    <div class="flexOne">
+                                        <p data-cy="newsLetterTitle4">
+                                            <p class="font18 latoBold blackText appendBottom5">Delhi Flights</p>
+                                        </p>
+                                        <p data-cy="newsLetterText4">
+                                            <p class="font12 lineHeight16"><span class="latoBold blackText"></span> Via -<a class="blackText"
+                                                href="https://www.makemytrip.com/flights/mumbai-new_delhi-cheap-airtickets.html"> <span
+                                                    class="latoBold blackText"> Mumbai</span></a>, <a class="blackText"
+                                                        href="https://www.makemytrip.com/flights/pune-new_delhi-cheap-airtickets.html"><span
+                                                            class="latoBold blackText">Pune</span></a>, <a class="blackText"
+                                                                href="https://www.makemytrip.com/flights/bangalore-new_delhi-cheap-airtickets.html"><span
+                                                                    class="latoBold blackText">Bangalore</span></a>, <a class="blackText"
+                                                                        href="https://www.makemytrip.com/flights/chennai-new_delhi-cheap-airtickets.html"><span
+                                                                            class="latoBold blackText">Chennai</span></a> </p>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="makeFlex infoTile appendBottom10 appendTop10"><img class="appendRight10"
+                                    src="https://promos.makemytrip.com/store/PuneDT.JPG" alt="" data-cy="newsLetterIcon5" />
+                                    <div class="flexOne">
+                                        <p data-cy="newsLetterTitle5">
+                                            <p class="font18 latoBold blackText appendBottom5">Pune Flights</p>
+                                        </p>
+                                        <p data-cy="newsLetterText5">
+                                            <p class="font12 lineHeight16"><span class="latoBold blackText"></span> Via -<a class="blackText"
+                                                href="https://www.makemytrip.com/flights/new_delhi-pune-cheap-airtickets.html"> <span
+                                                    class="latoBold blackText"> Delhi</span></a>, <a class="blackText"
+                                                        href="https://www.makemytrip.com/flights/bangalore-pune-cheap-airtickets.html"><span
+                                                            class="latoBold blackText">Bangalore</span></a>, <a class="blackText"
+                                                                href="https://www.makemytrip.com/flights/chennai-pune-cheap-airtickets.html"><span
+                                                                    class="latoBold blackText">Chennai</span></a>, <a class="blackText"
+                                                                        href="https://www.makemytrip.com/flights/ahmedabad-pune-cheap-airtickets.html"><span
+                                                                            class="latoBold blackText">Ahmedabad</span></a> </p>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="makeFlex infoTile appendBottom10 appendTop10"><img class="appendRight10"
+                                    src="https://promos.makemytrip.com/store/SingaporeDT.JPG" alt="" data-cy="newsLetterIcon6" />
+                                    <div class="flexOne">
+                                        <p data-cy="newsLetterTitle6">
+                                            <p class="font18 latoBold blackText appendBottom5">Kolkata Flights</p>
+                                        </p>
+                                        <p data-cy="newsLetterText6">
+                                            <p class="font12 lineHeight16"><span class="latoBold blackText"></span> Via -<a class="blackText"
+                                                href="https://www.makemytrip.com/flights/new_delhi-kolkata-cheap-airtickets.html"> <span
+                                                    class="latoBold blackText"> Delhi</span></a>, <a class="blackText"
+                                                        href="https://www.makemytrip.com/flights/mumbai-kolkata-cheap-airtickets.html"><span
+                                                            class="latoBold blackText">Mumbai</span></a>, <a class="blackText"
+                                                                href="https://www.makemytrip.com/flights/bangalore-kolkata-cheap-airtickets.html"><span
+                                                                    class="latoBold blackText">Bangalore</span></a>, <a class="blackText"
+                                                                        href="https://www.makemytrip.com/flights/pune-kolkata-cheap-airtickets.html"><span
+                                                                            class="latoBold blackText">Pune</span></a> </p>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="makeFlex infoTile appendBottom10 appendTop10"><img class="appendRight10"
+                                    src="https://promos.makemytrip.com/store/BangaloreDT.JPG" alt="" data-cy="newsLetterIcon7" />
+                                    <div class="flexOne">
+                                        <p data-cy="newsLetterTitle7">
+                                            <p class="font18 latoBold blackText appendBottom5">Bangalore Flights</p>
+                                        </p>
+                                        <p data-cy="newsLetterText7">
+                                            <p class="font12 lineHeight16"><span class="latoBold blackText"></span> Via -<a class="blackText"
+                                                href="https://www.makemytrip.com/flights/new_delhi-bangalore-cheap-airtickets.html"> <span
+                                                    class="latoBold blackText"> Delhi</span></a>, <a class="blackText"
+                                                        href="https://www.makemytrip.com/flights/pune-bangalore-cheap-airtickets.html"><span
+                                                            class="latoBold blackText">Pune</span></a>, <a class="blackText"
+                                                                href="https://www.makemytrip.com/flights/mumbai-bangalore-cheap-airtickets.html"><span
+                                                                    class="latoBold blackText">Mumbai</span></a>, <a class="blackText"
+                                                                        href="https://www.makemytrip.com/flights/kolkata-bangalore-cheap-airtickets.html"><span
+                                                                            class="latoBold blackText">Kolkata</span></a> </p>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="makeFlex infoTile appendBottom10 appendTop10"><img class="appendRight10"
+                                    src="https://promos.makemytrip.com/store/JaipurDT.JPG" alt="" data-cy="newsLetterIcon8" />
+                                    <div class="flexOne">
+                                        <p data-cy="newsLetterTitle8">
+                                            <p class="font18 latoBold blackText appendBottom5">Jaipur Flights</p>
+                                        </p>
+                                        <p data-cy="newsLetterText8">
+                                            <p class="font12 lineHeight16"><span class="latoBold blackText"></span> Via -<a class="blackText"
+                                                href="https://www.makemytrip.com/flights/mumbai-jaipur-cheap-airtickets.html"> <span
+                                                    class="latoBold blackText"> Mumbai</span></a>, <a class="blackText"
+                                                        href="https://www.makemytrip.com/flights/new_delhi-jaipur-cheap-airtickets.html"><span
+                                                            class="latoBold blackText">Delhi</span></a>, <a class="blackText"
+                                                                href="https://www.makemytrip.com/flights/pune-jaipur-cheap-airtickets.html"><span
+                                                                    class="latoBold blackText">Pune</span></a>, <a class="blackText"
+                                                                        href="https://www.makemytrip.com/flights/bangalore-jaipur-cheap-airtickets.html"><span
+                                                                            class="latoBold blackText">Bangalore</span></a> </p>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

@@ -12,21 +12,24 @@ import messages from './messages';
 
 import Header from '../../../components/App/Header'
 import Footer from '../../../components/App/Footer'
-import LandingSearchWidget from '../../../components/App/LandingSearchWidget'
+import Account from '../../../components/App/Account'
+import MinContainer from '../../../components/Flights/FlightMinContainer'
 
 export default function FlightLandingPage() {
   return (
     <article>
       {/* <H1> */}
       <div className="bgGradient" style={{ backgroundSize: "100% 485px" }}>
-        <div className="page-section sticky-scroll topSection appendBottom40" id="SW">
-          <div data-cy="landingContainer" className="landingContainer ">
+        <div className="page-section sticky-scroll topSection appendBottom40" id="SW">       
             <div></div> 
+            <div data-cy="landingContainer" className="landingContainer ">
+            <Account></Account>
             <Header></Header>
-            <LandingSearchWidget></LandingSearchWidget>
+            
           </div>
           <div className="widgetLoader"></div>
         </div>
+        <MinContainer></MinContainer>
         <Footer></Footer>
       </div>  
   
