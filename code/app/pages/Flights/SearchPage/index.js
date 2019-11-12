@@ -21,7 +21,7 @@ export default function FlightSearchPage() {
     // </article>
     <div class="commonHeader">
       <div data-cy="landingContainer" class="singleHeader  ">
-        <HeaderOuter></HeaderOuter>
+        <Header></Header>
       </div>
       <div id="root-element">
         <SearchWidget></SearchWidget>

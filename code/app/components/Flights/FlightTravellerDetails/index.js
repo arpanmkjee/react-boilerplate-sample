@@ -1,4 +1,5 @@
 import React from 'react';
+import FlightAddOns from '../FlightAddOns';
 
 function FlightTravellerDetails() {
     return (
@@ -202,6 +203,7 @@ function FlightTravellerDetails() {
                     </p>
                 </div>
             </div>
+            <FlightAddOns></FlightAddOns>
             <div>
                 <p class="rvw-heading LatoBold">Acknowledgement</p>
                 <div class="rvw-sctn append_bottom15 ack-section">
