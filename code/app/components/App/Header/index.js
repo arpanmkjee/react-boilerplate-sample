@@ -1,6 +1,4 @@
-import React from 'react';
-import homeStyles from '../../../../css/home.css';
-import commonStyles from '../../../../css/common.css';
+import React from 'react'; 
 
 function Header() {
   return (
