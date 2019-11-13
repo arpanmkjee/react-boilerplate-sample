@@ -434,7 +434,7 @@ return(
                   <div class="item "><a>
                     <p class="crous_weekly_dates">Tue,07 Jan</p>
                     <p class="crous_weekly_price"><span
-                      style={{ color: "rgb(22, 190, 72);" }}>₹ 1,596</span></p>
+                      style={{ color: "rgb(22, 190, 72)" }}>₹ 1,596</span></p>
                   </a></div>
                 </li>
                 <li class="slider-slide"

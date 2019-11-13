@@ -21,7 +21,7 @@ export default function FlightAncillaryPage() {
     //   Page
     //   {/* </H1> */}
     // </article>
-    <div class="ancillaries">
+    <div class="ancillaries" style={{backgroundColor:"#d3d3d3a1"}}>
       <div class="ancillary-wrapper make_relative">
         <div class="hsw" id="rev-header">
           <div class="fli-intl-container">

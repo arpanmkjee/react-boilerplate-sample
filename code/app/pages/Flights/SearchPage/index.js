@@ -9,7 +9,7 @@ import { FormattedMessage } from 'react-intl';
 
 //import H1 from 'components/H1';
 import messages from './messages';
-import Header from '../../../components/App/Header';
+import Header from '../../../components/Common/CommonHeader';
 import SearchWidget from '../../../components/App/LandingSearchWidget';
 import FlightSearchFilter from '../../../components/Flights/FlightSearchFilter';
 import FlightSearchResults from '../../../components/Flights/FlightSearchResults';
@@ -27,7 +27,7 @@ export default function FlightSearchPage() {
       </div>
       <div id="root-element">
         <SearchWidget></SearchWidget>
-        <div class="fix_header_mar_top padding_bottom15" id="body--wraper">
+        <div class="fix_header_mar_top padding_bottom15" id="body--wraper" style={{backgroundColor:"#d3d3d3a1"}}>
           <FlightSearchFilter></FlightSearchFilter>
           <FlightSearchResults></FlightSearchResults>
         </div>

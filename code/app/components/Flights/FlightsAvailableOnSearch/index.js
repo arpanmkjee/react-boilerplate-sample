@@ -41,6 +41,9 @@ function FlightsAvailableOnSearch(){
                                 </div>
                                 <p class="fli-stops-desc">Non stop</p>
                               </div>
+                              <div class="tag-info fli-overlay-white placement-top layover-tooltip">
+                                <p>Plane change<br/>Chennai (MAA)  | 4hr 30mins Layover</p>
+                              </div>
                               <div class="fli-time-section pull-left arrival">
                                 <div class="text-left pull-left wdh_full">
                                   <p class="reaching-time append_bottom3">
@@ -48,6 +51,7 @@ function FlightsAvailableOnSearch(){
                                       class="plusDay-info make_relative"><span
                                         class="fli-trvlDays LatoBold"></span></span>
                                   </p>
+
                                   <p class="arrival-city">Hyderabad</p>
                                 </div>
                               </div>
@@ -209,27 +213,27 @@ function FlightsAvailableOnSearch(){
                             <p class="clearfix append_bottom10 fareBreakup-item">
                               <span class="pull-left">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   TOTAL</font>
                               </span><span class="pull-right">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   ₹ 1,700</font>
                               </span></p>
                             <p class="clearfix append_bottom10 fareBreakup-item">
                               <span class="pull-left">
-                                <font style={{ color: "rgb(135, 135, 135);" }}>Base
+                                <font style={{ color: "rgb(135, 135, 135)" }}>Base
                                                                             Fare</font>
                               </span><span class="pull-right">
-                                <font style={{ color: "rgb(135, 135, 135);" }}>₹ 1,015
+                                <font style={{ color: "rgb(135, 135, 135)" }}>₹ 1,015
                                                                         </font>
                               </span></p>
                             <p class="clearfix append_bottom10 fareBreakup-item">
                               <span class="pull-left">
-                                <font style={{ color: "rgb(135, 135, 135);" }}>
+                                <font style={{ color: "rgb(135, 135, 135)" }}>
                                   Surcharges</font>
                               </span><span class="pull-right">
-                                <font style={{ color: "rgb(135, 135, 135);" }}>₹ 685
+                                <font style={{ color: "rgb(135, 135, 135)" }}>₹ 685
                                                                         </font>
                               </span></p>
                           </div>
@@ -292,7 +296,7 @@ function FlightsAvailableOnSearch(){
                                 <div class="text-left pull-left wdh_full">
                                   <p class="reaching-time append_bottom3">
                                     00:10<span
-                                      class="plusDay-info make_relative"><span
+                                      class="plusDay-info make_relative"><span style={{lineHeight:"1"}}
                                         class="fli-trvlDays LatoBold">+1
                                                                                             DAY</span><span
                                         class="tag-info fli-overlay-white placement-top plusDay-tooltip"><span
@@ -339,7 +343,7 @@ function FlightsAvailableOnSearch(){
                           <p class="font16 append_bottom15"><strong>ZERO
                                                                 </strong>Cancellation, Benefits<span
                               class="zc-inner-icon"
-                              style={{ backgroundImage: "url(&quot;https://imgak.mmtcdn.com/flights/assets/media/dt/review/zc_icon.png?v=1&quot;);" }}></span>
+                              style={{ backgroundImage: "url(&quot;https://imgak.mmtcdn.com/flights/assets/media/dt/review/zc_icon.png?v=1&quot;)" }}></span>
                           </p>
                           <div class="zc-benefits-sctn font14 append_bottom12">
                             <p class="clearfix append_bottom3"><span
@@ -464,27 +468,27 @@ function FlightsAvailableOnSearch(){
                             <p class="clearfix append_bottom10 fareBreakup-item">
                               <span class="pull-left">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   TOTAL</font>
                               </span><span class="pull-right">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   ₹ 1,700</font>
                               </span></p>
                             <p class="clearfix append_bottom10 fareBreakup-item">
                               <span class="pull-left">
-                                <font style={{ color: "rgb(135, 135, 135);" }}>Base
+                                <font style={{ color: "rgb(135, 135, 135)" }}>Base
                                                                             Fare</font>
                               </span><span class="pull-right">
-                                <font style={{ color: "rgb(135, 135, 135);" }}>₹ 1,135
+                                <font style={{ color: "rgb(135, 135, 135)" }}>₹ 1,135
                                                                         </font>
                               </span></p>
                             <p class="clearfix append_bottom10 fareBreakup-item">
                               <span class="pull-left">
-                                <font style={{ color: "rgb(135, 135, 135);" }}>
+                                <font style={{ color: "rgb(135, 135, 135)" }}>
                                   Surcharges</font>
                               </span><span class="pull-right">
-                                <font style={{ color: "rgb(135, 135, 135);" }}>₹ 565
+                                <font style={{ color: "rgb(135, 135, 135)" }}>₹ 565
                                                                         </font>
                               </span></p>
                           </div>
@@ -958,11 +962,11 @@ function FlightsAvailableOnSearch(){
                             <p class="clearfix append_bottom10 fareBreakup-item">
                               <span class="pull-left">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   TOTAL</font>
                               </span><span class="pull-right">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   ₹ 1,700</font>
                               </span></p>
                             <p class="clearfix append_bottom10 fareBreakup-item">
@@ -1205,11 +1209,11 @@ function FlightsAvailableOnSearch(){
                             <p class="clearfix append_bottom10 fareBreakup-item">
                               <span class="pull-left">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   TOTAL</font>
                               </span><span class="pull-right">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   ₹ 1,700</font>
                               </span></p>
                             <p class="clearfix append_bottom10 fareBreakup-item">
@@ -1452,11 +1456,11 @@ function FlightsAvailableOnSearch(){
                             <p class="clearfix append_bottom10 fareBreakup-item">
                               <span class="pull-left">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   TOTAL</font>
                               </span><span class="pull-right">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   ₹ 1,700</font>
                               </span></p>
                             <p class="clearfix append_bottom10 fareBreakup-item">
@@ -1699,11 +1703,11 @@ function FlightsAvailableOnSearch(){
                             <p class="clearfix append_bottom10 fareBreakup-item">
                               <span class="pull-left">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   TOTAL</font>
                               </span><span class="pull-right">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   ₹ 1,700</font>
                               </span></p>
                             <p class="clearfix append_bottom10 fareBreakup-item">
@@ -1946,11 +1950,11 @@ function FlightsAvailableOnSearch(){
                             <p class="clearfix append_bottom10 fareBreakup-item">
                               <span class="pull-left">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   TOTAL</font>
                               </span><span class="pull-right">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   ₹ 1,700</font>
                               </span></p>
                             <p class="clearfix append_bottom10 fareBreakup-item">
@@ -2193,11 +2197,11 @@ function FlightsAvailableOnSearch(){
                             <p class="clearfix append_bottom10 fareBreakup-item">
                               <span class="pull-left">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   TOTAL</font>
                               </span><span class="pull-right">
                                 <font
-                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0);" }}>
+                                  style={{ fontSize: "14px", color: "rgb(0, 0, 0)" }}>
                                   ₹ 1,700</font>
                               </span></p>
                             <p class="clearfix append_bottom10 fareBreakup-item">
