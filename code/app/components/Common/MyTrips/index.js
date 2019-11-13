@@ -151,7 +151,7 @@ function MyTrips() {
                                       </div>
                                     </div>
                                     <p><span class="cm__myTripSprt cm__myTripSprt--GuestBlk appendRight10"
-                                      style="margin-top: -2px;"></span><span>Konireddy
+                                      style="margin-top: -2px"></span><span>Konireddy
                                                                 </span></p>
                                   </div>
                                   <div class="leftPart__imgContainer--flight"><img class=""
@@ -218,7 +218,7 @@ function MyTrips() {
                                         class="font16 darkGreyText latoBlack">08 Jul'19
                                                                 </span><span class="greyText undefined">09:30
                                                                     AM</span></span>
-                                    <p class="font12" style="width: 150px;"><span
+                                    <p class="font12" style="width: 150px"><span
                                       class="latoBlack">HYD</span><span class="latoBold">-
                                                                     Hyderabad</span></p>
                                   </div>
@@ -243,7 +243,7 @@ function MyTrips() {
                                       </div>
                                     </div>
                                     <p><span class="cm__myTripSprt cm__myTripSprt--GuestBlk appendRight10"
-                                      style="margin-top: -2px;"></span><span>Konireddy
+                                      style="margin-top: -2px"></span><span>Konireddy
                                                                 </span></p>
                                   </div>
                                   <div class="leftPart__imgContainer--flight"><img class=""

@@ -12,7 +12,7 @@ import messages from './messages';
 import FlightFareSummary from '../../../components/Flights/FlightFareSummary';
 import FlightTravellerDetails from '../../../components/Flights/FlightTravellerDetails';
 import FlightAncillarySummary from '../../../components/Flights/FlightAncillarySummary';
-import Header from '../../../components/App/Header'
+import Header from '../../../components/Common/CommonHeader'
 
 export default function FlightTravellerPage() {
   return (
@@ -21,7 +21,7 @@ export default function FlightTravellerPage() {
     //   FlightTravellerPage
     //   {/* </H1> */}
     // </article>
-    <div>
+    <div style={{backgroundColor:"#d3d3d3a1"}}>
     <div class="commonHeader">
         <div data-cy="landingContainer" class="singleHeader  ">
             <Header></Header>            

@@ -38,9 +38,9 @@ function FlightReviewTab() {
                         </div>
                     </div>
                 </div>
-                <div class="fix_header_mar_top" style={{ marginTop: "0px;" }}>
+                <div class="fix_header_mar_top" style={{ marginTop: "0px" }}>
                     <div class="fli-intl-container prepend_top20 clearfix ">
-                        <p class="text-center dealApplied-strip" style={{ backgroundColor: "rgb(193, 241, 221);" }}>
+                        <p class="text-center dealApplied-strip" style={{ backgroundColor: "rgb(193, 241, 221)" }}>
                             <font color="#0c6663">Pay using UPI to get up to Rs. 1000 EXTRA discount!</font>
                         </p>
                         <div class="fli-intl-lhs pull-left">

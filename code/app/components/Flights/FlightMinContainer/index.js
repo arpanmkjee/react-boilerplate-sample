@@ -19,7 +19,7 @@ function MinContainer(){
                             </li>
                             </ul>
                             <div class="pushRight">
-                                <h1>
+                                <h1 style={{margin:"0px"}}>
                                     Book<a href="/flights/" class="darkGreyText"> Domestic </a> and<a href="/international-flights/" class="darkGreyText">International</a> flights
                             </h1>
                             </div>
@@ -556,7 +556,7 @@ function MinContainer(){
                     </main>
                 </div>
             </div>
-        )
+        );
     }
 
     export default MinContainer;
