@@ -10,8 +10,9 @@ class FlightsAvailableOnSearch extends React.Component {
       results: [],
     }
   }
+
   onBook = () => { 
-    this.props.requestApiData();
+    this.props.requestSearchApiData();
     window.location.assign('/review');
   }
 
@@ -288,8 +289,7 @@ class FlightsAvailableOnSearch extends React.Component {
             </div>
             )
           }
-          )
-          
+          ) 
           }
         </div>
       </div>
