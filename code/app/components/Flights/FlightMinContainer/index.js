@@ -6,18 +6,15 @@ import { requestApiData } from '../../../containers/App/actions'
 
 class MinContainer extends React.Component {
     componentDidMount() {
-        this.props.requestApiData();
     }
 
-    onSearch = () => {
-        getSearchResult((response) => {
-            var x = response;
-        })
+    onSearch = () => { 
+        this.props.requestApiData();
         window.location.assign('/result');
     }
     render() {
         const { results = {} } = this.props.data;
-        return results.data && results.data.length ? (
+        return (
             <div class="minContainer" >
                 <div>
                     <div data-cy="flightSW" class="widgetSection appendBottom40">
@@ -571,15 +568,8 @@ class MinContainer extends React.Component {
                         </ul>
                     </main>
                 </div>
-                <div>
-                    {results.data.map((anObjectMapped, index) => {
-                        <p>
-                            {anObjectMapped.name} - {anObjectMapped.email}
-                        </p>
-                    })}
                 </div>
-            </div>
-        ) : <div class="minContainer" ><h1>Loading</h1></div>;
+        )
     }
 }
 
