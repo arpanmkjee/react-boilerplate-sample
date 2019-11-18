@@ -15,7 +15,7 @@
  *    }
  */
 
-import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR } from './constants';
+import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR,RECEIVE_API_DATA,REQUEST_API_DATA } from './constants';
 
 /**
  * Load the repositories, this action starts the request saga
@@ -57,3 +57,20 @@ export function repoLoadingError(error) {
     error,
   };
 }
+
+export const getSearchResult = (result) => ({
+  type: 'GET_SEARCH',
+  result:result
+});
+
+export const requestApiData = () => ({
+  type: REQUEST_API_DATA
+});
+
+export const receiveApiData = (data) => ({
+  type: RECEIVE_API_DATA,
+  data
+});
+
+
+
