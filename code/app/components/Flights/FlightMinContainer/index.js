@@ -16,7 +16,8 @@ class MinContainer extends React.Component {
         window.location.assign('/result');
     }
     render() {
-        const { results = {} } = this.props.data;
+        console.log(this.props.data);
+        const { results = {} } = this.props.data;        
         return results.data && results.data.length ? (
             <div class="minContainer" >
                 <div>

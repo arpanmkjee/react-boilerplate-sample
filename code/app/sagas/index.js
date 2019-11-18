@@ -13,7 +13,7 @@ function* SearchResultWatcher() {
 
 function* getApiData(action) {debugger;
     try {
-        const data = yield call(getCities);
+        const data = yield call(getSearchResult);
         yield put(receiveApiData(data)) 
     }
     catch (e) {

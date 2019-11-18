@@ -2,7 +2,7 @@ import axios from 'axios'
 // import { AuthService } from '../service/AuthService'
 
 const isLocal = 'local'
-const url = 'http://localhost:8090/api'
+const url = 'http://localhost:8080'
 
 const instance = axios.create({
     baseURL: url,
