@@ -2,9 +2,8 @@ import React from 'react';
 
 function Header() {
   return (
-    <div class="headerOuter">
-                    <div class="chHeaderWrapper navOnly">
-                        <div class="chHeaderContainer">
+    
+        <div class="chHeaderContainer">
                             <span class="logoContainer">
                                 <a class="chMmtLogo" href="//www.makemytrip.com/">
                                     <img src="//imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png"
@@ -142,8 +141,7 @@ function Header() {
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                </div>
+                    
   );
 }
 

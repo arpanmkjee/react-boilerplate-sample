@@ -6,8 +6,7 @@ import FlightSearchMultiCity from './MultiCity/index'
 function FlightSearchWidget() {
   return (
     <div>
-    FlightSearchWidget
-
+    FlightSearchWidget 
     <FlightSearchOneWay/>
     <FlightSearchRoundTrip/>
     <FlightSearchMultiCity/>

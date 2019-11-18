@@ -1,9 +1,21 @@
 import * as React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import SuperOffers from '../../Common/SuperOffers';
+import { requestApiData } from '../../../containers/App/actions'
 
-function MinContainer(){
+class MinContainer extends React.Component {
+    componentDidMount() {
+    }
+
+    onSearch = () => { 
+        this.props.requestApiData();
+        window.location.assign('/result');
+    }
+    render() {
+        const { results = {} } = this.props.data;
         return (
-            <div class="minContainer">
+            <div class="minContainer" >
                 <div>
                     <div data-cy="flightSW" class="widgetSection appendBottom40">
                         <div class="makeFlex">
@@ -19,7 +31,7 @@ function MinContainer(){
                             </li>
                             </ul>
                             <div class="pushRight">
-                                <h1>
+                                <h1 style={{ margin: "0px" }}>
                                     Book<a href="/flights/" class="darkGreyText"> Domestic </a> and<a href="/international-flights/" class="darkGreyText">International</a> flights
                             </h1>
                             </div>
@@ -140,7 +152,8 @@ function MinContainer(){
                                 </div>
                             </div>
                             <p data-cy="submit" class="makeFlex vrtlCenter ">
-                                <a class="primaryBtn font24 latoBlack widgetSearchBtn" href="/result">Search</a>
+                                <input class="primaryBtn font24 latoBlack widgetSearchBtn" type="button" onClick={this.onSearch} value="Search" name="btnSearch"></input>
+                                {/* <a class="primaryBtn font24 latoBlack widgetSearchBtn" href="/result">Search</a> */}
                             </p>
                         </div>
                     </div>
@@ -555,8 +568,11 @@ function MinContainer(){
                         </ul>
                     </main>
                 </div>
-            </div>
+                </div>
         )
     }
+}
 
-    export default MinContainer;
+const mapStateToProps = state => ({ data: state.flights });
+const mapDispatchToPrps = disptch => bindActionCreators({ requestApiData }, disptch);
+export default connect(mapStateToProps, mapDispatchToPrps)(MinContainer);

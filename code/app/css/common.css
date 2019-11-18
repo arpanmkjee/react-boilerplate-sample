@@ -7923,6 +7923,9 @@ button.close {
     }
 }
 
+p, label {
+    font-family: inherit !important;
+}
 body {
     background: #e0e0e0 none repeat scroll 0 0;
     font-family: Lato-Regular,Arial,Helvetica,sans-serif;
@@ -14365,7 +14368,7 @@ a.cheapest-fare {
 .fli-trvlDays {
     font-size: 8px;
     color: #eb2026;
-    width: 15px;
+    width: 16px;
     display: inline-block;
     margin-left: 5px
 }
@@ -22518,7 +22521,7 @@ a.cheapest-fare {
 }
 
 .inactiveWidget .hsw_inputField, .inactiveWidget .lbl_input {
-    opacity: .2
+    opacity: 1
 }
 
 .hsw .hsw_inputBox.activeWidget .hsw_inputField, .hsw .hsw_inputBox.activeWidget .lbl_input, .hsw .hsw_inputBox.myClass {

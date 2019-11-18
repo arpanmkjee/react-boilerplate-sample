@@ -3,7 +3,6 @@
  *
  * 
  */
-
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
@@ -20,10 +19,14 @@ export default function FlightReviewPage() {
 
     //   {/* </H1> */}
     // </article>
-    <div>
+    <div style={{backgroundColor:"#d3d3d3a1"}}>
       <div class="commonHeader">
         <div data-cy="landingContainer" class="singleHeader  ">
+        <div class="headerOuter">
+          <div class="chHeaderWrapper">
           <Header></Header>
+          </div>
+        </div>        
         </div>
       </div>
       <div class="review-page">
@@ -54,9 +57,9 @@ export default function FlightReviewPage() {
             </div>
           </div>
         </div>
-        <div class="fix_header_mar_top" style={{ marginTop: "0px;" }}>
+        <div class="fix_header_mar_top" style={{ marginTop: "0px" }}>
           <div class="fli-intl-container prepend_top20 clearfix ">
-            <p class="text-center dealApplied-strip" style={{ backgroundColor: "rgb(193, 241, 221);" }}>
+            <p class="text-center dealApplied-strip" style={{ backgroundColor: "rgb(193, 241, 221)" }}>
               <font color="#0c6663">Pay using UPI to get up to Rs. 1000 EXTRA discount!</font>
             </p>
             <FlightsIteneray></FlightsIteneray>

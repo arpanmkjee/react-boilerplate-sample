@@ -228,10 +228,11 @@ function FlightTravellerDetails() {
                             </span>
                         </label>
                     </p>
-                    <div class="make_relative blocked_traveller_booking">
+                    <div class="make_relative blocked_traveller_booking"><a href="/ancillary">
                         <button class="ack-cta btn fli_primary_btn text-uppercase"
-                            type="button"><a href="/ancillary">Continue</a>                           
+                            type="button">Continue                           
                         </button>
+                        </a>
                     </div>
                 </div>
             </div>

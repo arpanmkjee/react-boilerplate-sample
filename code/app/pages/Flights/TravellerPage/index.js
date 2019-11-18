@@ -21,10 +21,14 @@ export default function FlightTravellerPage() {
     //   FlightTravellerPage
     //   {/* </H1> */}
     // </article>
-    <div>
+    <div style={{backgroundColor:"#d3d3d3a1"}}>
     <div class="commonHeader">
         <div data-cy="landingContainer" class="singleHeader  ">
-            <Header></Header>            
+        <div class="headerOuter">
+          <div class="chHeaderWrapper ">
+          <Header></Header>
+          </div>
+        </div>             
         </div>
     </div>
     <div class="traveler-page">
