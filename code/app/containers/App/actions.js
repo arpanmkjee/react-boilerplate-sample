@@ -63,6 +63,12 @@ export const getSearchResult = (result) => ({
   result:result
 });
 
+export const getFlightReview = (result) => ({
+  type: 'GET_FLIGHT_REVIEW',
+  result:result
+});
+
+
 export const requestApiData = () => ({
   type: REQUEST_API_DATA
 });

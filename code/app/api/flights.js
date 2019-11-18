@@ -23,3 +23,15 @@ export const getSearchResult = async (data) => {
         throw error
     }
   }; 
+  
+  export const getFlightReview = async (data) => { 
+    try {
+        const action = '/review'
+        const result = await api.postData(action, data)
+        debugger;
+        return result.data
+    } catch (error) {
+        logger('error post profile', error)
+        throw error
+    }
+  }; 
