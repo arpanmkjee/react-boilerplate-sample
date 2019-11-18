@@ -15,7 +15,7 @@ import languageProviderReducer from 'containers/LanguageProvider/reducer';
  */
 export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
-    flights:flights,
+    flights: flights,
     global: globalReducer,
     language: languageProviderReducer,
     router: connectRouter(history),

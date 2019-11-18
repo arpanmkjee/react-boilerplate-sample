@@ -23,3 +23,14 @@ export const getSearchResult = async (data) => {
         throw error
     }
   }; 
+
+  export const getReview = async () => {
+    try {
+        const action = '/review'
+        const result = await api.postData(action)
+        return result.data
+    } catch (error) {
+        logger('error.response', error)
+        throw error
+    }
+} 
