@@ -70,9 +70,9 @@ export const getReviewResponse = (data) => ({
 
 export const requestSearchApiData = () => ({
   type: REQUEST_API_DATA
-});
+}); 
 
-export const requestReviewApiData = () => ({
+export const requestApiData = () => ({ 
   type: REQUEST_API_DATA
 });
 

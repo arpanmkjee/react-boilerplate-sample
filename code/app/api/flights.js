@@ -22,7 +22,7 @@ export const getSearchResult = async (data) => {
         logger('error post profile', error)
         throw error
     }
-  }; 
+  };  
 
   export const getReview = async () => {
     try {
@@ -33,4 +33,4 @@ export const getSearchResult = async (data) => {
         logger('error.response', error)
         throw error
     }
-} 
+}  

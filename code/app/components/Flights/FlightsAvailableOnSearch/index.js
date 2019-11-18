@@ -10,6 +10,11 @@ class FlightsAvailableOnSearch extends React.Component {
       results: [],
     }
   }
+  onBook = () => { 
+    this.props.requestApiData();
+    window.location.assign('/review');
+  }
+
   componentDidMount() {
     this.props.requestSearchApiData();
   }
@@ -40,8 +45,8 @@ class FlightsAvailableOnSearch extends React.Component {
                           style={{ backgroundImage: "url(&quot;https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=4&quot;)" }}></span></span>
                         </div>
                         <div class="pull-left airways-info-sect">
-                          <p><span class="airways-name ">IndiGo</span></p>
-                          <p class="fli-code">6E-5375</p>
+                          <p><span class="airways-name ">{item.journeyHeader}</span></p>
+                          <p class="fli-code">{item.flightDetail.legList[0].legID}</p>
                         </div>
                       </div>
                       <div class="pull-left">
@@ -54,29 +59,29 @@ class FlightsAvailableOnSearch extends React.Component {
                                 style={{ width: "18px", height: "18px", display: "block", marginRight: "9px", marginTop: "4px", float: "left" }}>&nbsp;</span>
                               <div
                                 class="fli-time-section pull-left departure">
-                                <div class="dept-time">15:55</div>
-                                <p class="dept-city">Mumbai</p>
+                                <div class="dept-time">{item.depTime}</div>
+                                <p class="dept-city">{item.depCity}</p>
                               </div>
                               <div class="pull-left fli-stops make_relative">
-                                <p class="fli-duration"><strong>01</strong>
-                                  hr <strong>25</strong> mins </p>
+                                <p class="fli-duration"><strong>{item.duration.h}</strong>
+                                  hr <strong>{item.duration.m}</strong> mins </p>
                                 <div class="make_relative fli-stops-sep">
                                   <p class="fli-stops-seperator"></p>
                                 </div>
-                                <p class="fli-stops-desc">Non stop</p>
+                                <p class="fli-stops-desc">{item.layover.stopInfo}</p>
                               </div>
                               <div class="tag-info fli-overlay-white placement-top layover-tooltip">
-                                <p>Plane change<br />Chennai (MAA)  | 4hr 30mins Layover</p>
+                                <p>{item.layover.hoverInfo.text}</p>
                               </div>
                               <div class="fli-time-section pull-left arrival">
                                 <div class="text-left pull-left wdh_full">
                                   <p class="reaching-time append_bottom3">
-                                    17:20<span
+                                    {item.arrTime}<span
                                       class="plusDay-info make_relative"><span
                                         class="fli-trvlDays LatoBold"></span></span>
                                   </p>
 
-                                  <p class="arrival-city">Hyderabad</p>
+                                  <p class="arrival-city">{item.arrCity}</p>
                                 </div>
                               </div>
                             </label></div>
@@ -84,11 +89,13 @@ class FlightsAvailableOnSearch extends React.Component {
                         </div>
                       </div>
                       <div class="pull-left  make_relative price">
-                        <p><span class="actual-price">₹ 1,700</span></p>
+                        <p><span class="actual-price">{item.fareBreakup.fareBreakUpItems[0].amount}</span></p>
                       </div>
-                      <div class="pull-left make_relative"><a href="/review"><button
+                      <div class="pull-left make_relative">
+                      <input class="fli_primary_btn text-uppercase" id="bookbutton-RKEY:452b55b3-9f45-403a-8d5e-7b39e08f20e7:1" type="button" onClick={this.onBook} value="Book Now" name="btnSearch"></input>
+                        {/* <a href="/review"><button
                         id="bookbutton-RKEY:452b55b3-9f45-403a-8d5e-7b39e08f20e7:1"
-                        class="fli_primary_btn text-uppercase ">Book Now</button></a>
+                        class="fli_primary_btn text-uppercase ">Book Now</button></a> */}
                       </div>
                     </div>
                   </div>
@@ -282,6 +289,7 @@ class FlightsAvailableOnSearch extends React.Component {
             )
           }
           )
+          
           }
         </div>
       </div>

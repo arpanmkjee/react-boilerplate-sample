@@ -1,9 +1,9 @@
 import { call, put, takeLatest, takeEvery, all } from 'redux-saga/effects';
 import { getSearchResult, getReview } from '../api/flights';
 import { getSearchResultResponse, getReviewResponse } from '../../app/containers/App/actions'
-import { REQUEST_API_DATA, GET_REVIEW } from '../../app/containers/App/constants';
+import { REQUEST_API_DATA, GET_REVIEW } from '../../app/containers/App/constants'; 
 
-function* getflightSearchResult() { 
+function* getflightSearchResult(action) { 
     try {
         const data = yield call(getSearchResult);
         yield put(getSearchResultResponse(data))
@@ -23,7 +23,7 @@ function* getflightReview() {
         console.log(e);
     }
 }
-
+ 
 function* sagaWatcher() {
     yield takeEvery(REQUEST_API_DATA, getflightSearchResult)
     //yield takeEvery(REQUEST_API_DATA, getflightReview)
@@ -32,5 +32,5 @@ function* sagaWatcher() {
 export default function* rootSaga() { 
     yield all([
         sagaWatcher()
-      ]) 
+      ])  
 }
