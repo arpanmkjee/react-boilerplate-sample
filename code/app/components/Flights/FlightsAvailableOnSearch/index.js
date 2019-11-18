@@ -14,11 +14,10 @@ class FlightsAvailableOnSearch extends React.Component {
     this.props.requestApiData();
   }
 
-  componentWillReceiveProps(nextProps) {
-    debugger;
+  componentWillReceiveProps(nextProps) { 
     let flag = 0;
     this.setState({
-      results: [...nextProps.data.data],
+      results: [...nextProps.data.journeyMap],
     }, () => {
       console.log(this.state.results);
     });
@@ -290,6 +289,6 @@ class FlightsAvailableOnSearch extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ data: state.flights });
+const mapStateToProps = state => ({ data: state.flights }); 
 const mapDispatchToPrps = disptch => bindActionCreators({ requestApiData }, disptch);
 export default connect(mapStateToProps, mapDispatchToPrps)(FlightsAvailableOnSearch);   
