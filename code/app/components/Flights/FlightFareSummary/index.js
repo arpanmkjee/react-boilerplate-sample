@@ -37,8 +37,7 @@ class FlightFareSummary extends React.Component {
                   <div class="fareSmry-header LatoBold">
                     <p class="fareSmry-hdng">
                       <span class="fareSmry-expand-icon cursor_pointer marR15 open"></span><span>
-                        Base
-                        Fare
+                        {item.fareBreakup.fareBreakupitems[0].title}
                 </span>
                     </p>
                   </div>
@@ -46,13 +45,12 @@ class FlightFareSummary extends React.Component {
                     <p class="fareSmry-row">
                       <span class="fareSmry-field">
                         <span>
-                          Adult(s) (1 X ₹
-                          1,015)
+                         {item.fareBreakup.fareBreakupitems[0].fareEntities.text}
                   </span>
                       </span><span class="font16 LatoBold text-right">
                         <span>
                           ₹
-                          1,015
+                          {item.fareBreakup.fareBreakupitems[0].fareEntities.amount}
                   </span>
                       </span>
                     </p>
@@ -62,20 +60,18 @@ class FlightFareSummary extends React.Component {
                   <div class="fareSmry-header LatoBold">
                     <p class="fareSmry-hdng">
                       <span class="fareSmry-expand-icon cursor_pointer marR15 "></span><span>
-                        Fee
-                        &amp; Surcharges
+                      {item.fareBreakup.fareBreakupitems[1].title}
                 </span>
-                    </p><span class="font16">₹ 685</span>
+                    </p><span class="font16">₹ {item.fareBreakup.fareBreakupitems[1].amount}</span>
                   </div>
                 </div>
                 <div class="fareSmry-sctn">
                   <div class="fareSmry-header LatoBold">
                     <p class="fareSmry-hdng">
                       <span class="fareSmry-expand-icon cursor_pointer marR15 "></span><span>
-                        Other
-                        Services
+                      {item.fareBreakup.fareBreakupitems[2].title}
                 </span>
-                    </p><span class="font16">₹ 5</span>
+                    </p><span class="font16">₹ {item.fareBreakup.fareBreakupitems[2].amount}</span>
                   </div>
                 </div>
                 <div class="fareSmry-sctn reqPad-fareSmry-sctn">
@@ -87,7 +83,7 @@ class FlightFareSummary extends React.Component {
                       <span style={{ fontSize: "20px", textAlign: "right", lineHeight: "normal" }}>
                         <span>
                           ₹
-                          1,705
+                          {item.fareBreakup.fareBreakupitems[0].totFare}
                   </span>
                       </span>
                     </span>

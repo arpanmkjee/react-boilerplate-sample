@@ -19,6 +19,12 @@ class FlightsAvailableOnSearch extends React.Component {
     this.props.requestApiData();
   }
 
+  // componentWillMount(){
+  //   this.setState({
+  //     results: this.props.data.journeyMap
+  //   })
+  //   console.log(this.state.results);
+  // }
   componentWillReceiveProps(nextProps) { 
     let flag = 0;
     this.setState({

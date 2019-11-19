@@ -16,11 +16,17 @@ class FlightItenerary extends React.Component {
         this.props.requestApiData();
     }
 
+    // componentWillMount(){
+    //     this.setState({
+    //         reviewResults: this.props.data.journeyList
+    //     })
+    //     console.log(this.state.reviewResults)
+    // }
     componentWillReceiveProps(nextProps) {
         debugger;
         let flag = 0;
         this.setState({
-            reviewResults: [...nextProps.data.journeyList],
+            reviewResults: [this.props.data.journeyList],
         }, () => {
             console.log(this.state.reviewResults);
         });
