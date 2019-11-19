@@ -139,7 +139,7 @@ class MinContainer extends React.Component {
                               
                               </div>
                                 : null}
-                                <div class="hsBackDrop"></div>
+                                
                                 <span class="swipCircle"><span class="landingSprite swipIcon"></span></span>
                                 <div class="fsw_inputBox searchToCity inactiveWidget " onClick={this.SearchToCity}>
                                     <label for="toCity"  >
@@ -188,8 +188,7 @@ class MinContainer extends React.Component {
                                 </div>
                                 :null}
                                 </div>                                
-                                    <div class="fsw_inputBox dates inactiveWidget " onClick={this.OpenDatePicker} >
-                                        
+                                    <div class="fsw_inputBox dates inactiveWidget " onClick={this.OpenDatePicker} >                                        
                                         <label for="departure">
                                             <span class="lbl_input latoBold appendBottom10">DEPARTURE</span><input data-cy="departure" id="departure" type="text" class="fsw_inputField font20"
                                                 readonly="" value="Friday, 8 Nov 2019" />

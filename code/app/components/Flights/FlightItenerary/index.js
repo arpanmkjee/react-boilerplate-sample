@@ -16,17 +16,12 @@ class FlightItenerary extends React.Component {
         this.props.requestApiData();
     }
 
-    // componentWillMount(){
-    //     this.setState({
-    //         reviewResults: this.props.data.journeyList
-    //     })
-    //     console.log(this.state.reviewResults)
-    // }
+  
     componentWillReceiveProps(nextProps) {
         debugger;
         let flag = 0;
         this.setState({
-            reviewResults: [this.props.data.journeyList],
+            reviewResults: [...nextProps.data.journeyList],
         }, () => {
             console.log(this.state.reviewResults);
         });
@@ -47,18 +42,20 @@ class FlightItenerary extends React.Component {
                                             <div class="rvw-labelView-block"
                                                 style={{ backgroundImage: "linear-gradient(294deg, rgb(82, 82, 82), rgb(23, 23, 23))" }}>
                                                 <p style={{ fontSize: "18px", marginBottom: "2px", fontFamily: "lato-light, arial, helvetica, sans-serif" }}>
-                                                {item.journeyHeader.labelView.title}
+                                                {/* {item.journeyHeader.labelView.title} */}
                                                     </p>
                                                 <p style={{ fontFamily: "lato-bold, arial, helvetica, sans-serif", fontSize: "14px" }}>
-                                                    {item.journeyHeader.labelView.subtitle}
+                                                    {/* {item.journeyHeader.labelView.subtitle} */}
                                                 </p>
                                             </div>
                                             <div>
                                                 <p style={{ color: "rgb(74, 74, 74)", fontSize: "18px", marginBottom: "2px" }}>
-                                                    <span style={{ fontFamily: "lato-bold, arial, helvetica, sans-serif" }}>{item.journeyHeader.title}</span>
+                                                    <span style={{ fontFamily: "lato-bold, arial, helvetica, sans-serif" }}>
+                                                        {/* {item.journeyHeader.title} */}
+                                                        </span>
                                                 </p>
                                                 <p style={{ fontFamily: "lato-bold, arial, helvetica, sans-serif", fontSize: "14px" }}>
-                                                {item.journeyHeader.subtitle}
+                                                {/* {item.journeyHeader.subtitle} */}
                                                     </p>
                                             </div>
                                         </div>
