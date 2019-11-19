@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { requestApiData } from '../../../containers/App/actions'
+import { requestSearchApiData } from '../../../containers/App/actions'
 import { bindActionCreators } from 'redux';
 
 class FlightsAvailableOnSearch extends React.Component {
@@ -10,13 +10,14 @@ class FlightsAvailableOnSearch extends React.Component {
       results: [],
     }
   }
+
   onBook = () => { 
-    this.props.requestApiData();
+    this.props.requestSearchApiData();
     window.location.assign('/review');
   }
 
   componentDidMount() {
-    this.props.requestApiData();
+    this.props.requestSearchApiData();
   }
 
   // componentWillMount(){
@@ -294,8 +295,7 @@ class FlightsAvailableOnSearch extends React.Component {
             </div>
             )
           }
-          )
-          
+          ) 
           }
         </div>
       </div>
@@ -304,5 +304,5 @@ class FlightsAvailableOnSearch extends React.Component {
 }
 
 const mapStateToProps = state => ({ data: state.flights }); 
-const mapDispatchToPrps = disptch => bindActionCreators({ requestApiData }, disptch);
+const mapDispatchToPrps = disptch => bindActionCreators({ requestSearchApiData }, disptch);
 export default connect(mapStateToProps, mapDispatchToPrps)(FlightsAvailableOnSearch);   
