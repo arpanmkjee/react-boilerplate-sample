@@ -9,7 +9,7 @@ class FlightsAvailableOnSearch extends React.Component {
     this.state = {
       results: props.data.searchResult.journeyMap,
     }
-  }
+  } 
 
   onBook = (e) => {
     debugger;
@@ -289,8 +289,7 @@ class FlightsAvailableOnSearch extends React.Component {
             </div>
             )
           }
-          )
-
+ )
           }
         </div>
       </div>
