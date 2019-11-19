@@ -1,30 +1,31 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { requestSearchApiData } from '../../../containers/App/actions'
+import { reviewResultWatcher } from '../../../containers/App/actions'
 import { bindActionCreators } from 'redux';
 
 class FlightsAvailableOnSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      results: [],
+      results: props.data.searchResult.journeyMap,
     }
   }
-  onBook = () => { 
-    this.props.requestApiData();
-    window.location.assign('/review');
-  }
 
-  componentDidMount() {
-    this.props.requestSearchApiData();
-  }
-
-  componentWillReceiveProps(nextProps) { 
-    let flag = 0;
-    this.setState({
-      results: [...nextProps.data.journeyMap],
-    }, () => {
-      console.log(this.state.results);
+  onBook = (e) => {
+    debugger;
+    e.preventDefault();
+    new Promise((resolve, reject) => {
+      this.props.reviewResultWatcher({
+      }, resolve, reject);
+    }).then(() => {
+      debugger;
+      console.log(this.props.data);
+      this.setState({
+        result: this.props.data.searchResult
+      });
+      window.location.assign('/review');
+    }).catch((e) => {
+      // could change state to trigger error rendering here
     });
   }
 
@@ -92,7 +93,7 @@ class FlightsAvailableOnSearch extends React.Component {
                         <p><span class="actual-price">{item.fareBreakup.fareBreakUpItems[0].amount}</span></p>
                       </div>
                       <div class="pull-left make_relative">
-                      <input class="fli_primary_btn text-uppercase" id="bookbutton-RKEY:452b55b3-9f45-403a-8d5e-7b39e08f20e7:1" type="button" onClick={this.onBook} value="Book Now" name="btnSearch"></input>
+                        <input class="fli_primary_btn text-uppercase" id="bookbutton-RKEY:452b55b3-9f45-403a-8d5e-7b39e08f20e7:1" type="button" onClick={this.onBook} value="Book Now" name="btnSearch"></input>
                         {/* <a href="/review"><button
                         id="bookbutton-RKEY:452b55b3-9f45-403a-8d5e-7b39e08f20e7:1"
                         class="fli_primary_btn text-uppercase ">Book Now</button></a> */}
@@ -289,14 +290,14 @@ class FlightsAvailableOnSearch extends React.Component {
             )
           }
           )
-          
+
           }
         </div>
       </div>
     )
   }
-}
+} 
 
-const mapStateToProps = state => ({ data: state.flights }); 
-const mapDispatchToPrps = disptch => bindActionCreators({ requestSearchApiData }, disptch);
-export default connect(mapStateToProps, mapDispatchToPrps)(FlightsAvailableOnSearch);   
+const mapStateToProps = state => ({ data: state.flights });
+const mapDispatchToPrps = disptch => bindActionCreators({ reviewResultWatcher }, disptch);
+export default connect(mapStateToProps, mapDispatchToPrps)(FlightsAvailableOnSearch); 

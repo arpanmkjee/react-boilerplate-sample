@@ -1,15 +1,23 @@
-import { RECEIVE_API_DATA,GET_SEARCH,GET_REVIEW } from '../constants';
+import { RECEIVE_API_DATA, UPDATE_REVIEW, UPDATE_SEARCH } from '../constants';
 
-// The initial state of the App
-export const initialState = {
+const flightState = {
+    searchResult: JSON.parse(localStorage.getItem('SearchResult')),
+    reviewResult: JSON.parse(localStorage.getItem('ReviewResult'))
 };
 
-export default (state = initialState, { type, data }) => {
-    switch (type) { 
-        case GET_SEARCH:
-            return data;
-        case GET_REVIEW:
-            return data; 
+export default function (state = flightState, action) { 
+    switch (action.type) {
+        case UPDATE_SEARCH:
+            return {
+                ...state,
+                searchResult: action.payload
+            }
+        case UPDATE_REVIEW:
+            return {
+                ...state,
+                reviewResult: action.payload
+            }
+
         default:
             return state;
     }

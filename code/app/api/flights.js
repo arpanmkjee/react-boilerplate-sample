@@ -12,23 +12,18 @@ export const getCities = async () => {
     }
 } 
 
-export const getSearchResult = async (data) => { 
-    try {
-        const action = '/search'
-        const result = await api.postData(action, data)
-        debugger;
-        return result.data
+export const getSearchResult = async(action) => { 
+    try { 
+        return await api.postData('/search', action.payload)
     } catch (error) {
         logger('error post profile', error)
         throw error
     }
   };  
 
-  export const getReview = async () => {
+  export const getReview = async (action) => {
     try {
-        const action = '/review'
-        const result = await api.postData(action)
-        return result.data
+        return await api.postData('/review', action.payload) 
     } catch (error) {
         logger('error.response', error)
         throw error
