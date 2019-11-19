@@ -36,10 +36,10 @@ instance.interceptors.response.use(
 )
 
 export default {
-    getData(action, data) { 
+    getData(action, data) {
         return instance.get(action, data)
     },
-    postData(action, data) { 
+    postData(action, data) {
         return instance.post(action, data)
     },
     putData(action, data) {

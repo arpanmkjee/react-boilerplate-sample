@@ -1,30 +1,15 @@
 import React from 'react';
 import FlightAddOns from '../FlightAddOns';
-import { connect } from 'react-redux';
-import { requestApiData } from '../../../containers/App/actions'
+import { connect } from 'react-redux'; 
 import { bindActionCreators } from 'redux';
 
-class FlightItenerary extends React.Component {
+class FlightItenerary extends React.Component { 
     constructor(props) {
         super(props);
         this.state = {
-            reviewResults: [],
+            reviewResults: props.data.reviewResult.journeyList,
         }
-    }
-
-    componentDidMount() {
-        this.props.requestApiData();
-    }
-
-    componentWillReceiveProps(nextProps) {
-        debugger;
-        let flag = 0;
-        this.setState({
-            reviewResults: [...nextProps.data.journeyList],
-        }, () => {
-            console.log(this.state.reviewResults);
-        });
-    }
+      } 
 
     render() {
         return (
@@ -101,7 +86,7 @@ class FlightItenerary extends React.Component {
                                                                 <font color="#9b9b9b">Terminal 2</font>
                                                             </p>
                                                         </div>
-                                                        <p class="fli-stops pull-left">{item.leglist[0].duration} </p>
+                                                        <p class="fli-stops pull-left">{item.legList[0].duration} </p>
                                                         <div class="fli-time-section pull-left">
                                                             <p class="reaching-time append_bottom3">{item.legList[0].arrival.time}</p>
                                                             <p class="font14 append_bottom3 LatoBold">
@@ -316,6 +301,5 @@ class FlightItenerary extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({ data: state.flights });
-const mapDispatchToPrps = disptch => bindActionCreators({ requestApiData }, disptch);
-export default connect(mapStateToProps, mapDispatchToPrps)(FlightItenerary);   
+const mapStateToProps = state => ({ data: state.flights }); 
+export default connect(mapStateToProps, null)(FlightItenerary);   
