@@ -2,9 +2,7 @@ import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import SuperOffers from '../../Common/SuperOffers';
-import { requestApiData } from '../../../containers/App/actions';
-import FlightInput from '../FlightsearchInput'
-import DatePicker from '../FlightDatePicker';
+import { searchResultWatcher } from '../../../containers/App/actions'
 
 const allCities=[
     {City:"Mumbai, India",Airport:"Chatrapati Shivaji International Airport",cityCode:"BOM"},
@@ -60,10 +58,23 @@ class MinContainer extends React.Component {
     componentDidMount() {
     }
 
-    onSearch = () => {
-        this.props.requestApiData();
-        window.location.assign('/result');
-    }
+
+    onSearch = (e) => {debugger;
+        e.preventDefault();
+        new Promise((resolve, reject) => {
+          this.props.searchResultWatcher({ 
+          }, resolve, reject);
+        }).then(() => {debugger;
+            console.log(this.props.data);
+          this.setState({
+            result:this.props.data.searchResult 
+          });
+          window.location.assign('/result');
+        }).catch((e) => {
+          // could change state to trigger error rendering here
+        });
+      }
+
     render() {
         const { results = {} } = this.props.data;
         return (
@@ -699,6 +710,6 @@ class MinContainer extends React.Component {
             }
         }
 
-const mapStateToProps = state => ({data: state.flights });
-const mapDispatchToPrps = disptch => bindActionCreators({requestApiData}, disptch);
+const mapStateToProps = state => ({ data: state.flights });
+const mapDispatchToPrps = disptch => bindActionCreators({ searchResultWatcher }, disptch);
 export default connect(mapStateToProps, mapDispatchToPrps)(MinContainer);

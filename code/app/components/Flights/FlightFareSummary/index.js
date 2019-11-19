@@ -7,73 +7,47 @@ class FlightFareSummary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fareSummary: [],
+      fare: this.props,
     }
-  }
-
-  componentDidMount() {
-    this.props.requestApiData();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    debugger;
-    let flag = 0;
-    this.setState({
-      fareSummary: [...nextProps.data.fareBreakup],
-    }, () => {
-      console.log(this.state.fareSummary);
-    });
-  }
+    console.log(this.state.fare)
+  } 
 
   render() {
     return (
       <div class="fli-intl-rhs pull-left">
-        {this.state.fareSummary.map(item => {
-          return (
+        
             <div>
               <p class="rvw-heading LatoBold">Fare Summary</p>
               <div class="rvw-sctn append_bottom15 make_relative" style={{ zIndex: "1" }}>
+             
                 <div class="fareSmry-sctn">
-                  <div class="fareSmry-header LatoBold">
+                {this.state.fare.fareSummary.fareBreakup.fareBreakUpItems.map(item=>
+                <div>
+                  <div class="fareSmry-header LatoBold">                 
                     <p class="fareSmry-hdng">
-                      <span class="fareSmry-expand-icon cursor_pointer marR15 open"></span><span>
-                        {item.fareBreakup.fareBreakupitems[0].title}
-                </span>
+                      <span class="fareSmry-expand-icon cursor_pointer marR15"></span><span>
+                        {item.title}
+                    </span>
                     </p>
                   </div>
                   <div class="fareSmry-wrap">
                     <p class="fareSmry-row">
                       <span class="fareSmry-field">
                         <span>
-                         {item.fareBreakup.fareBreakupitems[0].fareEntities.text}
+                         {item.fareEntities[0].text}
                   </span>
                       </span><span class="font16 LatoBold text-right">
                         <span>
                           ₹
-                          {item.fareBreakup.fareBreakupitems[0].fareEntities.amount}
+                          {item.fareEntities[0].amount}
                   </span>
                       </span>
                     </p>
                   </div>
-                </div>
-                <div class="fareSmry-sctn">
-                  <div class="fareSmry-header LatoBold">
-                    <p class="fareSmry-hdng">
-                      <span class="fareSmry-expand-icon cursor_pointer marR15 "></span><span>
-                      {item.fareBreakup.fareBreakupitems[1].title}
-                </span>
-                    </p><span class="font16">₹ {item.fareBreakup.fareBreakupitems[1].amount}</span>
                   </div>
+                   )}
                 </div>
-                <div class="fareSmry-sctn">
-                  <div class="fareSmry-header LatoBold">
-                    <p class="fareSmry-hdng">
-                      <span class="fareSmry-expand-icon cursor_pointer marR15 "></span><span>
-                      {item.fareBreakup.fareBreakupitems[2].title}
-                </span>
-                    </p><span class="font16">₹ {item.fareBreakup.fareBreakupitems[2].amount}</span>
-                  </div>
-                </div>
+        
                 <div class="fareSmry-sctn reqPad-fareSmry-sctn">
                   <p class="fareSmry-row LatoBold">
                     <span class="font18 fareSmry-field">
@@ -83,16 +57,16 @@ class FlightFareSummary extends React.Component {
                       <span style={{ fontSize: "20px", textAlign: "right", lineHeight: "normal" }}>
                         <span>
                           ₹
-                          {item.fareBreakup.fareBreakupitems[0].totFare}
+                          {/* {this.state.fare.fareSummary.fareBreakup.totFare} */}
                   </span>
                       </span>
                     </span>
                   </p>
                 </div>
+               
               </div>
-            </div>
-          )
-        })}
+            </div>         
+          
         <div class="rvw-sctn rvw-cancellation-sctn append_bottom15 LatoBold">
           <p class="font14">Cancellation &amp; Date change charges</p><a href="javascript:void(0);"
             class="text-right">KNOW MORE</a>
@@ -115,7 +89,6 @@ class FlightFareSummary extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ data: state.flights });
-const mapDispatchToPrps = disptch => bindActionCreators({ requestApiData }, disptch);
-export default connect(mapStateToProps, mapDispatchToPrps)(FlightFareSummary);
+
+export default FlightFareSummary;
 
