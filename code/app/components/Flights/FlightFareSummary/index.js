@@ -9,21 +9,7 @@ class FlightFareSummary extends React.Component {
     this.state = {
       fareSummary: [],
     }
-  }
-
-  componentDidMount() {
-    this.props.requestApiData();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    debugger;
-    let flag = 0;
-    this.setState({
-      fareSummary: [...nextProps.data.fareBreakup],
-    }, () => {
-      console.log(this.state.fareSummary);
-    });
-  }
+  } 
 
   render() {
     return (
@@ -119,7 +105,6 @@ class FlightFareSummary extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ data: state.flights });
-const mapDispatchToPrps = disptch => bindActionCreators({ requestApiData }, disptch);
-export default connect(mapStateToProps, mapDispatchToPrps)(FlightFareSummary);
+const mapStateToProps = state => ({ data: state.flights }); 
+export default connect(mapStateToProps, null)(FlightFareSummary);
 
