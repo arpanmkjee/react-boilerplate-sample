@@ -5,19 +5,19 @@ import SuperOffers from '../../Common/SuperOffers';
 import { searchResultWatcher } from '../../../containers/App/actions'
 
 const allCities=[
-    {City:"Mumbai, India",Airport:"Chatrapati Shivaji International Airport",cityCode:"BOM"},
-    {City:"Delhi, India",Airport:"Delhi Airport",cityCode:"DEL"},
-    {City:"Bangkok, Thailand",Airport:" Suvarnabhumi Airport",cityCode:"BKK"},
-    {City:"Bangalore, India",Airport:"Bengaluru International Airport",cityCode:"BLR"},
-    {City:"Pune, India",Airport:"Pune International Airport",cityCode:"PNQ"},
-    {City:"Hyderabad, India",Airport:"Rajiv Ghandhi International Airport",cityCode:"HYD"},
-    {City:"Kolkata, India",Airport:"Netaji Subhash Chandra Bose International Airport",cityCode:"CCU"},
-    {City:"Chennai, India",Airport:"Madras,Chennai International Airport",cityCode:"MAA"},
-    {City:"Goa, India",Airport:"Dabolim Goa International Airport",cityCode:"DOI"},
-    {City:"Mumbai, India",Airport:"Chatrapati Shivaji International Airport",cityCode:"BOM"},
-    {City:"Delhi, India",Airport:"Delhi Airport",cityCode:"DEL"},
-    {City:"Bangkok, Thailand",Airport:" Suvarnabhumi Airport",cityCode:"BKK"},
-    {City:"Bangalore, India",Airport:"Bengaluru International Airport",cityCode:"BLR"}
+    {id:1,City:"Mumbai, India",Airport:"Chatrapati Shivaji International Airport",cityCode:"BOM"},
+    {id:2,City:"Delhi, India",Airport:"Delhi Airport",cityCode:"DEL"},
+    {id:3,City:"Bangkok, Thailand",Airport:" Suvarnabhumi Airport",cityCode:"BKK"},
+    {id:4,City:"Bangalore, India",Airport:"Bengaluru International Airport",cityCode:"BLR"},
+    {id:5,City:"Pune, India",Airport:"Pune International Airport",cityCode:"PNQ"},
+    {id:6,City:"Hyderabad, India",Airport:"Rajiv Ghandhi International Airport",cityCode:"HYD"},
+    {id:7,City:"Kolkata, India",Airport:"Netaji Subhash Chandra Bose International Airport",cityCode:"CCU"},
+    {id:8,City:"Chennai, India",Airport:"Madras,Chennai International Airport",cityCode:"MAA"},
+    {id:9,City:"Goa, India",Airport:"Dabolim Goa International Airport",cityCode:"DOI"},
+    {id:10,City:"Mumbai, India",Airport:"Chatrapati Shivaji International Airport",cityCode:"BOM"},
+    {id:11,City:"Delhi, India",Airport:"Delhi Airport",cityCode:"DEL"},
+    {id:12,City:"Bangkok, Thailand",Airport:" Suvarnabhumi Airport",cityCode:"BKK"},
+    {id:13,City:"Bangalore, India",Airport:"Bengaluru International Airport",cityCode:"BLR"}
 ]
 class MinContainer extends React.Component {
     constructor() {
@@ -26,11 +26,13 @@ class MinContainer extends React.Component {
             searchFromCity: false,
             searchToCity:false,
             openDatePicker:false,
-            cities:allCities
+            cities:allCities,
+            airportDetails:[]
         }
         this.SearchFromCity = this.SearchFromCity.bind(this);
         this.SearchToCity = this.SearchToCity.bind(this);
         this.OpenDatePicker = this.OpenDatePicker.bind(this);
+        this.handleChange=this.handleChange.bind(this);
     }
     SearchFromCity() {
         this.setState({
@@ -55,9 +57,18 @@ class MinContainer extends React.Component {
         console.log(this.state.openDatePicker)
     }
 
-    componentDidMount() {
+    handleChange(id){
+        var index = id
+        var city=allCities.filter(item=>item.id==id)
+        this.setState({
+            searchFromCity: false,
+            airportDetails:this.state.airportDetails.push(city)
+        })
+        console.log(index,city,this.state.airportDetails)
     }
 
+    componentDidMount() {
+    }
 
     onSearch = (e) => {debugger;
         e.preventDefault();
@@ -77,6 +88,7 @@ class MinContainer extends React.Component {
 
     render() {
         const { results = {} } = this.props.data;
+      
         return (
             <div class="minContainer" >
                 <div>
@@ -102,10 +114,10 @@ class MinContainer extends React.Component {
                         <div class="fsw ">
                             <div class="fsw_inner ">
                                 <div class="fsw_inputBox searchCity inactiveWidget " onClick={this.SearchFromCity}>
-                                    <label for="fromCity" >
+                                    <label for="fromCity" > 
                                         <span class="lbl_input latoBold  appendBottom5">From</span><input data-cy="fromCity"
                                             id="fromCity" type="text" class="fsw_inputField font30 lineHeight36 latoBlack"
-                                            readonly="" value="Mumbai" />
+                                            readonly="" value={this.state.airportDetails.length==0? "Mumbai":this.state.airportDetails.city} />
                                         <p class="code makeRelative"
                                             title="BOM, Chhatrapati Shivaji International Airport India">
                                             <span data-cy="defaultFromValue" class="truncate airPortName">
@@ -130,9 +142,9 @@ class MinContainer extends React.Component {
                                                   </div>
                                                   <ul role="listbox" class="react-autosuggest__suggestions-list">
                                                   {this.state.cities.map(city=>
-                                                      <li role="option" id="react-autowhatever-1-section-0-item-0" aria-selected="false"
+                                                      <li role="option" id={city.id} aria-selected="false"
                                                           class="react-autosuggest__suggestion react-autosuggest__suggestion--first"
-                                                          data-section-index="0" data-suggestion-index="0">
+                                                          data-section-index={city.id} data-suggestion-index={city.id} name="city" onClick={()=>this.handleChange(city.id)}>
                                                           <div class="makeFlex hrtlCenter">
                                                               <div class="calc60">
                                                                   <p class="font14 appendBottom5 blackText">{city.City}</p>
@@ -181,7 +193,7 @@ class MinContainer extends React.Component {
                                                     {this.state.cities.map(city=>
                                                         <li role="option" id="react-autowhatever-1-section-0-item-0" aria-selected="false"
                                                             class="react-autosuggest__suggestion react-autosuggest__suggestion--first"
-                                                            data-section-index="0" data-suggestion-index="0">
+                                                            data-section-index={city.id} data-suggestion-index={city.id} onChange={this.handleChange}>
                                                             <div class="makeFlex hrtlCenter">
                                                                 <div class="calc60">
                                                                     <p class="font14 appendBottom5 blackText">{city.City}</p>

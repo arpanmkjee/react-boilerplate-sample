@@ -8,10 +8,19 @@ class FlightFareSummary extends React.Component {
     super(props);
     this.state = {
       fare: this.props,
+      showDetails:false,
+      faresmryClass:"fareSmry-expand-icon cursor_pointer marR15"
     }
+    this.ShowDetails=this.ShowDetails.bind(this);
     console.log(this.state.fare)
   } 
 
+  ShowDetails(){
+    this.setState({
+      showDetails:!this.state.showDetails,
+      faresmryClass:this.state.faresmryClass=="fareSmry-expand-icon cursor_pointer marR15" ? "fareSmry-expand-icon cursor_pointer marR15 open" : "fareSmry-expand-icon cursor_pointer marR15"
+    })
+  }
   render() {
     return (
       <div class="fli-intl-rhs pull-left">
@@ -25,25 +34,33 @@ class FlightFareSummary extends React.Component {
                 <div>
                   <div class="fareSmry-header LatoBold">                 
                     <p class="fareSmry-hdng">
-                      <span class="fareSmry-expand-icon cursor_pointer marR15"></span><span>
+                      <span class={this.state.faresmryClass} onClick={this.ShowDetails}></span><span>
                         {item.title}
                     </span>
                     </p>
-                  </div>
+                  </div>                  
                   <div class="fareSmry-wrap">
-                    <p class="fareSmry-row">
+                    <p class="fareSmry-row">                    
                       <span class="fareSmry-field">
+                      {this.state.showDetails?                     
+                      item.fareEntities.map(val=>
+                        <span>                         
+                         {val.text}  
+                         <br/>                     
+                        </span>
+                        
+                      )
+                      
+                      : null}
+                      </span>                      
+                      <span class="font16 LatoBold text-right">
                         <span>
-                         {item.fareEntities[0].text}
-                  </span>
-                      </span><span class="font16 LatoBold text-right">
-                        <span>
-                          ₹
-                          {item.fareEntities[0].amount}
+                          ₹{item.fareEntities[0].amount}
                   </span>
                       </span>
                     </p>
                   </div>
+                   
                   </div>
                    )}
                 </div>

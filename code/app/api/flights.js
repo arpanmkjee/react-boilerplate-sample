@@ -29,3 +29,11 @@ export const getSearchResult = async(action) => {
         throw error
     }
 }  
+export const getAncillary = async (action) => {
+    try {
+        return await api.postData('/seat', action.payload) 
+    } catch (error) {
+        logger('error.response', error)
+        throw error
+    }
+}  

@@ -15,7 +15,7 @@
  *    }
  */
 
-import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR, RECEIVE_API_DATA, REQUEST_API_DATA,GET_SEARCH,GET_REVIEW,UPDATE_REVIEW,UPDATE_SEARCH } from './constants';
+import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR, RECEIVE_API_DATA, REQUEST_API_DATA,GET_SEARCH,GET_REVIEW,UPDATE_REVIEW,UPDATE_SEARCH,GET_ANCILLARY,UPDATE_ANCILLARY } from './constants';
 
 /**
  * Load the repositories, this action starts the request saga
@@ -74,4 +74,13 @@ export function reviewResultWatcher(params, resolve, reject) {
 
 export function updateReviewResult(data) {
   return { type:  UPDATE_REVIEW, payload: data };
+}
+
+export function ancillaryResultWatcher(params, resolve, reject) {
+  return { type: GET_ANCILLARY, payload: params,resolve: resolve,
+    reject: reject };
+}
+
+export function updateAncillaryResult(data) {
+  return { type: UPDATE_ANCILLARY, payload: data};
 }
