@@ -7,14 +7,15 @@ class FlightItenerary extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            reviewResults: props.data.reviewResult.journeyList,
+            reviewResults: this.props,
         }
+        console.log(this.state.reviewResults)
       } 
 
-    render() {
-        return (
+    render() {       
+        return (           
             <div class="fli-intl-lhs pull-left">
-                {this.state.reviewResults.map(item => {
+                {this.state.reviewResults.reviewresult.journeyList.map(item => {
                     return (
                         <div>
                             <p class="rvw-heading LatoBold">Itinerary</p>
@@ -26,18 +27,20 @@ class FlightItenerary extends React.Component {
                                             <div class="rvw-labelView-block"
                                                 style={{ backgroundImage: "linear-gradient(294deg, rgb(82, 82, 82), rgb(23, 23, 23))" }}>
                                                 <p style={{ fontSize: "18px", marginBottom: "2px", fontFamily: "lato-light, arial, helvetica, sans-serif" }}>
-                                                {item.journeyHeader.labelView.title}
+                                                DEPART
                                                     </p>
                                                 <p style={{ fontFamily: "lato-bold, arial, helvetica, sans-serif", fontSize: "14px" }}>
-                                                    {item.journeyHeader.labelView.subtitle}
+                                                Sat 09 Nov
                                                 </p>
                                             </div>
                                             <div>
                                                 <p style={{ color: "rgb(74, 74, 74)", fontSize: "18px", marginBottom: "2px" }}>
-                                                    <span style={{ fontFamily: "lato-bold, arial, helvetica, sans-serif" }}>{item.journeyHeader.title}</span>
+                                                    <span style={{ fontFamily: "lato-bold, arial, helvetica, sans-serif" }}>
+                                                        DEL_BLR
+                                                        </span>
                                                 </p>
                                                 <p style={{ fontFamily: "lato-bold, arial, helvetica, sans-serif", fontSize: "14px" }}>
-                                                {item.journeyHeader.subtitle}
+                                                1 stop | 18 hrs 10 mins  | Economy
                                                     </p>
                                             </div>
                                         </div>
@@ -97,7 +100,7 @@ class FlightItenerary extends React.Component {
                                                                 <font color="#4a4a4a">
                                                                     Rajiv Gandhi International Airport
                                                                     </font><br />
-                                                                <font color="#9b9b9b"></font>
+                                                                <font color="#9b9b9b">Terminal 1</font>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -301,5 +304,5 @@ class FlightItenerary extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({ data: state.flights }); 
-export default connect(mapStateToProps, null)(FlightItenerary);   
+
+export default FlightItenerary;   
