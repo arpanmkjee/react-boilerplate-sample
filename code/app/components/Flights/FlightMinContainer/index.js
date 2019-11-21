@@ -33,15 +33,38 @@ class MinContainer extends React.Component {
         this.SearchToCity = this.SearchToCity.bind(this);
         this.OpenDatePicker = this.OpenDatePicker.bind(this);
         this.handleChange=this.handleChange.bind(this);
+        this.handleSearchFromCityOutside=this.handleSearchFromCityOutside.bind(this);
     }
-    SearchFromCity() {
-        this.setState({
-            searchFromCity: true,   
-            searchToCity: false       
-        })
+   
+    SearchFromCity(e) {
+        e.preventDefault();
+        if(!this.state.searchFromCity){
+            document.addEventListener('click',this.handleSearchFromCityOutside,false);
+        }
+        else{
+            document.removeEventListener('click',this.handleSearchFromCityOutside,false);
+        }
+        this.setState(prevState=>({
+            searchFromCity:!prevState.searchFromCity,
+        }))
+        // if(this.node.contains(e.target)){
+        //     this.setState({
+        //         searchFromCity: true,                       
+        //     })
+        // }        
         console.log(this.state.searchFromCity)
     }
-
+    handleSearchFromCityOutside(e){     
+        if(this.node.contains(e.target)){
+            return(
+                this.setState({
+                    searchFromCity:!this.state.searchFromCity
+                })
+            )
+                
+        }
+        this.searchFromCity();
+    }
     SearchToCity() {debugger;
         this.setState({
             searchToCity: true,
@@ -90,7 +113,7 @@ class MinContainer extends React.Component {
         const { results = {} } = this.props.data;
       
         return (
-            <div class="minContainer" >
+            <div class="minContainer" ref={node=>this.node=node}>
                 <div>
                     <div data-cy="flightSW" class="widgetSection appendBottom40">
                         <div class="makeFlex">
@@ -113,7 +136,7 @@ class MinContainer extends React.Component {
                         </div>
                         <div class="fsw ">
                             <div class="fsw_inner ">
-                                <div class="fsw_inputBox searchCity inactiveWidget " onClick={this.SearchFromCity}>
+                                <div class="fsw_inputBox searchCity inactiveWidget " onClick={this.SearchFromCity} >
                                     <label for="fromCity" > 
                                         <span class="lbl_input latoBold  appendBottom5">From</span><input data-cy="fromCity"
                                             id="fromCity" type="text" class="fsw_inputField font30 lineHeight36 latoBlack"

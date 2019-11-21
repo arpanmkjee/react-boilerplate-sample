@@ -44,19 +44,23 @@ class FlightFareSummary extends React.Component {
                       <span class="fareSmry-field">
                       {this.state.showDetails?                     
                       item.fareEntities.map(val=>
+                        <span> 
                         <span>                         
                          {val.text}  
                          <br/>                     
                         </span>
-                        
-                      )
-                      
+                        <span class="font16 LatoBold text-right"> 
+                        {val.amount}                                                
+                        <br/>                     
+                       </span>  
+                       </span>                    
+                      )                     
                       : null}
                       </span>                      
                       <span class="font16 LatoBold text-right">
                         <span>
-                          ₹{item.fareEntities[0].amount}
-                  </span>
+                          ₹{item.total}
+                    </span>
                       </span>
                     </p>
                   </div>
@@ -74,7 +78,7 @@ class FlightFareSummary extends React.Component {
                       <span style={{ fontSize: "20px", textAlign: "right", lineHeight: "normal" }}>
                         <span>
                           ₹
-                          {/* {this.state.fare.fareSummary.fareBreakup.totFare} */}
+                          {this.state.fare.fareSummary.fareBreakup.totFare}
                   </span>
                       </span>
                     </span>

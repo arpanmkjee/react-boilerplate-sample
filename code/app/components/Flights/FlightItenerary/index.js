@@ -60,8 +60,8 @@ class FlightItenerary extends React.Component {
                                                 <div class="itnry-flt-body fli-list clearfix">
                                                     <div class="airline-info pull-left airline-info-main">
                                                         <div>
-                                                            <span class="arln-logo pull-left"
-                                                                style={{ backgroundImage: "url(&quot;https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=4&quot;)" }}></span>
+                                                            <img class="arln-logo pull-left"
+                                                                src={item.legList[0].airlineimageurlD}></img>
                                                             <div class="pull-left airways-info-sect"
                                                                 style={{ height: "auto" }}>
                                                                 <p class="append_bottom5 font14 LatoBold"
