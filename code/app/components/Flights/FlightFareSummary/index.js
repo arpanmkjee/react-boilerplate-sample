@@ -45,14 +45,14 @@ class FlightFareSummary extends React.Component {
                       {this.state.showDetails?                     
                       item.fareEntities.map(val=>
                         <span> 
-                        <span>                         
-                         {val.text}  
-                         <br/>                     
-                        </span>
-                        <span class="font16 LatoBold text-right"> 
-                        {val.amount}                                                
-                        <br/>                     
-                       </span>  
+                          <span>                         
+                            {val.text}  
+                            <br/>                     
+                          </span>
+                            <span class="font16 LatoBold text-right"> 
+                            {val.amount}                                                
+                          <br/>                     
+                        </span>  
                        </span>                    
                       )                     
                       : null}

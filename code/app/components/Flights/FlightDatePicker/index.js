@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-export default class DatePicker extends React.Component {
-    render() {debugger;
+export default class Picker extends React.Component {
+    render() {
         return (
             <div class="datePickerContainer">
                 <div class="flightCalOverlay">
