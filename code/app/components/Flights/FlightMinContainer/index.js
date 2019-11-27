@@ -119,7 +119,7 @@ class MinContainer extends React.Component {
 
     render() {
         const { results = {} } = this.props.data;
-
+        
         return (
             <div class="minContainer" ref={node => this.node = node}>
                 <div>
@@ -175,7 +175,6 @@ class MinContainer extends React.Component {
                                                     <Autocomplete items={allCities} getOptionLabel={option=>option.City}
                                                     shouldItemRender={(item, value) => item.City.toLowerCase().indexOf(value.toLowerCase()) > -1}
                                                     getItemValue={item => item.City}
-
                                                     renderItem={(item)=>
                                                         <ul role="listbox" class="react-autosuggest__suggestions-list">
                                                                 <li role="option" id={item.id} aria-selected="false"
@@ -203,7 +202,7 @@ class MinContainer extends React.Component {
                                 : null}
                                 <span class="swipCircle"><span class="landingSprite swipIcon"></span></span>
                                 <div class="fsw_inputBox searchToCity inactiveWidget " onClick={this.SearchToCity}>
-                                    <label for="toCity"  >
+                                    <label for="toCity">
                                         <span class="lbl_input latoBold  appendBottom5">To</span><input data-cy="toCity"
                                             id="toCity" type="text" class="fsw_inputField font30 lineHeight36 latoBlack"
                                             readonly="" value="Hyderabad" />
@@ -219,39 +218,38 @@ class MinContainer extends React.Component {
                                         <div class="hsw_autocomplePopup autoSuggestPlugin">
                                             <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="true"
                                                 class="react-autosuggest__container react-autosuggest__container--open">
-                                                     <div id="react-autowhatever-1" role="listbox"
-                                                    class="react-autosuggest__suggestions-container react-autosuggest__suggestions-container--open">
-                                                    <div class="react-autosuggest__section-container react-autosuggest__section-container--first">
-                                                        <div class="react-autosuggest__section-title">
-                                                            <p class="hsw_sectionTitle font12 latoBlack greyText">POPULAR CITIES</p>
-                                                        </div>
-                                                        <input type="text"
-                                                        autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1"
-                                                        class="react-autosuggest__input react-autosuggest__input--open" placeholder="FROM" />
-                                                    <Autocomplete items={allCities} getOptionLabel={option=>option.City}
-                                                    shouldItemRender={(item, value) => item.City.toLowerCase().indexOf(value.toLowerCase()) > -1}
-                                                    getItemValue={item => item.City}
-
-                                                    renderItem={(item)=>
-                                                        <ul role="listbox" class="react-autosuggest__suggestions-list">
-                                                                <li role="option" id={item.id} aria-selected="false"
-                                                                    class="react-autosuggest__suggestion react-autosuggest__suggestion--first"
-                                                                    data-section-index={item.id} data-suggestion-index={item.id} name="city" onClick={() => this.handleChange(city.id)}>
-                                                                    <div class="makeFlex hrtlCenter">
-                                                                        <div class="calc60">
-                                                                            <p class="font14 appendBottom5 blackText">{item.City}</p>
-                                                                            <p class="font12 greyText appendBottom3">{item.Airport}</p>
+                                                    <div id="react-autowhatever-1" role="listbox"
+                                                        class="react-autosuggest__suggestions-container react-autosuggest__suggestions-container--open">
+                                                        <div class="react-autosuggest__section-container react-autosuggest__section-container--first">
+                                                            <div class="react-autosuggest__section-title">
+                                                                <p class="hsw_sectionTitle font12 latoBlack greyText">POPULAR CITIES</p>
+                                                            </div>
+                                                            <input type="text"
+                                                            autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1"
+                                                            class="react-autosuggest__input react-autosuggest__input--open" placeholder="FROM" />
+                                                        <Autocomplete items={allCities} getOptionLabel={option=>option.City}
+                                                        shouldItemRender={(item, value) => item.City.toLowerCase().indexOf(value.toLowerCase()) > -1}
+                                                        getItemValue={item => item.City}
+                                                        renderItem={(item)=>
+                                                            <ul role="listbox" class="react-autosuggest__suggestions-list">
+                                                                    <li role="option" id={item.id} aria-selected="false"
+                                                                        class="react-autosuggest__suggestion react-autosuggest__suggestion--first"
+                                                                        data-section-index={item.id} data-suggestion-index={item.id} name="city" onClick={() => this.handleChange(city.id)}>
+                                                                        <div class="makeFlex hrtlCenter">
+                                                                            <div class="calc60">
+                                                                                <p class="font14 appendBottom5 blackText">{item.City}</p>
+                                                                                <p class="font12 greyText appendBottom3">{item.Airport}</p>
+                                                                            </div>
+                                                                            <div class="pushRight font14 lightGreyText latoBold">{item.cityCode}</div>
                                                                         </div>
-                                                                        <div class="pushRight font14 lightGreyText latoBold">{item.cityCode}</div>
-                                                                    </div>
-                                                                </li>
-                                                        </ul>
-                                                    }
-                                                    value={ this.state.value }
-                                                    onChange={e => this.setState({ value: e.target.value })}
-                                                    onSelect={value => this.setState({ value })}
-                                                    />
-                                                    </div>
+                                                                    </li>
+                                                            </ul>
+                                                        }
+                                                        value={ this.state.value }
+                                                        onChange={e => this.setState({ value: e.target.value })}
+                                                        onSelect={value => this.setState({ value })}
+                                                        />
+                                                        </div>
                                                     </div>
                                             </div>
                                         </div>
@@ -279,7 +277,7 @@ class MinContainer extends React.Component {
                                             <p data-cy="returnDefaultText" class="latoBlack greyText">
                                                 Tap to add a return date
                                                 for bigger discounts
-                                        </p>
+                                            </p>
                                         </label>
                                     </div>
                                 </div>

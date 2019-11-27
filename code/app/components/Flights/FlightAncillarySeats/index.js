@@ -50,7 +50,8 @@ class FlightAncillarySeats extends React.Component {
                                                             </div>                                                             
                                                         :   val.ct == "SEAT" 
                                                         ?   <div class="make_relative">
-                                                                <div class="seat-not-available"></div>
+                                                                <div class="seat-not-available">
+                                                                </div>
                                                             </div> 
                                                         :   val.ct == "ICON" && val.it=="EL"
                                                         ?  <div class="exit_icon left">
