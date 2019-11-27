@@ -41,9 +41,9 @@ class FlightsAvailableOnSearch extends React.Component {
                   <div class="dept-options">
                     <div class="dept-options-section clearfix">
                       <div class="pull-left airline-info">
-                        <div class="pull-left"><span class=" "><span
+                        <div class="pull-left"><span class=" "><img
                           class="arln-logo logo1"
-                          style={{ backgroundImage: "url(&quot;https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=4&quot;)" }}></span></span>
+                          src={item.flightDetail.legList[0].airlineimageurlD } alt="FlightLogo"></img></span>
                         </div>
                         <div class="pull-left airways-info-sect">
                           <p><span class="airways-name ">{item.journeyHeader}</span></p>

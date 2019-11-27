@@ -15,5 +15,7 @@ export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
 export const REQUEST_API_DATA = 'boilerplate/App/REQUEST_API_DATA';
 export const GET_SEARCH = 'boilerplate/App/GET_SEARCH';
 export const GET_REVIEW = 'boilerplate/App/GET_REVIEW'; 
+export const GET_ANCILLARY = 'boilerplate/App/GET_ANCILLARY'; 
 export const UPDATE_SEARCH = 'boilerplate/App/UPDATE_SEARCH'; 
 export const UPDATE_REVIEW = 'boilerplate/App/UPDATE_REVIEW'; 
+export const UPDATE_ANCILLARY = 'boilerplate/App/UPDATE_ANCILLARY'; 

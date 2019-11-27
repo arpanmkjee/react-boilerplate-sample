@@ -1,7 +1,32 @@
 import React from 'react';
 import FlightAddOns from '../FlightAddOns';
+import { ancillaryResultWatcher } from '../../../containers/App/actions'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-function FlightTravellerDetails() {
+class FlightTravellerDetails extends React.Component {
+    constructor(){
+        super();
+        
+    }
+    onAncillary = (e) => {
+        debugger;
+        e.preventDefault();
+        new Promise((resolve, reject) => {
+          this.props.ancillaryResultWatcher({
+          }, resolve, reject);
+        }).then(() => {
+          debugger; 
+          console.log(this.props.data);
+          this.setState({
+            result:this.props.data.ancillaryResult  
+          })        
+          window.location.assign('/ancillary');
+        }).catch((e) => {
+          // could change state to trigger error rendering here
+        });
+      }
+    render(){ 
     return (
         <div>
             <div>
@@ -9,7 +34,7 @@ function FlightTravellerDetails() {
                     <span>
                         Traveller
                         Details
-                                </span>
+                    </span>
                 </p>
                 <div class="tvlr-sctn loginPromptWrapper append_bottom15">
                     <p class="loginPromt__leftsection">
@@ -29,86 +54,7 @@ function FlightTravellerDetails() {
                                 </p>
                             </div>
                             <div class="paddLR15">
-                                <div class="tvlr-sctn append_bottom15 make_relative"
-                                    id="MANUAL_dae3f263-0bc0-4c5a-a849-4c771c12880c">
-                                    <div class="tvlrDtls-heading make_relative">
-                                        <div class="make_flex alC">
-                                            <p class="tvlrDtls-heading-txt checkbox-group">
-                                                <input type="checkbox"
-                                                    name="ADULT_MANUAL_dae3f263-0bc0-4c5a-a849-4c771c12880c"
-                                                    id="ADULT_MANUAL_dae3f263-0bc0-4c5a-a849-4c771c12880c"
-                                                    checked="" /><label for="ADULT_MANUAL_dae3f263-0bc0-4c5a-a849-4c771c12880c"
-                                                        class="make_flex alC">
-                                                    <span class="box">
-                                                        <span class="check"
-                                                            data-ischecked="true"></span>
-                                                    </span><span class="LatoBold">Koni Reddy A</span>,
-                                                    MALE
-                                                            </label>
-                                            </p>
-                                        </div><span class="make_flex alC">
-                                            <span class="new-green-tag">COMPLETE</span><span class="cursor_pointer blue-arrow-icon marL20 open"></span>
-                                        </span>
-                                    </div>
-                                    <div class="collapse in">
-                                        <div class="tvlrDtls-section">
-                                            <p class="LatoMedium tvlrDtls-topInfo">
-                                                <b>IMPORTANT:</b>
-                                                Enter your name as it is mentioned on your passport or
-                                                any government approved ID.
-                                                        </p>
-                                            <div class="trvl-formfield-row">
-                                                <div class="trvl-formfield-col" style={{ width: "30%" }}>
-                                                    <div class="tvlrFormField make_relative FIRST_NAME">
-                                                        <input autocomplete="none"
-                                                            placeholder="First Name" class="tvlrInput "
-                                                            type="text" value="Koni Reddy" />
-                                                    </div>
-                                                </div>
-                                                <div class="trvl-formfield-col" style={{ width: "30%" }}>
-                                                    <div class="tvlrFormField make_relative LAST_NAME">
-                                                        <input autocomplete="none"
-                                                            placeholder="Last Name" class="tvlrInput "
-                                                            type="text" value="A" />
-                                                    </div>
-                                                </div>
-                                                <div class="trvl-formfield-col" style={{ width: "30%" }}>
-                                                    <div>
-                                                        <div class="chooseGender-info GENDER "
-                                                            tabindex="3">
-                                                            <label tabindex="0">
-                                                                <input type="radio"
-                                                                    name="gender_MANUAL_dae3f263-0bc0-4c5a-a849-4c771c12880c"
-                                                                    value="MALE" /><span class="chooseGender-txt">MALE</span>
-                                                            </label><label tabindex="1">
-                                                                <input type="radio"
-                                                                    name="gender_MANUAL_dae3f263-0bc0-4c5a-a849-4c771c12880c"
-                                                                    value="FEMALE" /><span class="chooseGender-txt">FEMALE</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="nameCnf-overlay make_relative slideDown">
-                                        <span class="zc-close"></span>
-                                        <div class="nameCnf-overlay-sctn">
-                                            <p class="nameCnf-overlay-title LatoLight">
-                                                Name Confirmation
-                                                        </p>
-                                            <div class="make_flex">
-                                                <div class="nameCnf-cards-wrap custom-scroll"></div>
-                                                <div class="nameCnf-overlay-col nameCnf-cta">
-                                                    <p>
-                                                        <a class="btn fli_primary_btn text-uppercase continue_cta"
-                                                            href="javascript:void(0)">Done</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <p class="tvlr-sctn tvlrDtls-heading font20">You have not added any adults to the list</p>
                             </div>
                             <p class="viewAll-trvlr">
                                 <a href="javascript:void(0);"
@@ -228,16 +174,21 @@ function FlightTravellerDetails() {
                             </span>
                         </label>
                     </p>
-                    <div class="make_relative blocked_traveller_booking"><a href="/ancillary">
+                    <div class="make_relative blocked_traveller_booking">
+                    <input class="ack-cta btn fli_primary_btn text-uppercase" type="button" onClick={this.onAncillary} value="Continue" name="btnSearch"></input>
+                        {/* <a href="/ancillary">
                         <button class="ack-cta btn fli_primary_btn text-uppercase"
-                            type="button">Continue                           
+                            type="button">Continue
                         </button>
-                        </a>
+                    </a> */}
                     </div>
                 </div>
             </div>
         </div>
     );
+    }
 }
 
-export default FlightTravellerDetails;
+const mapStateToProps = state => ({ data: state.flights });
+const mapDispatchToPrps = disptch => bindActionCreators({ ancillaryResultWatcher }, disptch);
+export default connect(mapStateToProps, mapDispatchToPrps)(FlightTravellerDetails); 
