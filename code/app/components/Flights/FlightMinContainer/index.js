@@ -2,33 +2,126 @@ import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import SuperOffers from '../../Common/SuperOffers';
-import { searchResultWatcher } from '../../../containers/App/actions'
+import { searchResultWatcher } from '../../../containers/App/actions';
+import { AutoCompleteComponent } from '@syncfusion/ej2-react-dropdowns';
+import Autocomplete from 'react-autocomplete';
+import TextField from '@material-ui/core/TextField';
+import Picker from '../FlightDatePicker';
+import DateRangePicker from 'react-bootstrap-daterangepicker';
 
+const allCities = [
+    { id: 1, City: "Mumbai, India", Airport: "Chatrapati Shivaji International Airport", cityCode: "BOM" },
+    { id: 2, City: "Delhi, India", Airport: "Delhi Airport", cityCode: "DEL" },
+    { id: 3, City: "Bangkok, Thailand", Airport: " Suvarnabhumi Airport", cityCode: "BKK" },
+    { id: 4, City: "Bangalore, India", Airport: "Bengaluru International Airport", cityCode: "BLR" },
+    { id: 5, City: "Pune, India", Airport: "Pune International Airport", cityCode: "PNQ" },
+    { id: 6, City: "Hyderabad, India", Airport: "Rajiv Ghandhi International Airport", cityCode: "HYD" },
+    { id: 7, City: "Kolkata, India", Airport: "Netaji Subhash Chandra Bose International Airport", cityCode: "CCU" },
+    { id: 8, City: "Chennai, India", Airport: "Madras,Chennai International Airport", cityCode: "MAA" },
+    { id: 9, City: "Goa, India", Airport: "Dabolim Goa International Airport", cityCode: "DOI" },
+    { id: 10, City: "Punjab, India", Airport: "Chatrapati Shivaji International Airport", cityCode: "PJB" },
+  
+]
 class MinContainer extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            searchFromCity: false,
+            searchToCity: false,
+            openDatePicker: false,
+            cities: allCities,
+            value:"",
+            airportDetails: []
+        }
+        this.SearchFromCity = this.SearchFromCity.bind(this);
+        this.SearchToCity = this.SearchToCity.bind(this);
+        this.OpenDatePicker = this.OpenDatePicker.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSearchFromCityOutside = this.handleSearchFromCityOutside.bind(this);
+    }
+
+    SearchFromCity(e) {
+        e.preventDefault();
+        // if (!this.state.searchFromCity) {
+        //     document.addEventListener('click', this.handleSearchFromCityOutside, false);
+        // }
+        // else {
+        //     document.removeEventListener('click', this.handleSearchFromCityOutside, false);
+        // }
+        this.setState(prevState => ({
+            searchFromCity: !prevState.searchFromCity,
+        }))
+        // if(this.node.contains(e.target)){
+        //     this.setState({
+        //         searchFromCity: true,
+        //     })
+        // }
+        console.log(this.state.searchFromCity)
+    }
+    handleSearchFromCityOutside(e) {
+        if (this.node.contains(e.target)) {
+            return (
+                this.setState({
+                    searchFromCity: !this.state.searchFromCity
+                })
+            )
+
+        }
+        this.searchFromCity();
+    }
+    SearchToCity() {
+        debugger;
+        this.setState({
+            searchToCity: true,
+            searchFromCity: false
+        })
+        console.log(this.state.searchToCity)
+    }
+
+    OpenDatePicker() {
+        debugger;
+        this.setState({
+            openDatePicker: true
+        })
+        console.log(this.state.openDatePicker)
+    }
+
+    handleChange(id) {
+        var index = id
+        var city = allCities.filter(item => item.id == id)
+        this.setState({
+            searchFromCity: false,
+            airportDetails: this.state.airportDetails.push(city)
+        })
+        console.log(index, city, this.state.airportDetails)
+    }
+
     componentDidMount() {
     }
 
-
-    onSearch = (e) => {debugger;
+    onSearch = (e) => {
+        debugger;
         e.preventDefault();
         new Promise((resolve, reject) => {
-          this.props.searchResultWatcher({ 
-          }, resolve, reject);
-        }).then(() => {debugger;
+            this.props.searchResultWatcher({
+            }, resolve, reject);
+        }).then(() => {
+            debugger;
             console.log(this.props.data);
-          this.setState({
-            result:this.props.data.searchResult 
-          });
-          window.location.assign('/result');
+            this.setState({
+                result: this.props.data.searchResult
+            });
+            window.location.assign('/result');
         }).catch((e) => {
-          // could change state to trigger error rendering here
+            // could change state to trigger error rendering here
         });
-      }
+    }
 
     render() {
         const { results = {} } = this.props.data;
+
         return (
-            <div class="minContainer" >
+            <div class="minContainer" ref={node => this.node = node}>
                 <div>
                     <div data-cy="flightSW" class="widgetSection appendBottom40">
                         <div class="makeFlex">
@@ -51,11 +144,11 @@ class MinContainer extends React.Component {
                         </div>
                         <div class="fsw ">
                             <div class="fsw_inner ">
-                                <div class="fsw_inputBox searchCity inactiveWidget ">
-                                    <label for="fromCity">
+                                <div class="fsw_inputBox searchCity inactiveWidget " onClick={this.SearchFromCity} >
+                                    <label for="fromCity" >
                                         <span class="lbl_input latoBold  appendBottom5">From</span><input data-cy="fromCity"
                                             id="fromCity" type="text" class="fsw_inputField font30 lineHeight36 latoBlack"
-                                            readonly="" value="Mumbai" />
+                                            readonly="" value={this.state.airportDetails.length == 0 ? "Mumbai" : this.state.airportDetails.city} />
                                         <p class="code makeRelative"
                                             title="BOM, Chhatrapati Shivaji International Airport India">
                                             <span data-cy="defaultFromValue" class="truncate airPortName">
@@ -64,9 +157,53 @@ class MinContainer extends React.Component {
                                         </span>
                                         </p>
                                     </label>
-                                </div><span class="swipCircle"><span class="landingSprite swipIcon"></span></span>
-                                <div class="fsw_inputBox searchToCity inactiveWidget ">
-                                    <label for="toCity">
+                                </div>
+                                {this.state.searchFromCity ?
+                                    <div>
+                                        <div class="hsw_autocomplePopup autoSuggestPlugin">
+                                            <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="true"
+                                                class="react-autosuggest__container react-autosuggest__container--open">
+                                                     <div id="react-autowhatever-1" role="listbox"
+                                                    class="react-autosuggest__suggestions-container react-autosuggest__suggestions-container--open">
+                                                    <div class="react-autosuggest__section-container react-autosuggest__section-container--first">
+                                                        <div class="react-autosuggest__section-title">
+                                                            <p class="hsw_sectionTitle font12 latoBlack greyText">POPULAR CITIES</p>
+                                                        </div>
+                                                        <input type="text"
+                                                        autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1"
+                                                        class="react-autosuggest__input react-autosuggest__input--open" placeholder="FROM" />
+                                                    <Autocomplete items={allCities} getOptionLabel={option=>option.City}
+                                                    shouldItemRender={(item, value) => item.City.toLowerCase().indexOf(value.toLowerCase()) > -1}
+                                                    getItemValue={item => item.City}
+
+                                                    renderItem={(item)=>
+                                                        <ul role="listbox" class="react-autosuggest__suggestions-list">
+                                                                <li role="option" id={item.id} aria-selected="false"
+                                                                    class="react-autosuggest__suggestion react-autosuggest__suggestion--first"
+                                                                    data-section-index={item.id} data-suggestion-index={item.id} name="city" onClick={() => this.handleChange(city.id)}>
+                                                                    <div class="makeFlex hrtlCenter">
+                                                                        <div class="calc60">
+                                                                            <p class="font14 appendBottom5 blackText">{item.City}</p>
+                                                                            <p class="font12 greyText appendBottom3">{item.Airport}</p>
+                                                                        </div>
+                                                                        <div class="pushRight font14 lightGreyText latoBold">{item.cityCode}</div>
+                                                                    </div>
+                                                                </li>
+                                                        </ul>
+                                                    }
+                                                    value={ this.state.value }
+                                                    onChange={e => this.setState({ value: e.target.value })}
+                                                    onSelect={value => this.setState({ value })}
+                                                    />
+                                                    </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                : null}
+                                <span class="swipCircle"><span class="landingSprite swipIcon"></span></span>
+                                <div class="fsw_inputBox searchToCity inactiveWidget " onClick={this.SearchToCity}>
+                                    <label for="toCity"  >
                                         <span class="lbl_input latoBold  appendBottom5">To</span><input data-cy="toCity"
                                             id="toCity" type="text" class="fsw_inputField font30 lineHeight36 latoBlack"
                                             readonly="" value="Hyderabad" />
@@ -77,8 +214,51 @@ class MinContainer extends React.Component {
                                         </span>
                                         </p>
                                     </label>
+                                    {this.state.searchToCity ?
+                                    <div>
+                                        <div class="hsw_autocomplePopup autoSuggestPlugin">
+                                            <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="true"
+                                                class="react-autosuggest__container react-autosuggest__container--open">
+                                                     <div id="react-autowhatever-1" role="listbox"
+                                                    class="react-autosuggest__suggestions-container react-autosuggest__suggestions-container--open">
+                                                    <div class="react-autosuggest__section-container react-autosuggest__section-container--first">
+                                                        <div class="react-autosuggest__section-title">
+                                                            <p class="hsw_sectionTitle font12 latoBlack greyText">POPULAR CITIES</p>
+                                                        </div>
+                                                        <input type="text"
+                                                        autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1"
+                                                        class="react-autosuggest__input react-autosuggest__input--open" placeholder="FROM" />
+                                                    <Autocomplete items={allCities} getOptionLabel={option=>option.City}
+                                                    shouldItemRender={(item, value) => item.City.toLowerCase().indexOf(value.toLowerCase()) > -1}
+                                                    getItemValue={item => item.City}
+
+                                                    renderItem={(item)=>
+                                                        <ul role="listbox" class="react-autosuggest__suggestions-list">
+                                                                <li role="option" id={item.id} aria-selected="false"
+                                                                    class="react-autosuggest__suggestion react-autosuggest__suggestion--first"
+                                                                    data-section-index={item.id} data-suggestion-index={item.id} name="city" onClick={() => this.handleChange(city.id)}>
+                                                                    <div class="makeFlex hrtlCenter">
+                                                                        <div class="calc60">
+                                                                            <p class="font14 appendBottom5 blackText">{item.City}</p>
+                                                                            <p class="font12 greyText appendBottom3">{item.Airport}</p>
+                                                                        </div>
+                                                                        <div class="pushRight font14 lightGreyText latoBold">{item.cityCode}</div>
+                                                                    </div>
+                                                                </li>
+                                                        </ul>
+                                                    }
+                                                    value={ this.state.value }
+                                                    onChange={e => this.setState({ value: e.target.value })}
+                                                    onSelect={value => this.setState({ value })}
+                                                    />
+                                                    </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                : null}
                                 </div>
-                                <div class="fsw_inputBox dates inactiveWidget ">
+                                <div class="fsw_inputBox dates inactiveWidget " onClick={this.OpenDatePicker} >
                                     <label for="departure">
                                         <span class="lbl_input latoBold appendBottom10">DEPARTURE</span><input data-cy="departure" id="departure" type="text" class="fsw_inputField font20"
                                             readonly="" value="Friday, 8 Nov 2019" />
@@ -87,6 +267,10 @@ class MinContainer extends React.Component {
                                         </p>
                                         <p data-cy="departureDay" class="code">Saturday</p>
                                     </label>
+                                    {this.state.openDatePicker?
+                                        <Picker></Picker>
+                                    :null
+                                    }
                                 </div>
                                 <div class="fsw_inputBox dates reDates inactiveWidget ">
                                     <div data-cy="returnArea">
@@ -581,7 +765,7 @@ class MinContainer extends React.Component {
                         </ul>
                     </main>
                 </div>
-                </div>
+            </div>
         )
     }
 }

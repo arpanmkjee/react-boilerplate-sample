@@ -7,63 +7,68 @@ class FlightFareSummary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fareSummary: [],
+      fare: this.props,
+      showDetails:false,
+      faresmryClass:"fareSmry-expand-icon cursor_pointer marR15"
     }
+    this.ShowDetails=this.ShowDetails.bind(this);
+    console.log(this.state.fare)
   } 
 
+  ShowDetails(){
+    this.setState({
+      showDetails:!this.state.showDetails,
+      faresmryClass:this.state.faresmryClass=="fareSmry-expand-icon cursor_pointer marR15" ? "fareSmry-expand-icon cursor_pointer marR15 open" : "fareSmry-expand-icon cursor_pointer marR15"
+    })
+  }
   render() {
     return (
       <div class="fli-intl-rhs pull-left">
-        {this.state.fareSummary.map(item => {
-          return (
+        
             <div>
               <p class="rvw-heading LatoBold">Fare Summary</p>
               <div class="rvw-sctn append_bottom15 make_relative" style={{ zIndex: "1" }}>
+             
                 <div class="fareSmry-sctn">
-                  <div class="fareSmry-header LatoBold">
+                {this.state.fare.fareSummary.fareBreakup.fareBreakUpItems.map(item=>
+                <div>
+                  <div class="fareSmry-header LatoBold">                 
                     <p class="fareSmry-hdng">
-                      <span class="fareSmry-expand-icon cursor_pointer marR15 open"></span><span>
-                        Base
-                        Fare
-                </span>
+                      <span class={this.state.faresmryClass} onClick={this.ShowDetails}></span><span>
+                        {item.title}
+                    </span>
                     </p>
-                  </div>
+                  </div>                  
                   <div class="fareSmry-wrap">
-                    <p class="fareSmry-row">
+                    <p class="fareSmry-row">                    
                       <span class="fareSmry-field">
+                      {this.state.showDetails?                     
+                      item.fareEntities.map(val=>
+                        <span> 
+                          <span>                         
+                            {val.text}  
+                            <br/>                     
+                          </span>
+                            <span class="font16 LatoBold text-right"> 
+                            {val.amount}                                                
+                          <br/>                     
+                        </span>  
+                       </span>                    
+                      )                     
+                      : null}
+                      </span>                      
+                      <span class="font16 LatoBold text-right">
                         <span>
-                          Adult(s) (1 X ₹
-                          1,015)
-                  </span>
-                      </span><span class="font16 LatoBold text-right">
-                        <span>
-                          ₹
-                          1,015
-                  </span>
+                          ₹{item.total}
+                    </span>
                       </span>
                     </p>
                   </div>
-                </div>
-                <div class="fareSmry-sctn">
-                  <div class="fareSmry-header LatoBold">
-                    <p class="fareSmry-hdng">
-                      <span class="fareSmry-expand-icon cursor_pointer marR15 "></span><span>
-                        Fee
-                        &amp; Surcharges
-                </span>
-                    </p><span class="font16">₹ 685</span>
+                   
                   </div>
+                   )}
                 </div>
-                <div class="fareSmry-sctn">
-                  <div class="fareSmry-header LatoBold">
-                    <p class="fareSmry-hdng">
-                      <span class="fareSmry-expand-icon cursor_pointer marR15 "></span><span>
-                        Other
-                        Services
-                </span>
-                    </p><span class="font16">₹ 5</span>
-                  </div>
-                </div>
+        
                 <div class="fareSmry-sctn reqPad-fareSmry-sctn">
                   <p class="fareSmry-row LatoBold">
                     <span class="font18 fareSmry-field">
@@ -73,16 +78,16 @@ class FlightFareSummary extends React.Component {
                       <span style={{ fontSize: "20px", textAlign: "right", lineHeight: "normal" }}>
                         <span>
                           ₹
-                          1,705
+                          {this.state.fare.fareSummary.fareBreakup.totFare}
                   </span>
                       </span>
                     </span>
                   </p>
                 </div>
+               
               </div>
-            </div>
-          )
-        })}
+            </div>         
+          
         <div class="rvw-sctn rvw-cancellation-sctn append_bottom15 LatoBold">
           <p class="font14">Cancellation &amp; Date change charges</p><a href="javascript:void(0);"
             class="text-right">KNOW MORE</a>
@@ -105,6 +110,6 @@ class FlightFareSummary extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ data: state.flights }); 
-export default connect(mapStateToProps, null)(FlightFareSummary);
+
+export default FlightFareSummary;
 
