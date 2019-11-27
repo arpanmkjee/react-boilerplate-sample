@@ -78,8 +78,14 @@ class MinContainer extends React.Component {
         console.log(this.state.searchToCity)
     }
 
-    OpenDatePicker() {
-        debugger;
+handleClickOutSite(){
+    this.setState({
+        searchToCity: false,
+        searchFromCity: false
+    })
+}
+
+    OpenDatePicker() {debugger;
         this.setState({
             openDatePicker: true
         })
