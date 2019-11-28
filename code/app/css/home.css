@@ -7,6 +7,20 @@ html, body {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
 } 
+.hideMe {
+    -webkit-animation: cssAnimation 5s forwards; 
+    animation: cssAnimation 5s forwards;
+}
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+@-webkit-keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
 
 .bgGradient {
     background: #f2f2f2;
