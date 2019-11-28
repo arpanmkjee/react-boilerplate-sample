@@ -29,14 +29,6 @@ function Header() {
                                             </span>
                                         </a>
                                     </li>
-                                    <li data-cy="menu_VillasApts" class=" ">
-                                        <a href="//www.makemytrip.com/homestays/" class=" makeFlex hrtlCenter column">
-                                            <span class="chNavIcon appendBottom2 chSprite chHomestays "></span><span class="chNavText darkGreyText">
-                                               Villas &amp; Apts
-                                                
-                                            </span>
-                                        </a>
-                                    </li>
                                     <li data-cy="menu_Holidays" class=" ">
                                         <a href="//www.makemytrip.com/holidays-india/"
                                            class=" makeFlex hrtlCenter column">
