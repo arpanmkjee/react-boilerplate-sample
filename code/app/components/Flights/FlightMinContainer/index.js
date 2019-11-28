@@ -3,8 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import SuperOffers from '../../Common/SuperOffers';
 import { searchResultWatcher } from '../../../containers/App/actions';
-import { AutoCompleteComponent } from '@syncfusion/ej2-react-dropdowns';
-import Autocomplete from 'react-autocomplete';
+//import Autocomplete from 'react-autocomplete';
+import Autocomplete from '../FlightAutoComplete';
 import TextField from '@material-ui/core/TextField';
 import Picker from '../FlightDatePicker';
 import DateRangePicker from 'react-bootstrap-daterangepicker';
@@ -20,7 +20,7 @@ const allCities = [
     { id: 8, City: "Chennai, India", Airport: "Madras,Chennai International Airport", cityCode: "MAA" },
     { id: 9, City: "Goa, India", Airport: "Dabolim Goa International Airport", cityCode: "DOI" },
     { id: 10, City: "Punjab, India", Airport: "Chatrapati Shivaji International Airport", cityCode: "PJB" },
-  
+
 ]
 class MinContainer extends React.Component {
     constructor() {
@@ -30,7 +30,7 @@ class MinContainer extends React.Component {
             searchToCity: false,
             openDatePicker: false,
             cities: allCities,
-            value:"",
+            value: "",
             airportDetails: []
         }
         this.SearchFromCity = this.SearchFromCity.bind(this);
@@ -38,6 +38,7 @@ class MinContainer extends React.Component {
         this.OpenDatePicker = this.OpenDatePicker.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSearchFromCityOutside = this.handleSearchFromCityOutside.bind(this);
+        this.autoComplete=this.autoComplete.bind(this);
     }
 
     SearchFromCity(e) {
@@ -105,6 +106,32 @@ handleClickOutSite(){
     componentDidMount() {
     }
 
+    autoComplete() {
+        return (
+            <div>
+                <Autocomplete suggestions={allCities} />
+                <div class="react-autosuggest__section-title">
+                    <p class="hsw_sectionTitle font12 latoBlack greyText">POPULAR CITIES</p>
+                </div>
+                {allCities.map(item =>
+                    <ul role="listbox" class="react-autosuggest__suggestions-list">
+                        <li role="option" id={item.id} aria-selected="false"
+                            class="react-autosuggest__suggestion react-autosuggest__suggestion--first"
+                            data-section-index={item.id} data-suggestion-index={item.id} name="city" onClick={() => this.handleChange(city.id)}>
+                            <div class="makeFlex hrtlCenter">
+                                <div class="calc60">
+                                    <p class="font14 appendBottom5 blackText">{item.City}</p>
+                                    <p class="font12 greyText appendBottom3">{item.Airport}</p>
+                                </div>
+                                <div class="pushRight font14 lightGreyText latoBold">{item.cityCode}</div>
+                            </div>
+                        </li>
+                    </ul>
+                )}
+            </div>
+
+        )
+    }
     onSearch = (e) => {
         debugger;
         e.preventDefault();
@@ -125,7 +152,7 @@ handleClickOutSite(){
 
     render() {
         const { results = {} } = this.props.data;
-        
+
         return (
             <div class="minContainer" ref={node => this.node = node}>
                 <div>
@@ -145,7 +172,7 @@ handleClickOutSite(){
                             <div class="pushRight">
                                 <h1 style={{ margin: "0px" }}>
                                     Book<a href="/flights/" class="darkGreyText"> Domestic </a> and<a href="/international-flights/" class="darkGreyText">International</a> flights
-                            </h1>
+                                </h1>
                             </div>
                         </div>
                         <div class="fsw ">
@@ -169,43 +196,16 @@ handleClickOutSite(){
                                         <div class="hsw_autocomplePopup autoSuggestPlugin">
                                             <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="true"
                                                 class="react-autosuggest__container react-autosuggest__container--open">
-                                                     <div id="react-autowhatever-1" role="listbox"
+                                                <div id="react-autowhatever-1" role="listbox"
                                                     class="react-autosuggest__suggestions-container react-autosuggest__suggestions-container--open">
                                                     <div class="react-autosuggest__section-container react-autosuggest__section-container--first">
-                                                        <div class="react-autosuggest__section-title">
-                                                            <p class="hsw_sectionTitle font12 latoBlack greyText">POPULAR CITIES</p>
-                                                        </div>
-                                                        <input type="text"
-                                                        autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1"
-                                                        class="react-autosuggest__input react-autosuggest__input--open" placeholder="FROM" />
-                                                    <Autocomplete items={allCities} getOptionLabel={option=>option.City}
-                                                    shouldItemRender={(item, value) => item.City.toLowerCase().indexOf(value.toLowerCase()) > -1}
-                                                    getItemValue={item => item.City}
-                                                    renderItem={(item)=>
-                                                        <ul role="listbox" class="react-autosuggest__suggestions-list">
-                                                                <li role="option" id={item.id} aria-selected="false"
-                                                                    class="react-autosuggest__suggestion react-autosuggest__suggestion--first"
-                                                                    data-section-index={item.id} data-suggestion-index={item.id} name="city" onClick={() => this.handleChange(city.id)}>
-                                                                    <div class="makeFlex hrtlCenter">
-                                                                        <div class="calc60">
-                                                                            <p class="font14 appendBottom5 blackText">{item.City}</p>
-                                                                            <p class="font12 greyText appendBottom3">{item.Airport}</p>
-                                                                        </div>
-                                                                        <div class="pushRight font14 lightGreyText latoBold">{item.cityCode}</div>
-                                                                    </div>
-                                                                </li>
-                                                        </ul>
-                                                    }
-                                                    value={ this.state.value }
-                                                    onChange={e => this.setState({ value: e.target.value })}
-                                                    onSelect={value => this.setState({ value })}
-                                                    />
+                                                        {this.autoComplete()}
                                                     </div>
-                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                : null}
+                                    : null}
                                 <span class="swipCircle"><span class="landingSprite swipIcon"></span></span>
                                 <div class="fsw_inputBox searchToCity inactiveWidget " onClick={this.SearchToCity}>
                                     <label for="toCity">
@@ -220,47 +220,20 @@ handleClickOutSite(){
                                         </p>
                                     </label>
                                     {this.state.searchToCity ?
-                                    <div>
-                                        <div class="hsw_autocomplePopup autoSuggestPlugin">
-                                            <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="true"
-                                                class="react-autosuggest__container react-autosuggest__container--open">
+                                        <div>
+                                            <div class="hsw_autocomplePopup autoSuggestPlugin">
+                                                <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="true"
+                                                    class="react-autosuggest__container react-autosuggest__container--open">
                                                     <div id="react-autowhatever-1" role="listbox"
                                                         class="react-autosuggest__suggestions-container react-autosuggest__suggestions-container--open">
                                                         <div class="react-autosuggest__section-container react-autosuggest__section-container--first">
-                                                            <div class="react-autosuggest__section-title">
-                                                                <p class="hsw_sectionTitle font12 latoBlack greyText">POPULAR CITIES</p>
-                                                            </div>
-                                                            <input type="text"
-                                                            autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1"
-                                                            class="react-autosuggest__input react-autosuggest__input--open" placeholder="FROM" />
-                                                        <Autocomplete items={allCities} getOptionLabel={option=>option.City}
-                                                        shouldItemRender={(item, value) => item.City.toLowerCase().indexOf(value.toLowerCase()) > -1}
-                                                        getItemValue={item => item.City}
-                                                        renderItem={(item)=>
-                                                            <ul role="listbox" class="react-autosuggest__suggestions-list">
-                                                                    <li role="option" id={item.id} aria-selected="false"
-                                                                        class="react-autosuggest__suggestion react-autosuggest__suggestion--first"
-                                                                        data-section-index={item.id} data-suggestion-index={item.id} name="city" onClick={() => this.handleChange(city.id)}>
-                                                                        <div class="makeFlex hrtlCenter">
-                                                                            <div class="calc60">
-                                                                                <p class="font14 appendBottom5 blackText">{item.City}</p>
-                                                                                <p class="font12 greyText appendBottom3">{item.Airport}</p>
-                                                                            </div>
-                                                                            <div class="pushRight font14 lightGreyText latoBold">{item.cityCode}</div>
-                                                                        </div>
-                                                                    </li>
-                                                            </ul>
-                                                        }
-                                                        value={ this.state.value }
-                                                        onChange={e => this.setState({ value: e.target.value })}
-                                                        onSelect={value => this.setState({ value })}
-                                                        />
+                                                        {this.autoComplete()}
                                                         </div>
                                                     </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                : null}
+                                        : null}
                                 </div>
                                 <div class="fsw_inputBox dates inactiveWidget " onClick={this.OpenDatePicker} >
                                     <label for="departure">
@@ -271,9 +244,9 @@ handleClickOutSite(){
                                         </p>
                                         <p data-cy="departureDay" class="code">Saturday</p>
                                     </label>
-                                    {this.state.openDatePicker?
+                                    {this.state.openDatePicker ?
                                         <Picker></Picker>
-                                    :null
+                                        : null
                                     }
                                 </div>
                                 <div class="fsw_inputBox dates reDates inactiveWidget ">
