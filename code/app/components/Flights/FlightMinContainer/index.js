@@ -9,6 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import Picker from '../FlightDatePicker';
 import DateRangePicker from 'react-bootstrap-daterangepicker';
 
+
 const allCities = [
     { id: 1, City: "Mumbai, India", Airport: "Chatrapati Shivaji International Airport", cityCode: "BOM" },
     { id: 2, City: "Delhi, India", Airport: "Delhi Airport", cityCode: "DEL" },
@@ -106,10 +107,11 @@ handleClickOutSite(){
     componentDidMount() {
     }
 
-    autoComplete() {
+    autoComplete(placeholder) {
         return (
             <div>
-                <Autocomplete suggestions={allCities} />
+                <Autocomplete suggestions={allCities} placeholder={placeholder} />
+                
                 <div class="react-autosuggest__section-title">
                     <p class="hsw_sectionTitle font12 latoBlack greyText">POPULAR CITIES</p>
                 </div>
@@ -199,7 +201,7 @@ handleClickOutSite(){
                                                 <div id="react-autowhatever-1" role="listbox"
                                                     class="react-autosuggest__suggestions-container react-autosuggest__suggestions-container--open">
                                                     <div class="react-autosuggest__section-container react-autosuggest__section-container--first">
-                                                        {this.autoComplete()}
+                                                        {this.autoComplete("FROM")}
                                                     </div>
                                                 </div>
                                             </div>
@@ -227,7 +229,7 @@ handleClickOutSite(){
                                                     <div id="react-autowhatever-1" role="listbox"
                                                         class="react-autosuggest__suggestions-container react-autosuggest__suggestions-container--open">
                                                         <div class="react-autosuggest__section-container react-autosuggest__section-container--first">
-                                                        {this.autoComplete()}
+                                                        {this.autoComplete("TO")}
                                                         </div>
                                                     </div>
                                                 </div>
