@@ -90,6 +90,7 @@
     "react": "^16.8.6",
     "react-autocomplete": "^1.8.1",
     "react-bootstrap-daterangepicker": "^4.1.0",
+    "react-dates": "^21.5.0",
     "react-dom": "16.8.6",
     "react-helmet": "6.0.0-beta",
     "react-intl": "2.8.0",

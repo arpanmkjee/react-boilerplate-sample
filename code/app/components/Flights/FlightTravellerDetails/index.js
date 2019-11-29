@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import FlightAddOns from '../FlightAddOns';
 import { ancillaryResultWatcher } from '../../../containers/App/actions'
 import { bindActionCreators } from 'redux';
@@ -6,33 +6,115 @@ import { connect } from 'react-redux';
 
 
 
-function FlightTravellerDetails () {
-    const [startDate, setStartDate] = useState(new Date());
-        state = {
+class FlightTravellerDetails extends React.Component {
+
+    constructor() {
+        super();
+        this.state = {
             openAddAdult: true,
             selectedCount: "0/1",
-            warning: false
+            warning: false,
+            formFilled:"INCOMPLETE",
+            adultName:"Adult 1",
+            linearGradientStyle:"linear-gradient(260deg,#ff3e5e,#ff7f3f)",
+            arrowClassShowHide:"cursor_pointer blue-arrow-icon marL20 open",
+            arrowShow:false,
+            firstName:""
+        }
+        this.OpenAddAdult = this.OpenAddAdult.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.ToggleArrow=this.ToggleArrow.bind(this);
+
+    }
+    onAncillary = (e) => {
+        if(this.state.firstnameError==false && this.state.phoneError==false && this.state.emailError==false){
+            e.preventDefault();
+            new Promise((resolve, reject) => {
+                this.props.ancillaryResultWatcher({
+                }, resolve, reject);
+            }).then(() => {
+                debugger;
+                console.log(this.props.data);
+                this.setState({
+                    result: this.props.data.ancillaryResult
+                })
+                window.location.assign('/ancillary');
+            }).catch((e) => {
+                // could change state to trigger error rendering here
+            });
+        }
+        else{
+            alert("fill all the required fields")
         }
        
-    onAncillary = (e) => {
-        debugger;
-        e.preventDefault();
-        new Promise((resolve, reject) => {
-            this.props.ancillaryResultWatcher({
-            }, resolve, reject);
-        }).then(() => {
-            debugger;
-            console.log(this.props.data);
-            this.setState({
-                result: this.props.data.ancillaryResult
-            })
-            window.location.assign('/ancillary');
-        }).catch((e) => {
-            // could change state to trigger error rendering here
-        });
     }
 
-    OpenAddAdult=() =>{
+    validatePhone(phone){
+        const pattern =  /^(?:(?:\+|0{0,2})91[\-\s]?)?[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/
+        const result = pattern.test(phone);
+        if(result===true){
+          this.setState({
+            phoneError:false,
+            phone:phone
+          })
+        } else{
+          this.setState({
+            phoneError:true
+          })
+        }
+      }
+  
+    validateEmail(email){
+        const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+        const result = pattern.test(email);
+        if(result.length!=0 && result===true ){
+          this.setState({
+            emailError:false,
+            email:email
+          })
+        } else{
+          this.setState({
+            emailError:true
+          })
+        }
+      }
+    handleChange(e) {
+        const target = e.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value
+        });
+        if (e.target.name === 'firstName') {
+            if (e.target.value === '' || e.target.value === null) {
+                this.setState({
+                    firstnameError: true
+                })
+            } else {
+                this.setState({
+                    firstnameError: false,
+                    firstName: e.target.value,
+                    formFilled:"COMPLETE",
+                    arrowShow:!this.state.arrowShow,
+                    adultName:this.state.firstName,
+                    linearGradientStyle:"linear-gradient(68deg,#43e1a8,#28beb2)"
+                })
+            }
+        }
+        if(e.target.name==='email'){
+            this.validateEmail(e.target.value);
+           }
+           if(e.target.name==='phone'){
+            this.validatePhone(e.target.value);
+           }                        
+    }
+    ToggleArrow(){
+        this.setState({       
+            arrowClassShowHide:this.state.arrowClassShowHide=="cursor_pointer blue-arrow-icon marL20 open" ? "cursor_pointer blue-arrow-icon marL20 ":"cursor_pointer blue-arrow-icon marL20 open"
+        })
+    }
+
+    OpenAddAdult() {
         if (this.state.selectedCount == "1/1") {
             this.setState({
                 warning: !this.state.warning
@@ -46,7 +128,8 @@ function FlightTravellerDetails () {
         }
 
     }
-  
+
+    render() {
         return (
             <div>
                 <div>
@@ -85,146 +168,41 @@ function FlightTravellerDetails () {
                                                         name="ADULT_MANUAL_d17e2512-433e-455e-a4cf-45d6a19b2ae2"
                                                         id="ADULT_MANUAL_d17e2512-433e-455e-a4cf-45d6a19b2ae2" checked="" /><label
                                                             for="ADULT_MANUAL_d17e2512-433e-455e-a4cf-45d6a19b2ae2" class="make_flex alC"><span class="box"><span
-                                                                class="check" data-ischecked="true"></span></span><span class="LatoBold">ADULT 1</span></label></p>
-                                                </div><span class="make_flex alC"><span class="cabin-tag">INCOMPLETE</span></span>
+                                                                class="check" data-ischecked="true"></span></span><span class="LatoBold">{this.state.adultName}</span></label></p>
+                                                </div>
+                                                <span class="make_flex alC"><span class="cabin-tag" style={{backgroundImage:this.state.linearGradientStyle}}>{this.state.formFilled}</span>
+                                                {this.state.arrowShow? <span class={this.state.arrowClassShowHide} onClick={this.ToggleArrow}  style={{ cursor: "pointer" }}></span> : null}
+                                                </span>
                                             </div>
+                                            {this.state.arrowClassShowHide=="cursor_pointer blue-arrow-icon marL20 open" ?
                                             <div class="collapse in">
                                                 <div class="tvlrDtls-section">
                                                     <p class="LatoMedium tvlrDtls-topInfo"><b>IMPORTANT:</b> Enter your name as it is mentioned on your passport.</p>
                                                     <div class="trvl-formfield-row">
                                                         <div class="trvl-formfield-col" style={{ width: "30%" }}>
-                                                            <div class="tvlrFormField make_relative FIRST_NAME"><input autocomplete="none" placeholder="First Name"
-                                                                class="tvlrInput " type="text" value="" /></div>
+                                                            <div class="tvlrFormField make_relative FIRST_NAME"><input autocomplete="none" placeholder="First Name" name="firstName"
+                                                                class="tvlrInput " type="text" required="required" onChange={this.handleChange} value={this.state.firstName} maxLength="20"/>
+                                                                {this.state.firstnameError ? <span style={{ color: "red" }}>First Name is Required</span> : ''}</div>
                                                         </div>
                                                         <div class="trvl-formfield-col" style={{ width: "30%" }}>
-                                                            <div class="tvlrFormField make_relative LAST_NAME"><input autocomplete="none" placeholder="Last Name"
-                                                                class="tvlrInput " type="text" value="" /></div>
+                                                            <div class="tvlrFormField make_relative LAST_NAME"><input autocomplete="none" placeholder="Last Name" name="LastName"
+                                                                class="tvlrInput " type="text" required="required" /></div>
                                                         </div>
                                                         <div class="trvl-formfield-col" style={{ width: "30%" }}>
                                                             <div>
                                                                 <div class="chooseGender-info GENDER " tabindex="3"><label tabindex="0"><input type="radio"
-                                                                    name="gender_MANUAL_d17e2512-433e-455e-a4cf-45d6a19b2ae2" value="MALE" /><span
+                                                                    name="gender_MANUAL_d17e2512-433e-455e-a4cf-45d6a19b2ae2" value="MALE"  /><span
                                                                         class="chooseGender-txt">MALE</span></label><label tabindex="1"><input type="radio"
-                                                                            name="gender_MANUAL_d17e2512-433e-455e-a4cf-45d6a19b2ae2" value="FEMALE" /><span
+                                                                            name="gender_MANUAL_d17e2512-433e-455e-a4cf-45d6a19b2ae2" value="FEMALE"  /><span
                                                                                 class="chooseGender-txt">FEMALE</span></label>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="trvl-formfield-row">
-                                                        <div class="trvl-formfield-col" style={{ width: "30%" }}>
-                                                            <div class="dateDropdown"><label class="LatoBold">Date of birth<div class="pax-info-tooltip"><span
-                                                                class="pax-info-icon marL5 cursor_pointer"></span>
-                                                                <div class="toast-tooltip top-left">
-                                                                    <p class="append_bottom10">Date of birth(Age of adult should be 12 or above on the date of travel)</p>
-                                                                </div>
-                                                            </div></label>
-                                                                <div class="clearfix">
-                                                                    <div class="tvlrFormField DOB_ADULT">
-                                                                        <div class="trvlSelect make_relative font16">
-                                                                            <div class="css-1pcexqc-container dropdown-traveller">
-                                                                                <div class="css-bg1rzq-control dropdown__control">
-                                                                                    <div class="css-1hwfws3 dropdown__value-container">
-                                                                                        <div class="css-151xaom-placeholder dropdown__placeholder">Date</div>
-                                                                                        <div class="css-1g6gooi">
-                                                                                            <div class="dropdown__input" style={{ display: "inline-block" }}><input autocapitalize="none"
-                                                                                                autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false"
-                                                                                                tabindex="0" type="text" aria-autocomplete="list" value=""
-                                                                                                style={{ boxSizing: "content-box", width: "2px", background: "0px center", border: "0px", fontSize: "inherit", opacity: "1", outline: "0px", padding: "0px", color: "inherit" }} />
-                                                                                                <div
-                                                                                                    style={{ position: "absolute", top: "0px", left: "0px", visibility: "hidden", height: "0px", overflow: "scroll", whiteSpace: "pre", fontSize: "16px", fontFamily: "Lato-Regular, Arial, Helvetica, sans-serif", fontWeight: "400", fontStyle: "normal", letterSpacing: "normal", textTransform: "none" }}>
 
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="css-1wy0on6 dropdown__indicators"><span
-                                                                                        class="css-1hyfx7x dropdown__indicator-separator"></span>
-                                                                                        <div aria-hidden="true" class="css-1eew81i dropdown__indicator dropdown__dropdown-indicator">
-                                                                                            <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"
-                                                                                                class="css-19bqh2r">
-                                                                                                <path
-                                                                                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z">
-                                                                                                </path>
-                                                                                            </svg></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="tvlrFormField DOB_ADULT">
-                                                                        <div class="trvlSelect make_relative font16">
-                                                                            <div class="css-1pcexqc-container dropdown-traveller">
-                                                                                <div class="css-bg1rzq-control dropdown__control">
-                                                                                    <div class="css-1hwfws3 dropdown__value-container">
-                                                                                        <div class="css-151xaom-placeholder dropdown__placeholder">Month</div>
-                                                                                        <div class="css-1g6gooi">
-                                                                                            <div class="dropdown__input" style={{ display: "inline-block" }}><input autocapitalize="none"
-                                                                                                autocomplete="off" autocorrect="off" id="react-select-5-input" spellcheck="false"
-                                                                                                tabindex="0" type="text" aria-autocomplete="list" value=""
-                                                                                                style={{ boxSizing: "content-box", width: "2px", background: "0px center", border: "0px", fontSize: "inherit", opacity: "1", outline: "0px", padding: "0px", color: "inherit" }} />
-                                                                                                <DatePicker
-                                                                                                    selected={startDate}
-                                                                                                    onChange={date => setStartDate(date)}
-                                                                                                    dateFormat="yyyy"
-                                                                                                    showMonthYearPicker
-                                                                                                />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="css-1wy0on6 dropdown__indicators"><span
-                                                                                        class="css-1hyfx7x dropdown__indicator-separator"></span>
-                                                                                        <div aria-hidden="true" class="css-1eew81i dropdown__indicator dropdown__dropdown-indicator">
-                                                                                            <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"
-                                                                                                class="css-19bqh2r">
-                                                                                                <path
-                                                                                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z">
-                                                                                                </path>
-                                                                                            </svg></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="tvlrFormField DOB_ADULT">
-                                                                        <div class="trvlSelect make_relative font16">
-                                                                            <div class="css-1pcexqc-container dropdown-traveller">
-                                                                                <div class="css-bg1rzq-control dropdown__control">
-                                                                                    <div class="css-1hwfws3 dropdown__value-container">
-                                                                                        <div class="css-151xaom-placeholder dropdown__placeholder">Year</div>
-                                                                                        <div class="css-1g6gooi">
-                                                                                            <div class="dropdown__input" style={{ display: "inline-block" }}><input autocapitalize="none"
-                                                                                                autocomplete="off" autocorrect="off" id="react-select-6-input" spellcheck="false"
-                                                                                                tabindex="0" type="text" aria-autocomplete="list" value=""
-                                                                                                style={{ boxSizing: "content-box", width: "2px", background: "0px center", border: "0px", fontSize: "inherit", opacity: "1", outline: "0px", padding: "0px", color: "inherit" }} />
-                                                                                                <div
-                                                                                                    style={{ position: "absolute", top: "0px", left: "0px", visibility: "hidden", height: "0px", overflow: "scroll", whiteSpace: "pre", fontSize: "16px", fontFamily: "Lato-Regular, Arial, Helvetica, sans-serif", fontWeight: "400", fontStyle: "normal", letterSpacing: "normal", textTransform: "none" }}>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="css-1wy0on6 dropdown__indicators"><span
-                                                                                        class="css-1hyfx7x dropdown__indicator-separator"></span>
-                                                                                        <div aria-hidden="true" class="css-1eew81i dropdown__indicator dropdown__dropdown-indicator">
-                                                                                            <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"
-                                                                                                class="css-19bqh2r">
-                                                                                                <path
-                                                                                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z">
-                                                                                                </path>
-                                                                                            </svg>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <p class="text-red prepend_top3"></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
+                                            : null}
                                             <div class="nameCnf-overlay make_relative slideDown"><span class="zc-close"></span>
                                                 <div class="nameCnf-overlay-sctn">
                                                     <p class="nameCnf-overlay-title LatoLight">Name Confirmation</p>
@@ -276,7 +254,7 @@ function FlightTravellerDetails () {
                                                             <input autocapitalize="none" autocomplete="off"
                                                                 autocorrect="off" id="react-select-2-input"
                                                                 spellcheck="false" tabindex="0" type="text"
-                                                                aria-autocomplete="list" value=""
+                                                                aria-autocomplete="list" 
                                                                 style={{ boxSizing: "content-box", width: "2px", background: "0px center", border: "0px", fontSize: "inherit", opacity: "1", outline: "0px", padding: "0px", color: "inherit" }} />
                                                             <div style={{ position: "absolute", top: "0px", left: "0px", visibility: "hidden", height: "0px", overflow: "scroll", whiteSpace: "pre", fontSize: "16px", fontFamily: "Lato-Regular, Arial, Helvetica, sans-serif", fontWeight: "400", fontStyle: "normal", letterSpacing: "normal", textTransform: "none" }}>
                                                             </div>
@@ -303,15 +281,17 @@ function FlightTravellerDetails () {
                             <div class="trvl-formfield-col" id="Mobile No" style={{ width: "30%" }}>
                                 <div class="tvlrFormField make_relative MOBILE_NUMBER">
                                     <label class="LatoBold">Mobile No</label><input autocomplete="none"
-                                        placeholder="Mobile No" class="tvlrInput " type="text"
-                                        value="9700672761" />
+                                        placeholder="Mobile No" class="tvlrInput " type="text" name="phone" onChange={this.handleChange}
+                                        />
+                                         {this.state.phoneError ? <span style={{color: "red"}}>Please Enter valid phone number</span> : ''}
                                 </div>
                             </div>
                             <div class="trvl-formfield-col" id="Email" style={{ width: "30%" }}>
                                 <div class="tvlrFormField make_relative EMAIL">
                                     <label class="LatoBold">Email</label><input autocomplete="none"
-                                        placeholder="Email" class="tvlrInput " type="text"
-                                        value="koni@gmail.com" />
+                                        placeholder="Email" class="tvlrInput " type="text"  name="email" onChange={this.handleChange}
+                                         />
+                                        {this.state.emailError ? <span style={{color: "red"}}>Please Enter valid email address</span> : ''}
                                 </div>
                             </div>
                         </div>
@@ -372,7 +352,7 @@ function FlightTravellerDetails () {
 
         );
     }
-
+}
 const mapStateToProps = state => ({ data: state.flights });
 const mapDispatchToPrps = disptch => bindActionCreators({ ancillaryResultWatcher }, disptch);
 export default connect(mapStateToProps, mapDispatchToPrps)(FlightTravellerDetails); 

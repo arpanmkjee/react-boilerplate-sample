@@ -35,6 +35,7 @@ export class Autocomplete extends Component {
             userInput: e.currentTarget.innerText
         });
     };
+    
     onKeyDown = (e) => {
         const { activeSuggestion, filteredSuggestions } = this.state;
 
@@ -75,19 +76,15 @@ export class Autocomplete extends Component {
             if (filteredSuggestions.length) {
                 suggestionsListComponent = (
                     <ul class="suggestions">
-                        <p>SUGGESTIONS</p>
+                        <p class="hsw_sectionTitle font12 latoBlack greyText">SUGGESTIONS</p>
                         {filteredSuggestions.map((suggestion, index) => {
                             let className;
                             if (index === activeSuggestion) {
                                 className = 'option-active';
                             }
                             return (
-                                <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="true"
-                                    class="react-autosuggest__container react-autosuggest__container--open">
-                                    <div id="react-autowhatever-1" role="listbox" className={className} key={suggestion.id} onClick={onClick}
-                                        class="react-autosuggest__suggestions-container react-autosuggest__suggestions-container--open">
-                                        <div class="react-autosuggest__section-container react-autosuggest__section-container--first">
-                                            <ul role="listbox" class="react-autosuggest__suggestions-list">
+                                
+                                            <ul role="listbox" class="react-autosuggest__suggestions-list" key={suggestion.id} onClick={onClick}>
                                                 <li class="react-autosuggest__suggestion react-autosuggest__suggestion--first">                                                                                                    
                                                     <div class="makeFlex hrtlCenter">
                                                         <div class="calc60">
@@ -98,9 +95,7 @@ export class Autocomplete extends Component {
                                                     </div>
                                                 </li>
                                             </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                        
                             );
                         })}
                     </ul>
@@ -116,10 +111,12 @@ export class Autocomplete extends Component {
         return (
             <React.Fragment>
                 <input
+                class="react-autosuggest__input react-autosuggest__input--open"
                     type="text"
                     onChange={onChange}
                     onKeyDown={onKeyDown}
                     value={userInput}
+                    placeholder={this.props.placeholder}
                 />
                 {suggestionsListComponent}
             </React.Fragment>
